@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="clases">
+ 
+     <class name="Compra" table="COMPRA">
+	<id name="codigo_de_vale" >
+	    <column name="CODIGO_VALE"/>
+            <generator class="foreign">
+               <param name="property">vale</param> <!-- Indica que se refiere al id del que es foránea que es employee -->
+            </generator>
+        </id>
+
+        <!-- cascade="save-update" declarado en Employee permite realizar el efecto save-update cascade -->
+        <!--  Cascade is a convenient feature to save the lines of code needed to manage the state of the other side manually. -->
+        
+        <one-to-one name="vale" class="ValePromocion" constrained="true"></one-to-one>
+        
+        <property name="cantidadPromocion" column="cantidadPromocion"/>
+        <property name="montoDeCompra" column="montoDeCompra"/>
+        <property name="fechaCompra" type="date" column="fechaCompra"/>
+ 
+    </class>
+    
+</hibernate-mapping>

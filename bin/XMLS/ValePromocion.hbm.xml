@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="clases">
+ 
+     <class name="ValePromocion" table="VALEPROMOCION">
+        <id name="codigo_de_vale" column="CODIGO_VALE">
+            <generator class="native">
+	    	</generator>
+        </id>
+	
+        <property name="cantidadVales" column="cantidadVales"/>
+        <property name="descripcionVale" column="descripcionVale"/>
+        <property name="fechaVigencia" type="date" column="fechaVigencia"/>
+        <property name="dir_correo" column="dir_correo"/>
+	<property name="validado_por_mobile" type="boolean" column="validado_por_mobile"/>
+	
+        <!-- cascade="save-update" declarado en Employee permite realizar el efecto save-update cascade -->
+        <!--  Cascade is a convenient feature to save the lines of code needed to manage the state of the other side manually. -->
+        <one-to-one name="compra" class="Compra" cascade="save-update"></one-to-one>         
+        
+    </class>
+    
+</hibernate-mapping>
