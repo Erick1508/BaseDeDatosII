@@ -1,5 +1,8 @@
 package clases;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Empresa {
 	private String nombreEmpresa;
 	private String direccionFisica;
@@ -7,15 +10,27 @@ public class Empresa {
 	private int telefono;
 	private int estimadoCliente;
 	
+	private Set<Promocion> promociones = new HashSet<Promocion>(0);; //La empresa tiene un set de promociones
+	
 	public Empresa(String nombreEmpresa, String direccionFisica,
 			int codigoPais, int telefono, int estimadoCliente) {
-		super();
 		this.nombreEmpresa = nombreEmpresa;
 		this.direccionFisica = direccionFisica;
 		this.codigoPais = codigoPais;
 		this.telefono = telefono;
 		this.estimadoCliente = estimadoCliente;
 	}
+
+	
+	public Set<Promocion> getPromociones() {
+		return promociones;
+	}
+
+
+	public void setPromociones(Set<Promocion> promociones) {
+		this.promociones = promociones;
+	}
+
 
 	public String getNombreEmpresa() {
 		return nombreEmpresa;

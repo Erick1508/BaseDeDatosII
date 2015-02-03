@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="clases">
+ 
+    <class name="Promocion" table="PROMOCION">
+        <id name="promocion_id" column="PROMOCION_ID">
+            <generator class="native">
+        </generator></id>
+ 
+ 
+        <property name="descripcionPromocion" column="DESCRIPCIONPROMOCION"/>
+        <property name="monto_original" column="MONTO_ORIGINAL"/>
+        <property name="monto_ofertado" column="MONTO_OFERTADO"/>
+	<property name="URL_detalles" column="URL_DETALLES"/>
+	<property name="fecha_vigencia" type="date" column="FECHA_VIGENCIA"/>
+        <property name="latitud" column="LATITUD"/>
+        <property name="longitud" column="LONGITUD"/>
+        <property name="altitud" column="ALTITUD"/>
+ 
+ 		<!-- fetch="select" The fetch attribute tells hibernate how to get the children. -->
+ 		<!-- fetch="select" lo que hace es recuperar de la bd o seleccionar el dpto
+ 		en donde trabaja el empleado -->
+        <many-to-one name="Empresa" class="Empresa" fetch="select">
+            <column name="nombreEmpresa" not-null="true">
+        </column>
+        </many-to-one>
+ 
+   </class>
+</hibernate-mapping>

@@ -35,7 +35,8 @@
         <mapping resource="XMLS/ValePromocion.hbm.xml"/>
         <mapping resource="XMLS/Compra.hbm.xml"/>
  		<mapping resource="XMLS/Usuario.hbm.xml"/>
- 		
+ 		<mapping resource="XMLS/Empresa.hbm.xml"/>
+ 		<mapping resource="XMLS/Promocion.hbm.xml"/>
  		
     </session-factory>
 

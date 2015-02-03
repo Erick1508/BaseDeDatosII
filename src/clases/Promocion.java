@@ -4,29 +4,49 @@ import java.sql.Date;
 
 //falta fecha asociada, atributo multivaluado
 public class Promocion {
-
+	
+	private int promocion_id;
 	private String descripcionPromocion;
 	private int monto_original;
 	private int monto_ofertado;
 	private String URL_detalles;
 	private Date fecha_vigencia;
-	private float latitud;
-	private float longiud;
-	private float altitud;
+	private double latitud;
+	private double longitud;
+	private double altitud;
+	
+	private Empresa empresa;
 	
 	public Promocion(String descripcionPromocion, int monto_original,
 			int monto_ofertado, String uRL_detalles, Date fecha_vigencia,
-			float latitud, float longiud, float altitud) {
+			double latitud, double longitud, double altitud) {
 		this.descripcionPromocion = descripcionPromocion;
 		this.monto_original = monto_original;
 		this.monto_ofertado = monto_ofertado;
 		URL_detalles = uRL_detalles;
 		this.fecha_vigencia = fecha_vigencia;
 		this.latitud = latitud;
-		this.longiud = longiud;
+		this.longitud = longitud;
 		this.altitud = altitud;
 	}
+	
+	
+	public int getPromocion_id() {
+		return promocion_id;
+	}
 
+	public void setPromocion_id(int promocion_id) {
+		this.promocion_id = promocion_id;
+	}
+
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
+	
 	public String getDescripcionPromocion() {
 		return descripcionPromocion;
 	}
@@ -67,27 +87,27 @@ public class Promocion {
 		this.fecha_vigencia = fecha_vigencia;
 	}
 
-	public float getLatitud() {
+	public double getLatitud() {
 		return latitud;
 	}
 
-	public void setLatitud(float latitud) {
+	public void setLatitud(double latitud) {
 		this.latitud = latitud;
 	}
 
-	public float getLongiud() {
-		return longiud;
+	public double getLongitud() {
+		return longitud;
 	}
 
-	public void setLongiud(float longiud) {
-		this.longiud = longiud;
+	public void setLongitud(double longitud) {
+		this.longitud = longitud;
 	}
 
-	public float getAltitud() {
+	public double getAltitud() {
 		return altitud;
 	}
 
-	public void setAltitud(float altitud) {
+	public void setAltitud(double altitud) {
 		this.altitud = altitud;
 	}
 	

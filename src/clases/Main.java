@@ -1,5 +1,7 @@
 package clases;
 
+import java.util.Set;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -39,9 +41,28 @@ public class Main {
         session.save(uss2);
         session.save(uss3);
 		
+		Empresa empresa1 = new Empresa("Cines Unidos", "Cotiza", 1010, 0414123456, 5);
+		session.save(empresa1);
+		
+		Promocion promo1 = new Promocion("2X1", 100, 50, "www.cinesunidos.com", null, 14569.0, 45.0, 150.0);
+		Promocion promo2 = new Promocion("2X1", 100, 50, "www.cinesunidos.com", null, 14569.0, 45.0, 150.0);
+		
+		
+		promo1.setEmpresa(empresa1);
+		promo2.setEmpresa(empresa1);
+		
+		empresa1.getPromociones().add(promo1);
+		empresa1.getPromociones().add(promo2);
+		
+		session.save(empresa1);
+		session.save(promo1);
+        session.save(promo2);
         
-        
-        
+      /*  Set<Promocion> prom = null;
+        prom.add(promo1);
+        prom.add(promo2);
+        empresa1.setPromociones(prom);
+		session.save(empresa1);*/
 		
 		//session.save(compra1);
 		
