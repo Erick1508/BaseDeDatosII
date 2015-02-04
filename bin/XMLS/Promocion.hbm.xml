@@ -27,6 +27,11 @@
             <column name="nombreEmpresa" not-null="true">
         </column>
         </many-to-one>
+	
+	<many-to-one name="Subcategoria" class="Subcategoria" fetch="select">
+            <column name="subcat_id" not-null="true">
+        </column>
+        </many-to-one>
  
    </class>
 </hibernate-mapping>

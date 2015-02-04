@@ -48,35 +48,44 @@ public class Main {
 		
 		Promocion promo1 = new Promocion("2X1", 100, 50, "www.cinesunidos.com", null, 14569.0, 45.0, 150.0);
 		Promocion promo2 = new Promocion("2X1", 100, 50, "www.cinesunidos.com", null, 14569.0, 45.0, 150.0);
-				
-		promo1.setEmpresa(empresa1);
-		promo2.setEmpresa(empresa1);
-		
-		empresa1.getPromociones().add(promo1);
-		empresa1.getPromociones().add(promo2);
-		
-		session.save(empresa1);
-		session.save(promo1);
-        session.save(promo2);
-        
-        
-        
-		Categoria cat1 = new Categoria("Entretenimiento", "Todo la diversion aqui");
-		session.save(cat1);
-		
 		Subcategoria sub1 = new Subcategoria("Cine", "Boletos, combos y demas");
 		Subcategoria sub2 = new Subcategoria("Teatro", "Tomaaaa papaaaa");
-				
+		Categoria cat1 = new Categoria("Entretenimiento", "Todo la diversion aqui");
+		
 		sub1.setCategoria(cat1);
 		sub2.setCategoria(cat1);
 		
 		cat1.getSubcategorias().add(sub1);
 		cat1.getSubcategorias().add(sub2);
-		
 		session.save(cat1);
 		session.save(sub1);
         session.save(sub2);
-
+        
+        empresa1.getPromociones().add(promo1);
+		empresa1.getPromociones().add(promo2);
+        
+		promo1.setEmpresa(empresa1);
+		promo2.setEmpresa(empresa1);
+       
+        promo1.setSubcategoria(sub1);
+        promo2.setSubcategoria(sub1);
+		
+		session.save(empresa1);
+		session.save(promo1);
+        session.save(promo2);      
+                
+		
+        
+        sub1.getPromociones().add(promo1);
+        sub2.getPromociones().add(promo2);
+        
+        
+        session.save(promo1);
+        session.save(promo2);
+        session.save(sub1);
+        session.save(sub2);
+        session.save(cat1);
+        session.save(empresa1);
 		
 		session.getTransaction().commit();
 		session.close();

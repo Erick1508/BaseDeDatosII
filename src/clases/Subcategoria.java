@@ -1,13 +1,20 @@
 package clases;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Subcategoria {
 	
 	private int subcat_id;
 	private String nombreSubCat;
 	private String descripcionSubCat;
 	
+	// asociacion con categoria
 	private Categoria categoria;
-
+	
+	//asociacion con promocion
+	private Set<Promocion> promociones = new HashSet<Promocion>(0);
+	
 	public Subcategoria(String nombreSubCat, String descripcionSubCat) {
 		this.nombreSubCat = nombreSubCat;
 		this.descripcionSubCat = descripcionSubCat;
@@ -38,6 +45,14 @@ public class Subcategoria {
 	}
 	public void setDescripcionSubCat(String descripcionSubCat) {
 		this.descripcionSubCat = descripcionSubCat;
+	}
+
+	public Set<Promocion> getPromociones() {
+		return promociones;
+	}
+
+	public void setPromociones(Set<Promocion> promociones) {
+		this.promociones = promociones;
 	}
 	
 }

@@ -22,5 +22,12 @@
         </column>
         </many-to-one>
  
+	<set name="promociones" table="PROMOCION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="promocion_id" not-null="true"/>
+            </key>
+            <one-to-many class="Promocion"></one-to-many>
+        </set>
+	
    </class>
 </hibernate-mapping>

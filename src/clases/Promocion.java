@@ -1,6 +1,8 @@
 package clases;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 //falta fecha asociada, atributo multivaluado
 public class Promocion {
@@ -15,7 +17,11 @@ public class Promocion {
 	private double longitud;
 	private double altitud;
 	
+	//asociacion con empresa
 	private Empresa empresa;
+	
+	//Asociacion con subcategoria
+	private Subcategoria subcategoria;
 	
 	public Promocion(String descripcionPromocion, int monto_original,
 			int monto_ofertado, String uRL_detalles, Date fecha_vigencia,
@@ -111,6 +117,13 @@ public class Promocion {
 		this.altitud = altitud;
 	}
 	
+	public Subcategoria getSubcategoria() {
+		return subcategoria;
+	}
+
+	public void setSubcategoria(Subcategoria subcategoria) {
+		this.subcategoria = subcategoria;
+	}
 	
 	
 	
