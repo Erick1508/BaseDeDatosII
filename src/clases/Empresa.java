@@ -4,13 +4,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Empresa {
+	
 	private String nombreEmpresa;
 	private String direccionFisica;
 	private int codigoPais;
 	private int telefono;
 	private int estimadoCliente;
 	
-	private Set<Promocion> promociones = new HashSet<Promocion>(0);; //La empresa tiene un set de promociones
+	private Set<Promocion> promociones = new HashSet<Promocion>(0); //La empresa tiene un set de promociones
 	
 	public Empresa(String nombreEmpresa, String direccionFisica,
 			int codigoPais, int telefono, int estimadoCliente) {

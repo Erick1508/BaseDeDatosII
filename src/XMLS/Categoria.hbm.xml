@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="clases">
+ 
+    <class name="Categoria" table="CATEGORIA">
+        <id name="nombreCategoria" column="NOMBRE_CATEGORIA"> </id>
+         
+        <property name="descripcionCat" column="DESCRIPCION_CAT"/>
+ 
+ 		<!--inverse="true" lazy="true" fetch="select" QUE ES  -->
+ 		<!--  Con fetch="select" recupera todos los empleados del dpto -->
+ 		<!--  Con lazy="true" se le dice a Hibernate cuando va a recuperar los empleados del dpto
+ 		que será justo cuando los seleccione -->
+ 		<!-- Con inverse="true" se dice quien es el propietario de la relación, en este caso
+ 		     la clase propietaria de la relación es empleado. -->
+        <set name="subcategorias" table="SUBCATEGORIA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="subcat_id" not-null="true"/>
+            </key>
+            <one-to-many class="Subcategoria"></one-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

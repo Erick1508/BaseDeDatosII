@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="clases">
+ 
+    <class name="Subcategoria" table="SUBCATEGORIA">
+        <id name="subcat_id">
+         <column name="SUBCAT_ID" not-null="true"/> 
+        	<generator class="native">
+	</generator></id>
+    
+ 	<property name="nombreSubCat" column="NOMBRE_SUB_CAT"/>
+        <property name="descripcionSubCat" column="DESCRIPCION_SUB"/>
+
+        <!-- fetch="select" The fetch attribute tells hibernate how to get the children. -->
+ 	<!-- fetch="select" lo que hace es recuperar de la bd o seleccionar el dpto
+ 	en donde trabaja el empleado -->
+        <many-to-one name="Categoria" class="Categoria" fetch="select">
+            <column name="nombreCategoria" not-null="true">
+        </column>
+        </many-to-one>
+ 
+   </class>
+</hibernate-mapping>
