@@ -51,6 +51,14 @@ public class Main {
 		Subcategoria sub1 = new Subcategoria("Cine", "Boletos, combos y demas");
 		Subcategoria sub2 = new Subcategoria("Teatro", "Tomaaaa papaaaa");
 		Categoria cat1 = new Categoria("Entretenimiento", "Todo la diversion aqui");
+		Ciudad ciudad1 = new Ciudad("Atlanta", "VZLA");
+		session.save(ciudad1);
+		
+		ciudad1.getPromociones().add(promo1);
+		ciudad1.getPromociones().add(promo2);
+		//promo1.getCiudades().add(ciudad1);
+		//promo2.getCiudades().add(ciudad1);
+        
 		
 		sub1.setCategoria(cat1);
 		sub2.setCategoria(cat1);
@@ -85,6 +93,7 @@ public class Main {
         session.save(sub1);
         session.save(sub2);
         session.save(cat1);
+        session.save(ciudad1);
         session.save(empresa1);
 		
 		session.getTransaction().commit();

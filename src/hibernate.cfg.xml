@@ -39,6 +39,7 @@
  		<mapping resource="XMLS/Promocion.hbm.xml"/>
  		<mapping resource="XMLS/Categoria.hbm.xml"/>
  		<mapping resource="XMLS/Subcategoria.hbm.xml"/>
+ 		<mapping resource="XMLS/Ciudad.hbm.xml"/>
  		
     </session-factory>
 

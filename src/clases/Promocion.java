@@ -23,6 +23,9 @@ public class Promocion {
 	//Asociacion con subcategoria
 	private Subcategoria subcategoria;
 	
+	// asociacion con Ciudad * a *
+	private Set<Ciudad> ciudades = new HashSet<Ciudad>();
+	
 	public Promocion(String descripcionPromocion, int monto_original,
 			int monto_ofertado, String uRL_detalles, Date fecha_vigencia,
 			double latitud, double longitud, double altitud) {
@@ -124,7 +127,14 @@ public class Promocion {
 	public void setSubcategoria(Subcategoria subcategoria) {
 		this.subcategoria = subcategoria;
 	}
-	
+
+	public Set<Ciudad> getCiudades() {
+		return ciudades;
+	}
+
+	public void setCiudades(Set<Ciudad> ciudades) {
+		this.ciudades = ciudades;
+	}
 	
 	
 }

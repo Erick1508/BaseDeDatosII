@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="clases">
+ 
+    <class name="Ciudad" table="CIUDAD">
+        <id name="nombreCiudad" column="NOMBRE_CIUDAD"> </id>
+ 
+        <property name="pais" column="PAIS"/>
+        
+ 		<!-- Cascade is a convenient feature to save the lines of 
+ 		code needed to manage the state of the other side manually.
+ 		The “Cascade” keyword is often appear on the collection mapping to manage 
+ 		the state of the collection automatically. In this tutorials, -->
+ 		<!-- Con inverse=false indico que la clase propietaria no es meeting -->
+        <set name="promociones" table="CIUDAD_PROMOCION" inverse="false" lazy="true" fetch="select" cascade="all">
+           <key>
+              <column name="NOMBRE_CIUDAD" not-null="true"/>
+           </key>
+           <many-to-many column="PROMOCION_ID" class="Promocion"></many-to-many>
+        </set>
+ 	 </class>
+ 	
+</hibernate-mapping>

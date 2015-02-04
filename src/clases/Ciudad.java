@@ -1,11 +1,16 @@
 package clases;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Ciudad {
+	
 	private String nombreCiudad;
 	private String pais;
 	
+	private Set<Promocion> promociones = new HashSet<Promocion>();
+	
 	public Ciudad(String nombreCiudad, String pais) {
-		super();
 		this.nombreCiudad = nombreCiudad;
 		this.pais = pais;
 	}
@@ -21,6 +26,14 @@ public class Ciudad {
 	}
 	public void setPais(String pais) {
 		this.pais = pais;
+	}
+
+	public Set<Promocion> getPromociones() {
+		return promociones;
+	}
+
+	public void setPromociones(Set<Promocion> promociones) {
+		this.promociones = promociones;
 	}
 	
 	
