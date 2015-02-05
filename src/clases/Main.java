@@ -53,6 +53,13 @@ public class Main {
 		Ciudad ciudad1 = new Ciudad("Atlanta", "VZLA");
 		session.save(ciudad1);
 		
+		/*MetodoPago mdp = new MetodoPago();
+		session.save(mdp);*/
+		TDC tdc1 = new TDC(1234,"BCV");
+		session.save(tdc1);
+		DineroPromocion dp1 = new DineroPromocion(1234);
+		session.save(dp1);
+		
 		ciudad1.getPromociones().add(promo1);
 		ciudad1.getPromociones().add(promo2);
         
@@ -99,7 +106,10 @@ public class Main {
         
         uss1.getCategorias().add(cat1);
         uss2.getCategorias().add(cat1);
-        uss3.getCategorias().add(cat1);;
+        uss3.getCategorias().add(cat1);
+        
+        
+        
         
         
 		session.getTransaction().commit();

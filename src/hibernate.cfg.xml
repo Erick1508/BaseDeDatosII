@@ -40,6 +40,8 @@
  		<mapping resource="XMLS/Categoria.hbm.xml"/>
  		<mapping resource="XMLS/Subcategoria.hbm.xml"/>
  		<mapping resource="XMLS/Ciudad.hbm.xml"/>
+ 		<mapping resource="XMLS/MetodoPago.hbm.xml"/>
+ 		
  		
     </session-factory>
 
