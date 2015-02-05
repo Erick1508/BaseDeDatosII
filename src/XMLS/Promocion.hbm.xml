@@ -11,7 +11,7 @@
         </generator></id>
  
  
-        <property name="descripcionPromocion" column="DESCRIPCIONPROMOCION"/>
+        <property name="descripcionPromocion" column="DESCRIPCION_PROMOCION"/>
         <property name="monto_original" column="MONTO_ORIGINAL"/>
         <property name="monto_ofertado" column="MONTO_OFERTADO"/>
 	<property name="URL_detalles" column="URL_DETALLES"/>

@@ -15,10 +15,13 @@ public class Usuario {
 	private int veces_accedidas;
 	private Date ult_vez_online;
 	
-
+	// asociacion *->* es_amigo
 	private Set<Usuario> usuarios = new HashSet<Usuario>();
     private Set<Usuario> amigos = new HashSet<Usuario>();
 	
+    // asociacion *->* con ciudad
+    private Set<Ciudad> ciudades = new HashSet<Ciudad>();
+    
 	public Usuario(String login, String password, String nombre,
 			String apellido, String email, Date ult_vez_online) {
 		this.login = login;
@@ -100,6 +103,13 @@ public class Usuario {
 	public void setUlt_vez_online(Date ult_vez_online) {
 		this.ult_vez_online = ult_vez_online;
 	}
+
+	public Set<Ciudad> getCiudades() {
+		return ciudades;
+	}
 	
+	public void setCiudades(Set<Ciudad> ciudades) {
+		this.ciudades = ciudades;
+	}
 	
 }

@@ -11,6 +11,9 @@ public class Ciudad {
 	// asociacion muchos a muchos.. con promocion
 	private Set<Promocion> promociones = new HashSet<Promocion>();
 	
+	// asociacion *->* con usuario
+	private Set<Usuario> usuarios = new HashSet<Usuario>();
+	
 	public Ciudad(String nombreCiudad, String pais) {
 		this.nombreCiudad = nombreCiudad;
 		this.pais = pais;
@@ -36,6 +39,13 @@ public class Ciudad {
 	public void setPromociones(Set<Promocion> promociones) {
 		this.promociones = promociones;
 	}
-	
+
+	public Set<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(Set<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
 	
 }

@@ -9,23 +9,31 @@
   
     <id name="login" column="LOGIN"></id>
     
-    <property name="nombre" column="nombre"/>
-    <property name="apellido" column="apellido"/>
-    <property name="password" column="password"/>
-    <property name="email" column="email"/>
-    <property name="veces_accedidas" column="veces_accedidas"/>
-    <property name="ult_vez_online" column="ult_vez_online"/>
+    <property name="nombre" column="NOMBRE_USUARIO"/>
+    <property name="apellido" column="APELLIDO"/>
+    <property name="password" column="PASSWORD"/>
+    <property name="email" column="DIRECCION_ELECTRONICA"/>
+    <property name="veces_accedidas" column="VECES_ACCEDIDAS"/>
+    <property name="ult_vez_online" column="ULT_VEZ_ONLINE"/>
     
-    <!-- esta parte es para la asociacion amigos 1 -> muchos (quizas sea *->*--> 
+    <!-- esta parte es para la asociacion amigos muchos -> muchos --> 
 	<set name="usuarios" table="AMIGOS" cascade="none" lazy="false">
-	      <key column="usuario"/>
+	      <key column="USUARIO"/>
 	      <many-to-many column="amigo" class="Usuario" />
 	</set> 
 	
 	<set name="amigos" table="AMIGOS" cascade="none" lazy="false">
-	      <key column="amigo"/>
+	      <key column="AMIGO"/>
 	      <many-to-many column="usuario" class="Usuario" />
 	</set> 
+     
+     <!-- ASOCIACION CON CIUDAD-->
+	<set name="ciudades" table="CIUDAD_USUARIOS" inverse="false" lazy="true" fetch="select" cascade="all">
+           <key>
+              <column name="NOMBRE_USUARIO" not-null="true"/>
+           </key>
+           <many-to-many column="NOMBRE_CIUDAD" class="Ciudad"></many-to-many>
+        </set>
      
 </class>
 

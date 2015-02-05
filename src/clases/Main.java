@@ -42,7 +42,6 @@ public class Main {
         session.save(uss3);
 		
         
-        
 		Empresa empresa1 = new Empresa("Cines Unidos", "Cotiza", 1010, 0414123456, 5);
 		session.save(empresa1);
 		
@@ -94,7 +93,9 @@ public class Main {
         session.save(ciudad1);
         session.save(empresa1);
 		
-        
+        ciudad1.getUsuarios().add(uss1);
+        ciudad1.getUsuarios().add(uss2);
+        ciudad1.getUsuarios().add(uss3);
         
 		session.getTransaction().commit();
 		session.close();
