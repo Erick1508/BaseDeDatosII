@@ -22,6 +22,9 @@ public class Usuario {
     // asociacion *->* con ciudad
     private Set<Ciudad> ciudades = new HashSet<Ciudad>();
     
+    // asociacion *->* con Categoria
+    private Set<Categoria> categorias = new HashSet<Categoria>();
+    
 	public Usuario(String login, String password, String nombre,
 			String apellido, String email, Date ult_vez_online) {
 		this.login = login;
@@ -110,6 +113,14 @@ public class Usuario {
 	
 	public void setCiudades(Set<Ciudad> ciudades) {
 		this.ciudades = ciudades;
+	}
+
+	public Set<Categoria> getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(Set<Categoria> categorias) {
+		this.categorias = categorias;
 	}
 	
 }

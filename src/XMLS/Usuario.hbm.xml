@@ -34,7 +34,14 @@
            </key>
            <many-to-many column="NOMBRE_CIUDAD" class="Ciudad"></many-to-many>
         </set>
-     
+
+     <!-- ASOCIACION CON CATEGORIA-->
+	<set name="categorias" table="USUARIO_CATEGORIA" inverse="false" lazy="true" fetch="select" cascade="all">
+           <key>
+              <column name="NOMBRE_USUARIO" not-null="true"/>
+           </key>
+           <many-to-many column="NOMBRE_CATEGORIA" class="Categoria"></many-to-many>
+        </set>
 </class>
 
 </hibernate-mapping>

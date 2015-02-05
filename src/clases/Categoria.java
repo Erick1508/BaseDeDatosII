@@ -8,7 +8,11 @@ public class Categoria {
 	private String nombreCategoria;
 	private String descripcionCat;
 	
+	//asociacion con Subcategoria *->1
 	private Set<Subcategoria> subcategorias = new HashSet<Subcategoria>(0);
+	
+	// asociacion con usuarios *->*
+	private Set<Usuario> usuarios = new HashSet<Usuario>();
 	
 	public Categoria(String nombreCategoria, String descripcionCat) {
 		this.nombreCategoria = nombreCategoria;
@@ -37,6 +41,14 @@ public class Categoria {
 
 	public void setDescripcionCat(String descripcionCat) {
 		this.descripcionCat = descripcionCat;
+	}
+
+	public Set<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(Set<Usuario> usuarios) {
+		this.usuarios = usuarios;
 	}
 	
 	

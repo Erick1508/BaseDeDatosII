@@ -22,5 +22,13 @@
             </key>
             <one-to-many class="Subcategoria"></one-to-many>
         </set>
+	
+    <!-- ASOCIACION CON USUARIO-->
+	<set name="usuarios" table="USUARIO_CATEGORIA" inverse="false" lazy="true" fetch="select" cascade="all">
+           <key>
+              <column name="NOMBRE_CATEGORIA" not-null="true"/>
+           </key>
+           <many-to-many column="NOMBRE_USUARIO" class="Usuario"></many-to-many>
+        </set>
     </class>
 </hibernate-mapping>

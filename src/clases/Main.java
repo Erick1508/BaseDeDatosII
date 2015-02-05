@@ -97,6 +97,11 @@ public class Main {
         ciudad1.getUsuarios().add(uss2);
         ciudad1.getUsuarios().add(uss3);
         
+        uss1.getCategorias().add(cat1);
+        uss2.getCategorias().add(cat1);
+        uss3.getCategorias().add(cat1);;
+        
+        
 		session.getTransaction().commit();
 		session.close();
 		sessionFactory.close();
