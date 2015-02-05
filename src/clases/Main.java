@@ -34,8 +34,8 @@ public class Main {
 		Usuario uss2 = new Usuario("ramon", "123456", "raaamen", "umnte" , "sdddRod@gmail.com" , null);
 		Usuario uss3 = new Usuario("Josefino", "123456", "josefo", "camyt" , "podr@gmail.com" , null);
 		
-		uss2.setPersona(uss1);
-		uss3.setPersona(uss1);
+		uss1.getAmigos().add(uss2);
+		uss1.getAmigos().add(uss3);
 		
 		session.save(uss1);
         session.save(uss2);
@@ -56,8 +56,6 @@ public class Main {
 		
 		ciudad1.getPromociones().add(promo1);
 		ciudad1.getPromociones().add(promo2);
-		//promo1.getCiudades().add(ciudad1);
-		//promo2.getCiudades().add(ciudad1);
         
 		
 		sub1.setCategoria(cat1);
@@ -96,9 +94,14 @@ public class Main {
         session.save(ciudad1);
         session.save(empresa1);
 		
+        
+        
 		session.getTransaction().commit();
 		session.close();
 		sessionFactory.close();
+		
+		promo1.getCiudades().add(ciudad1);
+		//System.out.println("Ciudades = "+promo1.getCiudades() + " La ciudad es "+ ciudad1.toString() );
 	}
 
 }

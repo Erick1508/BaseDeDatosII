@@ -15,8 +15,8 @@ public class Usuario {
 	private int veces_accedidas;
 	private Date ult_vez_online;
 	
-    private Usuario persona;
-    
+
+	private Set<Usuario> usuarios = new HashSet<Usuario>();
     private Set<Usuario> amigos = new HashSet<Usuario>();
 	
 	public Usuario(String login, String password, String nombre,
@@ -29,12 +29,12 @@ public class Usuario {
 		this.ult_vez_online = ult_vez_online;
 	}
 
-	public Usuario getPersona() {
-		return persona;
+	public Set<Usuario> getUsuarios() {
+		return usuarios;
 	}
 
-	public void setPersona(Usuario persona) {
-		this.persona = persona;
+	public void setUsuarios(Set<Usuario> usuarios) {
+		this.usuarios = usuarios;
 	}
 
 	public Set<Usuario> getAmigos() {

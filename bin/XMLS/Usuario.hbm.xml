@@ -9,6 +9,7 @@
   
     <id name="login" column="LOGIN"></id>
     
+    <property name="nombre" column="nombre"/>
     <property name="apellido" column="apellido"/>
     <property name="password" column="password"/>
     <property name="email" column="email"/>
@@ -16,13 +17,15 @@
     <property name="ult_vez_online" column="ult_vez_online"/>
     
     <!-- esta parte es para la asociacion amigos 1 -> muchos (quizas sea *->*--> 
-    <many-to-one name="persona" class="Usuario" column="nombre"
-            not-null="false"/>
-            
-    <set name="amigos" table="Usuario" lazy="false" inverse="false">
-              <key column="nombre"/>
-              <one-to-many class="Usuario" />
-     </set>
+	<set name="usuarios" table="AMIGOS" cascade="none" lazy="false">
+	      <key column="usuario"/>
+	      <many-to-many column="amigo" class="Usuario" />
+	</set> 
+	
+	<set name="amigos" table="AMIGOS" cascade="none" lazy="false">
+	      <key column="amigo"/>
+	      <many-to-many column="usuario" class="Usuario" />
+	</set> 
      
 </class>
 

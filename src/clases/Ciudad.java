@@ -8,6 +8,7 @@ public class Ciudad {
 	private String nombreCiudad;
 	private String pais;
 	
+	// asociacion muchos a muchos.. con promocion
 	private Set<Promocion> promociones = new HashSet<Promocion>();
 	
 	public Ciudad(String nombreCiudad, String pais) {
