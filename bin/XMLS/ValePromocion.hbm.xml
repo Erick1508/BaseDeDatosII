@@ -5,28 +5,29 @@
 
 <hibernate-mapping package="clases">
  
-     <class name="ValePromocion" table="VALEPROMOCION" >
+     <class name="ValePromocion" table="VALEPROMOCION" discriminator-value="ValeNormal">
+       
         <id name="codigo_de_vale" column="CODIGO_VALE">
             <generator class="native">
 	    	</generator>
         </id>
 	
-	<!--<discriminator column="DISCRIMINATOR_TYPE" type="string"/> discriminator-value="ValeNormal"-->
+	<discriminator column="DISCRIMINATOR" type="string"/> <!--discriminator-value="ValeNormal"-->
 	
         <property name="cantidadVales" column="cantidadVales"/>
         <property name="descripcionVale" column="descripcionVale"/>
         <property name="fechaVigencia" type="date" column="fechaVigencia"/>
         <property name="dir_correo" column="dir_correo"/>
 	<property name="validado_por_mobile" type="java.lang.Boolean" column="validado_por_mobile"/>
-	<!--
+	
 	<subclass name="ValeRegalo" extends="ValePromocion" discriminator-value="ValeRegalo">
                 <property name="fechaEnvio" type="date" column="FECHA_DE_ENVIO"/>                
-        </subclass> -->
+        </subclass> 
 		
 		
         <!-- cascade="save-update" declarado en Employee permite realizar el efecto save-update cascade -->
         <!--  Cascade is a convenient feature to save the lines of code needed to manage the state of the other side manually. -->
-        <one-to-one name="compra" class="Compra" cascade="save-update"></one-to-one>         
+        <!--<one-to-one name="compra" class="Compra" cascade="save-update"></one-to-one> -->
         
     </class>
     

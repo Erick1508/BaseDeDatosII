@@ -23,7 +23,8 @@ public class Main {
 		
 		ValePromocion vale1= new ValePromocion(1, "Este es un vale", "jose@gmail.com", true, null);
 		ValePromocion vale2= new ValePromocion(1, "Este es un vale", "jose@gmail.com", true, null);
-		ValePromocion vale3= new ValePromocion(1, "Este es un vale", "jose@gmail.com", true, null);
+		ValeRegalo vale3= new ValeRegalo(1, "Este es un vale", "jose@gmail.com", true, null,null);
+		
 		Compra compra1 = new Compra(3, 8532247, null);
 		Compra compra2 = new Compra(67, 834547, null);
 		Compra compra3 = new Compra(98, 854744, null);
@@ -38,9 +39,9 @@ public class Main {
 		compra3.setVale(vale2);
 		vale2.setCompra(compra3);
 		
-		session.save(vale1);
-		session.save(vale2);
-		session.save(vale3);
+		session.save(compra1);
+		session.save(compra2);
+		session.save(compra3);
 		
 		
 		Usuario uss1 = new Usuario("pedro345", "123456", "pedrito", "Rodrigues" , "pedrRod@gmail.com" , null);

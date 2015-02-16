@@ -8,6 +8,7 @@ public class Compra {
 	//la foranea al vale de promocion
     private int codigo_de_vale;
     private ValePromocion vale;
+    private ValeRegalo valeR;
     
 	private int cantidadPromocion;
     private int montoDeCompra;
@@ -57,6 +58,14 @@ public class Compra {
 
 	public void setCodigo_de_vale(int codigo_de_vale) {
 		this.codigo_de_vale = codigo_de_vale;
+	}
+
+	public ValeRegalo getValeR() {
+		return valeR;
+	}
+
+	public void setValeR(ValeRegalo valeR) {
+		this.valeR = valeR;
 	}
     
     
