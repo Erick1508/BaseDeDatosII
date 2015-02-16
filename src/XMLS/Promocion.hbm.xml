@@ -14,11 +14,18 @@
         <property name="descripcionPromocion" column="DESCRIPCION_PROMOCION"/>
         <property name="monto_original" column="MONTO_ORIGINAL"/>
         <property name="monto_ofertado" column="MONTO_OFERTADO"/>
-	<property name="URL_detalles" column="URL_DETALLES"/>
-	<property name="fecha_vigencia" type="date" column="FECHA_VIGENCIA"/>
-        <property name="latitud" column="LATITUD"/>
+		<property name="URL_detalles" column="URL_DETALLES"/>
+		<property name="periodo_vigencia" type="date" column="FECHA_VIGENCIA"/>
+        <!-- <property name="latitud" column="LATITUD"/>
         <property name="longitud" column="LONGITUD"/>
-        <property name="altitud" column="ALTITUD"/>
+        <property name="altitud" column="ALTITUD"/> -->
+ 
+ 		<!-- prueba con las Ubicaicon geo como atributo compuesto -->
+        <component name="UbicacionGeo" class="UbicacionGeografica" unique="true">
+	        <property name="latitud" column="LATITUD" />
+	        <property name="longitud" column="LONGITUD"/>
+	        <property name="altitud" column="ALTITUD"/>
+    	</component>
  
  		<!-- fetch="select" The fetch attribute tells hibernate how to get the children. -->
  		<!-- fetch="select" lo que hace es recuperar de la bd o seleccionar el dpto
@@ -28,17 +35,17 @@
         </column>
         </many-to-one>
 	
-	<many-to-one name="Subcategoria" class="Subcategoria" fetch="select">
-            <column name="subcat_id" not-null="true">
-        </column>
-        </many-to-one>
-	
+		<many-to-one name="Subcategoria" class="Subcategoria" fetch="select">
+	            <column name="subcat_id" not-null="true">
+	        </column>
+	        </many-to-one>
+		
 	<set name="ciudades" table="CIUDAD_PROMOCION" inverse="false" lazy="true" fetch="select" cascade="all">
-           <key>
-              <column name="PROMOCION_ID" not-null="true"/>
-           </key>
-           <many-to-many column="NOMBRE_CIUDAD" class="Ciudad"></many-to-many>
-        </set>
- 
+	     <key>
+	       <column name="PROMOCION_ID" not-null="true"/>
+	       </key>
+	       <many-to-many column="NOMBRE_CIUDAD" class="Ciudad"></many-to-many>
+	    </set>
+	 
    </class>
 </hibernate-mapping>

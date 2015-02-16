@@ -2,7 +2,8 @@ package clases;
 
 public class MetodoPago {
 	private int methodId;
-
+	private Usuario propietario;
+	
 	public MetodoPago() {
 	}
 
@@ -13,6 +14,13 @@ public class MetodoPago {
 	public void setMethodId(int methodId) {
 		this.methodId = methodId;
 	}
-	
+
+	public Usuario getPropietario() {
+		return propietario;
+	}
+
+	public void setPropietario(Usuario propietario) {
+		this.propietario = propietario;
+	}
 	
 }

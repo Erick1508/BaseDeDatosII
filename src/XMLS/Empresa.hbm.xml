@@ -9,9 +9,15 @@
         <id name="nombreEmpresa" column="NOMBRE_EMPRESA"> </id>
          
         <property name="direccionFisica" column="DIRECCION"/>
-        <property name="codigoPais" column="CODIGO_PAIS"/>
-        <property name="telefono" column="TELEFONO"/>
+        <!-- <property name="codigoPais" column="CODIGO_PAIS"/>
+        <property name="telefono" column="TELEFONO"/> -->
         <property name="estimadoCliente" column="ESTIMADO_CLIENTE"/>
+        
+        <component name="telefonoEmpresa" class="Telefono" unique="true">
+	        <property name="codigoPais"  column="CODIGO_PAIS" />
+	        <property name="codigoArea" column="CODIGO_DE_AREA"/>
+	        <property name="numeroTlf" column="NUMERO_TLF"/>	     
+    	</component>
         
  
  		<!--inverse="true" lazy="true" fetch="select" QUE ES  -->

@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="clases">
  
-     <class name="Compra" table="COMPRA">
+    <class name="Compra" table="COMPRA">
 	<id name="codigo_de_vale" >
 	    <column name="CODIGO_VALE"/>
             <generator class="foreign">

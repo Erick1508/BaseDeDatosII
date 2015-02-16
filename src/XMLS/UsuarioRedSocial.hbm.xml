@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="clases">
+ 
+    <class name="UsuarioRedSocial" table="USUARIO_RED_SOCIAL">
+      
+        <id name="urs_id" column="USR_ID">
+            <generator class="native">
+        </generator></id>
+    
+        <property name="nombreUsuario" column="NOMBRE_USUARIO_RS" type="java.lang.String"/>
+	
+	<many-to-one name="Usuario" class="Usuario" fetch="select">
+        <column name="LOGIN" not-null="true">
+	    </column>
+        </many-to-one>
+	 
+   </class>
+</hibernate-mapping>

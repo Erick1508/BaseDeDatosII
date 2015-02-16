@@ -16,6 +16,17 @@
     <property name="veces_accedidas" column="VECES_ACCEDIDAS"/>
     <property name="ult_vez_online" column="ULT_VEZ_ONLINE"/>
     
+    <!--asociacion 1-* con TDC-->
+    <set name="tdcs" table="METODO_DE_PAGO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NUMERO_TDC" not-null="true"/>
+            </key>
+            <one-to-many class="TDC"></one-to-many>
+    </set>
+    
+    <!--Asociacion 1-1 con dinero de Promocion-->
+      <one-to-one name="DinProm" class="DineroPromocion" cascade="save-update"></one-to-one>
+      
     <!-- esta parte es para la asociacion amigos muchos -> muchos --> 
 	<set name="usuarios" table="AMIGOS" cascade="none" lazy="false">
 	      <key column="USUARIO"/>
@@ -42,6 +53,15 @@
            </key>
            <many-to-many column="NOMBRE_CATEGORIA" class="Categoria"></many-to-many>
         </set>
+	
+	
+	<set name="URSocial" table="USUARIO_RED_SOCIAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USR_ID" not-null="true"/>
+            </key>
+            <one-to-many class="UsuarioRedSocial"></one-to-many>
+        </set>
+	
 </class>
 
 </hibernate-mapping>

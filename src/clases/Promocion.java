@@ -5,17 +5,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 //falta fecha asociada, atributo multivaluado
-public class Promocion {
+public class Promocion{
 	
 	private int promocion_id;
 	private String descripcionPromocion;
 	private int monto_original;
 	private int monto_ofertado;
 	private String URL_detalles;
-	private Date fecha_vigencia;
-	private double latitud;
-	private double longitud;
-	private double altitud;
+	private Date periodo_vigencia;
+	
+	// atributo compuesto ubicacionGeografica
+	private UbicacionGeografica UbicacionGeo;
 	
 	//asociacion con empresa
 	private Empresa empresa;
@@ -26,19 +26,17 @@ public class Promocion {
 	// asociacion con Ciudad * a *
 	private Set<Ciudad> ciudades = new HashSet<Ciudad>();
 	
+	public Promocion(){};
+	
 	public Promocion(String descripcionPromocion, int monto_original,
-			int monto_ofertado, String uRL_detalles, Date fecha_vigencia,
-			double latitud, double longitud, double altitud) {
+			int monto_ofertado, String uRL_detalles, Date periodo_vigencia, UbicacionGeografica ubgeo) {
 		this.descripcionPromocion = descripcionPromocion;
 		this.monto_original = monto_original;
 		this.monto_ofertado = monto_ofertado;
 		URL_detalles = uRL_detalles;
-		this.fecha_vigencia = fecha_vigencia;
-		this.latitud = latitud;
-		this.longitud = longitud;
-		this.altitud = altitud;
+		this.periodo_vigencia = periodo_vigencia;
+		this.UbicacionGeo = ubgeo;
 	}
-	
 	
 	public int getPromocion_id() {
 		return promocion_id;
@@ -88,38 +86,14 @@ public class Promocion {
 		URL_detalles = uRL_detalles;
 	}
 
-	public Date getFecha_vigencia() {
-		return fecha_vigencia;
+	public Date getperiodo_vigencia() {
+		return periodo_vigencia;
 	}
 
-	public void setFecha_vigencia(Date fecha_vigencia) {
-		this.fecha_vigencia = fecha_vigencia;
+	public void setperiodo_vigencia(Date periodo_vigencia) {
+		this.periodo_vigencia = periodo_vigencia;
 	}
 
-	public double getLatitud() {
-		return latitud;
-	}
-
-	public void setLatitud(double latitud) {
-		this.latitud = latitud;
-	}
-
-	public double getLongitud() {
-		return longitud;
-	}
-
-	public void setLongitud(double longitud) {
-		this.longitud = longitud;
-	}
-
-	public double getAltitud() {
-		return altitud;
-	}
-
-	public void setAltitud(double altitud) {
-		this.altitud = altitud;
-	}
-	
 	public Subcategoria getSubcategoria() {
 		return subcategoria;
 	}
@@ -135,6 +109,13 @@ public class Promocion {
 	public void setCiudades(Set<Ciudad> ciudades) {
 		this.ciudades = ciudades;
 	}
-	
+
+	public UbicacionGeografica getUbicacionGeo() {
+		return UbicacionGeo;
+	}
+
+	public void setUbicacionGeo(UbicacionGeografica ubicacionGeo) {
+		UbicacionGeo = ubicacionGeo;
+	}
 	
 }

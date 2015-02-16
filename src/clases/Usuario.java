@@ -15,6 +15,12 @@ public class Usuario {
 	private int veces_accedidas;
 	private Date ult_vez_online;
 	
+	// asociacion 1-* con TDC
+	private Set<TDC> tdcs = new HashSet<TDC>(0);
+	
+	//asociacion 1-1 con dinero Promocion
+	private DineroPromocion DinProm;
+	
 	// asociacion *->* es_amigo
 	private Set<Usuario> usuarios = new HashSet<Usuario>();
     private Set<Usuario> amigos = new HashSet<Usuario>();
@@ -24,6 +30,9 @@ public class Usuario {
     
     // asociacion *->* con Categoria
     private Set<Categoria> categorias = new HashSet<Categoria>();
+    
+    // asociacion 1->1..* con UsuarioRedSocial
+    private Set<UsuarioRedSocial> URSocial = new HashSet<UsuarioRedSocial>(0);
     
 	public Usuario(String login, String password, String nombre,
 			String apellido, String email, Date ult_vez_online) {
@@ -121,6 +130,30 @@ public class Usuario {
 
 	public void setCategorias(Set<Categoria> categorias) {
 		this.categorias = categorias;
+	}
+
+	public Set<UsuarioRedSocial> getURSocial() {
+		return URSocial;
+	}
+
+	public void setURSocial(Set<UsuarioRedSocial> uRSocial) {
+		URSocial = uRSocial;
+	}
+
+	public DineroPromocion getDinProm() {
+		return DinProm;
+	}
+
+	public void setDinProm(DineroPromocion dinProm) {
+		DinProm = dinProm;
+	}
+
+	public Set<TDC> getTdcs() {
+		return tdcs;
+	}
+
+	public void setTdcs(Set<TDC> tdcs) {
+		this.tdcs = tdcs;
 	}
 	
 }

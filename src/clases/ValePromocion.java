@@ -4,7 +4,6 @@ import java.sql.Date;
 
 public class ValePromocion {
 	 	
-	
 	//id
 	private int codigo_de_vale;
 	
