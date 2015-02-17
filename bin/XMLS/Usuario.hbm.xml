@@ -62,6 +62,22 @@
             <one-to-many class="UsuarioRedSocial"></one-to-many>
         </set>
 	
+	
+	<set name="ComprasCompartidas" table="COMPARTIDOS" inverse="false" lazy="true" fetch="select" cascade="all">
+           <key>
+              <column name="NOMBRE_USUARIO" not-null="true"/>
+           </key>
+           <many-to-many column="CODIGO_VALE" class="Compra"></many-to-many>
+        </set>
+	
+	
+	<!--<set name="compras" table="COMPRA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_de_vale" not-null="false"/>
+            </key>
+            <one-to-many class="Compra"></one-to-many>
+        </set>
+	-->
 </class>
 
 </hibernate-mapping>

@@ -34,6 +34,12 @@ public class Usuario {
     // asociacion 1->1..* con UsuarioRedSocial
     private Set<UsuarioRedSocial> URSocial = new HashSet<UsuarioRedSocial>(0);
     
+	// asociacion adquiere, es la clase asociacion con Compra
+    private Set<Compra> compras = new HashSet<Compra>();
+    
+    // asociacion *-* con Compra
+    private Set<Compra> ComprasCompartidas = new HashSet<Compra>();
+    
 	public Usuario(String login, String password, String nombre,
 			String apellido, String email, Date ult_vez_online) {
 		this.login = login;
@@ -155,5 +161,22 @@ public class Usuario {
 	public void setTdcs(Set<TDC> tdcs) {
 		this.tdcs = tdcs;
 	}
+
+	public Set<Compra> getCompras() {
+		return compras;
+	}
+
+	public void setCompras(Set<Compra> compras) {
+		this.compras = compras;
+	}
+
+	public Set<Compra> getComprasCompartidas() {
+		return ComprasCompartidas;
+	}
+
+	public void setComprasCompartidas(Set<Compra> comprasCompartidas) {
+		ComprasCompartidas = comprasCompartidas;
+	}
+	
 	
 }

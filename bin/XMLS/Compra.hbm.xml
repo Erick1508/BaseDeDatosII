@@ -7,7 +7,7 @@
  
     <class name="Compra" table="COMPRA">
 	<id name="codigo_de_vale" >
-	    <column name="CODIGO_VALE"/>
+	    <column name="CODIGO_VALE" not-null="true"/>
             <generator class="foreign">
                <param name="property">vale</param> <!-- Indica que se refiere al id del que es foránea que es employee -->
             </generator>
@@ -23,9 +23,27 @@
         <property name="fechaCompra" type="date" column="fechaCompra"/>
   
 	<many-to-one name="metodoPagos" class="MetodoPago" fetch="select">
-	    <column name="Id_Metodo_Pago" not-null="true">
-	    </column>
+	    	<column name="Id_Metodo_Pago" not-null="true">
+	    	</column>
         </many-to-one>
+        
+        <many-to-one name="usuario" class="Usuario" fetch="select">
+	    	<column name="login" not-null="true">
+	    	</column>
+        </many-to-one>
+	
+	<many-to-one name="promocion" class="Promocion" fetch="select">
+	    	<column name="promocion_id" not-null="true">
+	    	</column>
+        </many-to-one>
+        
+        <set name="usuariosCompartir" table="COMPARTIDOS" inverse="false" lazy="true" fetch="select" cascade="all">
+           <key>
+              <column name="CODIGO_VALE" not-null="true"/>
+           </key>
+           <many-to-many column="NOMBRE_USUARIO" class="Usuario"></many-to-many>
+        </set>
+        
         
     </class>
     

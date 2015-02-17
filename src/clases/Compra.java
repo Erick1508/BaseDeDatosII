@@ -19,6 +19,15 @@ public class Compra {
     
     //asociacion 1-1..2 con metodo de pago
     private MetodoPago metodoPagos;
+    
+    //asociacion *-* con Usuario
+    private Set<Usuario> usuariosCompartir = new HashSet<Usuario>();
+    
+    //CLASE asociacion, requiero hacer una par de many to one
+    // se supone que esta clase debe cumplir ademas con el many to many de las otras, de ahi el hecho de t
+    // tener las dos private many to one.
+    private Usuario usuario;
+    private Promocion promocion;
         
     public Compra(int cantidadPromocion, int montoDeCompra, Date fechaCompra) {
 		this.cantidadPromocion = cantidadPromocion;
@@ -80,7 +89,32 @@ public class Compra {
 
 	public void setMetodoPagos(MetodoPago metodoPagos) {
 		this.metodoPagos = metodoPagos;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Promocion getPromocion() {
+		return promocion;
+	}
+
+	public void setPromocion(Promocion promocion) {
+		this.promocion = promocion;
+	}
+
+	public Set<Usuario> getUsuariosCompartir() {
+		return usuariosCompartir;
+	}
+
+	public void setUsuariosCompartir(Set<Usuario> usuariosCompartir) {
+		this.usuariosCompartir = usuariosCompartir;
 	}    
     
+	
     
 }

@@ -26,6 +26,10 @@ public class Promocion{
 	// asociacion con Ciudad * a *
 	private Set<Ciudad> ciudades = new HashSet<Ciudad>();
 	
+	// asociacion adquiere, es la clase asociacion con Compra
+	private Set<Compra> compras = new HashSet<Compra>(0);
+	
+	
 	public Promocion(){};
 	
 	public Promocion(String descripcionPromocion, int monto_original,
@@ -86,14 +90,6 @@ public class Promocion{
 		URL_detalles = uRL_detalles;
 	}
 
-	public Date getperiodo_vigencia() {
-		return periodo_vigencia;
-	}
-
-	public void setperiodo_vigencia(Date periodo_vigencia) {
-		this.periodo_vigencia = periodo_vigencia;
-	}
-
 	public Subcategoria getSubcategoria() {
 		return subcategoria;
 	}
@@ -117,5 +113,22 @@ public class Promocion{
 	public void setUbicacionGeo(UbicacionGeografica ubicacionGeo) {
 		UbicacionGeo = ubicacionGeo;
 	}
+
+	public Date getPeriodo_vigencia() {
+		return periodo_vigencia;
+	}
+
+	public void setPeriodo_vigencia(Date periodo_vigencia) {
+		this.periodo_vigencia = periodo_vigencia;
+	}
+
+	public Set<Compra> getCompras() {
+		return compras;
+	}
+
+	public void setCompras(Set<Compra> compras) {
+		this.compras = compras;
+	}
+	
 	
 }

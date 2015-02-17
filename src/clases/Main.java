@@ -1,5 +1,7 @@
 package clases;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import org.hibernate.Session;
@@ -139,15 +141,15 @@ public class Main {
 		compra2.setMetodoPagos(tdc2);
 		compra3.setMetodoPagos(dp3);
 		
-		session.save(compra1);
-		session.save(compra2);
-		session.save(compra3);
+		
 		tdc1.setCompra(compra1);
 		dp1.setCompra(compra1);
 		/*
 		session.save(tdc1);
 		session.save(dp1);
 		*/
+		
+		
 		
 		ciudad1.getPromociones().add(promo1);
 		ciudad1.getPromociones().add(promo2);
@@ -172,18 +174,39 @@ public class Main {
         promo1.setSubcategoria(sub1);
         promo2.setSubcategoria(sub1);
 		
-		session.save(promo1);
-        session.save(promo2);      
-        session.save(empresa1);        
-		
+		/*session.save(promo1);
+        session.save(promo2);*/      
+        session.save(empresa1); 
         
+        compra1.setUsuario(uss1);
+		compra1.setPromocion(promo1);
+		uss1.getCompras().add(compra1);
+		promo1.getCompras().add(compra1);
+		
+		compra2.setUsuario(uss2);
+		compra2.setPromocion(promo2);
+		uss2.getCompras().add(compra2);
+		promo2.getCompras().add(compra2);
+		
+		compra3.setUsuario(uss3);
+		compra3.setPromocion(promo1);
+		uss3.getCompras().add(compra3);
+		promo1.getCompras().add(compra3);				
+		
+		
+		session.save(promo1);
+        session.save(promo2);
+		session.save(compra1);
+		session.save(compra2);
+		session.save(compra3);
+		
+        session.save(uss1);
+		session.save(uss2);
+		session.save(uss3);
+
         sub1.getPromociones().add(promo1);
         sub2.getPromociones().add(promo2);
         
-        
-        
-        session.save(promo1);
-        session.save(promo2);
         session.save(sub1);
         session.save(sub2);
         session.save(cat1);
@@ -198,13 +221,18 @@ public class Main {
         uss2.getCategorias().add(cat1);
         uss3.getCategorias().add(cat1);
         
+        uss1.getComprasCompartidas().add(compra1);
+        //compra1.getUsuariosCompartir().add(uss1);
+        session.save(uss1);
+        //session.save(compra1);
         
 		session.getTransaction().commit();
 		session.close();
 		sessionFactory.close();
 		
 		promo1.getCiudades().add(ciudad1);
-		//System.out.println("Ciudades = "+promo1.getCiudades() + " La ciudad es "+ ciudad1.toString() );
+		List<Compra> list = new ArrayList<Compra>(promo1.getCompras());
+		//System.out.println("Compras en Promociones = \n"+list.get(0).getCodigo_de_vale() + "  "+list.get(1).getCodigo_de_vale());
 	}
 
 }

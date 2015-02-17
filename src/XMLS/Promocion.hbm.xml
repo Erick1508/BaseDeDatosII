@@ -46,6 +46,15 @@
 	       </key>
 	       <many-to-many column="NOMBRE_CIUDAD" class="Ciudad"></many-to-many>
 	    </set>
+	    
+	<!--<set name="compras" table="COMPRA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_de_vale" not-null="false"/>
+            </key>
+            <one-to-many class="Compra"></one-to-many>
+        </set>
+        -->
+	 
 	 
    </class>
 </hibernate-mapping>
