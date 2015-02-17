@@ -43,6 +43,7 @@
  		<mapping resource="XMLS/MetodoPago.hbm.xml"/>
  		
  		<mapping resource="XMLS/UsuarioRedSocial.hbm.xml"/>
+ 		<mapping resource="XMLS/FechaAsociada.hbm.xml"/>
  		
     </session-factory>
 

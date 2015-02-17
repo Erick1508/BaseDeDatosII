@@ -27,6 +27,13 @@
 	        <property name="altitud" column="ALTITUD"/>
     	</component>
  
+ 		<set name="fechasAsociadas" table="FECHA_ASOCIADA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fecha_id" not-null="true"/>
+            </key>
+            <one-to-many class="FechaAsociada"></one-to-many>
+    	</set>
+ 
  		<!-- fetch="select" The fetch attribute tells hibernate how to get the children. -->
  		<!-- fetch="select" lo que hace es recuperar de la bd o seleccionar el dpto
  		en donde trabaja el empleado -->

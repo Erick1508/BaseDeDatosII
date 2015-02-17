@@ -16,7 +16,7 @@
 	<many-to-one name="Usuario" class="Usuario" fetch="select">
         <column name="LOGIN" not-null="true">
 	    </column>
-        </many-to-one>
+    </many-to-one>
 	 
    </class>
 </hibernate-mapping>

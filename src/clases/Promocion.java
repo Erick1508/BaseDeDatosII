@@ -29,6 +29,8 @@ public class Promocion{
 	// asociacion adquiere, es la clase asociacion con Compra
 	private Set<Compra> compras = new HashSet<Compra>(0);
 	
+	// asociacion 1->1..* con FechaAsociada
+    private Set<FechaAsociada> fechasAsociadas = new HashSet<FechaAsociada>(0);
 	
 	public Promocion(){};
 	
@@ -128,6 +130,14 @@ public class Promocion{
 
 	public void setCompras(Set<Compra> compras) {
 		this.compras = compras;
+	}
+
+	public Set<FechaAsociada> getFechasAsociadas() {
+		return fechasAsociadas;
+	}
+
+	public void setFechasAsociadas(Set<FechaAsociada> fechasAsociadas) {
+		this.fechasAsociadas = fechasAsociadas;
 	}
 	
 	

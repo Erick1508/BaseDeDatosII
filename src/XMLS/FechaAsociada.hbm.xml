@@ -5,16 +5,16 @@
 
 <hibernate-mapping package="clases">
  
-    <class name="UsuarioRedSocial" table="USUARIO_RED_SOCIAL">
+    <class name="FechaAsociada" table="FECHA_ASOCIADA">
       
-        <id name="urs_id" column="USR_ID">
+        <id name="fecha_id" column="fecha_id">
             <generator class="native">
         </generator></id>
     
-        <property name="nombreUsuario" column="NOMBRE_USUARIO_RS" type="java.lang.String"/>
+        <property name="fecha" column="FECHA" type="date"/>
 	
-	<many-to-one name="Usuario" class="Usuario" fetch="select">
-        <column name="LOGIN" not-null="true">
+	<many-to-one name="Promocion" class="Promocion" fetch="select">
+        <column name="PROMOCION_ID" not-null="true">
 	    </column>
     </many-to-one>
 	 

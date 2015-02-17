@@ -25,7 +25,7 @@
     </set>
     
     <!--Asociacion 1-1 con dinero de Promocion-->
-      <one-to-one name="DinProm" class="DineroPromocion" cascade="save-update"></one-to-one>
+    <one-to-one name="DinProm" class="DineroPromocion" cascade="save-update"></one-to-one>
       
     <!-- esta parte es para la asociacion amigos muchos -> muchos --> 
 	<set name="usuarios" table="AMIGOS" cascade="none" lazy="false">
@@ -60,7 +60,7 @@
                 <column name="USR_ID" not-null="true"/>
             </key>
             <one-to-many class="UsuarioRedSocial"></one-to-many>
-        </set>
+    </set>
 	
 	
 	<set name="ComprasCompartidas" table="COMPARTIDOS" inverse="false" lazy="true" fetch="select" cascade="all">

@@ -148,6 +148,9 @@ public class Main {
 		session.save(tdc1);
 		session.save(dp1);
 		*/
+				
+		
+		
 		
 		
 		
@@ -225,6 +228,26 @@ public class Main {
         //compra1.getUsuariosCompartir().add(uss1);
         session.save(uss1);
         //session.save(compra1);
+        
+        
+        FechaAsociada fecha1 = new FechaAsociada(null);
+		FechaAsociada fecha2 = new FechaAsociada(null);
+		FechaAsociada fecha3 = new FechaAsociada(null);
+		
+		
+		promo1.getFechasAsociadas().add(fecha1);
+		promo2.getFechasAsociadas().add(fecha2);
+		promo2.getFechasAsociadas().add(fecha3);
+		
+		fecha1.setPromocion(promo1);
+		fecha2.setPromocion(promo2);
+		fecha3.setPromocion(promo2);
+		session.save(promo1);
+		session.save(promo2);
+		session.save(fecha1);
+		session.save(fecha2);
+		session.save(fecha3);
+		
         
 		session.getTransaction().commit();
 		session.close();
