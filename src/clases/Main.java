@@ -272,9 +272,15 @@ public class Main {
 		ArrayList<Empresa> empresas = new ArrayList<Empresa>();
 		Telefono tlf1 = new Telefono(58, 239, 2487895);
 		Telefono tlf2 = new Telefono(56, 287, 8527493);
+		Telefono tlf3 = new Telefono(58, 212, 7842569);
+		Telefono tlf4 = new Telefono(33, 874, 1036987);
+		Telefono tlf5 = new Telefono(31, 342, 0142043);
 		empresas.add(new Empresa("La Espetada C.A.", "Carretera Charallave Cua Km 5", 18, tlf1));
-		empresas.add(new Empresa("Hermanos a la casta", "Avenida Valencia con Calle san Jose", 18, tlf2));
-				
+		empresas.add(new Empresa("Hermanos a la casta", "Avenida Valencia con Calle san Jose", 14, tlf2));
+		empresas.add(new Empresa("AGUI C.A.", "Edificio Carlo Andres, calle 12 con avenida Miranda", 28, tlf3));
+		empresas.add(new Empresa("Zara", "C.C. Grandes Tiendas, piso 2, local 15", 36, tlf4));
+		empresas.add(new Empresa("Aerolineas LissandraX", "Oficina central en calle 4 edifico Perez Perez piso 1", 22, tlf5));
+		
 		main.agregarEmpresas(empresas,sessionFactory);
 		
 		ArrayList<Categoria> categorias = new ArrayList<Categoria>();
@@ -295,6 +301,49 @@ public class Main {
 		
 		main.agregarSubcategorias(subcategorias, categorias, sessionFactory);
 		
+		ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
+		ciudades.add(new Ciudad("Madrid", "Espana"));
+		ciudades.add(new Ciudad("Caracas", "Venezuela"));
+		ciudades.add(new Ciudad("Roma", "Italia"));
+		ciudades.add(new Ciudad("Lisboa", "Portugal"));
+		ciudades.add(new Ciudad("Bogota", "Colombia"));
+		
+		main.agregarCiudades(ciudades, sessionFactory);
+		
+		// 
+		//no puedo agregar las tdcs sin los usuarios
+		//
+		
+		ArrayList<TDC> tdcs = new ArrayList<TDC>();
+		tdcs.add(new TDC(145878253, "BBVA", 354, "VISA"));
+		tdcs.add(new TDC(785214630, "Bicentenario", 278, "MASTER CARD"));
+		tdcs.add(new TDC(874145369, "Mercantil", 894, "VISA"));
+		tdcs.add(new TDC(147214523, "BOD", 145, "VISA"));
+		tdcs.add(new TDC(365874125, "Bancaribe", 214, "MASTER CARD"));
+		/*
+		main.agregarTDCs(tdcs, sessionFactory);
+		*/
+		
+		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+		usuarios.add(new Usuario("pedrito1", "pedro1789", "Pedro", "Perez", "pedro@gmail.com", new Date()));
+		usuarios.add(new Usuario("rosagerman2", "185rosa_", "Rosa", "German", "rosGerm@gmail.com", new Date()));
+		usuarios.add(new Usuario("cBautista", "7c8b2ut", "Carlos", "Bautista", "bautistaC@gmail.com", new Date()));
+		usuarios.add(new Usuario("martinezJose", "mjose164", "Jose", "Martinez", "josemart@gmail.com", new Date()));
+		usuarios.add(new Usuario("homerSim", "simp50n", "Homero", "Simpson", "daug@gmail.com", new Date()));
+		
+		usuarios.get(0).getAmigos().add(usuarios.get(1));
+		usuarios.get(0).getAmigos().add(usuarios.get(2));
+		usuarios.get(0).getAmigos().add(usuarios.get(3));
+		usuarios.get(0).getAmigos().add(usuarios.get(4));
+		
+		usuarios.get(1).getAmigos().add(usuarios.get(3));
+		usuarios.get(1).getAmigos().add(usuarios.get(4));
+		
+		usuarios.get(2).getAmigos().add(usuarios.get(4));
+		
+		main.agregarUsuarios(usuarios, sessionFactory);
+		
+		
 		sessionFactory.close();
 	}
 	
@@ -313,21 +362,7 @@ public class Main {
 		session.close();
 
 	}
-	
-	public void agregarCategorias(ArrayList<Categoria> categorias,SessionFactory sessionFactory){
-		Session session = sessionFactory.openSession();
-		session.beginTransaction();
 		
-		int tam = categorias.size();
-		for (int i=0; i<tam; i++){
-			session.save(categorias.get(i));			
-		}
-		
-		session.getTransaction().commit();
-		session.close();
-
-	}
-	
 	public void agregarSubcategorias(ArrayList<Subcategoria> subcategorias,
 			                         ArrayList<Categoria> categorias, SessionFactory sessionFactory){
 		Session session = sessionFactory.openSession();
@@ -352,5 +387,49 @@ public class Main {
 
 	}
 	
+	public void agregarCiudades(ArrayList<Ciudad> ciudades,SessionFactory sessionFactory){
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		int tam = ciudades.size();
+		for (int i=0; i<tam; i++){
+			session.save(ciudades.get(i));
+			//System.out.println("Empresa = \n"+empresas.get(i).getNombreEmpresa());			
+		}
+		
+		session.getTransaction().commit();
+		session.close();
+
+	}
+	
+	public void agregarUsuarios(ArrayList<Usuario> usuarios,SessionFactory sessionFactory){
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		int tam = usuarios.size();
+		for (int i=0; i<tam; i++){
+			session.save(usuarios.get(i));
+			//System.out.println("Empresa = \n"+empresas.get(i).getNombreEmpresa());			
+		}
+		
+		session.getTransaction().commit();
+		session.close();
+
+	}
+	
+	public void agregarTDCs(ArrayList<TDC> tdcs,SessionFactory sessionFactory){
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		int tam = tdcs.size();
+		for (int i=0; i<tam; i++){
+			session.save(tdcs.get(i));
+			//System.out.println("Empresa = \n"+empresas.get(i).getNombreEmpresa());			
+		}
+		
+		session.getTransaction().commit();
+		session.close();
+
+	}
 
 }
