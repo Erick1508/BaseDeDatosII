@@ -4,6 +4,8 @@ public class MetodoPago {
 	private int methodId;
 	private Usuario propietario;
 	
+	private Compra compra;
+	
 	public MetodoPago() {
 	}
 
@@ -22,5 +24,14 @@ public class MetodoPago {
 	public void setPropietario(Usuario propietario) {
 		this.propietario = propietario;
 	}
+
+	public Compra getCompra() {
+		return compra;
+	}
+
+	public void setCompra(Compra compra) {
+		this.compra = compra;
+	}
+	
 	
 }

@@ -21,7 +21,12 @@
         <property name="cantidadPromocion" column="cantidadPromocion"/>
         <property name="montoDeCompra" column="montoDeCompra"/>
         <property name="fechaCompra" type="date" column="fechaCompra"/>
- 
+  
+	<many-to-one name="metodoPagos" class="MetodoPago" fetch="select">
+	    <column name="Id_Metodo_Pago" not-null="true">
+	    </column>
+        </many-to-one>
+        
     </class>
     
 </hibernate-mapping>

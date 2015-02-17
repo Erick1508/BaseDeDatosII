@@ -21,27 +21,7 @@ public class Main {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		ValePromocion vale1= new ValePromocion(1, "Este es un vale", "jose@gmail.com", true, null);
-		ValePromocion vale2= new ValePromocion(1, "Este es un vale", "jose@gmail.com", true, null);
-		ValeRegalo vale3= new ValeRegalo(1, "Este es un vale", "jose@gmail.com", true, null,null);
 		
-		Compra compra1 = new Compra(3, 8532247, null);
-		Compra compra2 = new Compra(67, 834547, null);
-		Compra compra3 = new Compra(98, 854744, null);
-		
-		
-		compra1.setVale(vale1);
-		vale1.setCompra(compra1);
-
-		compra2.setVale(vale3);
-		vale3.setCompra(compra2);
-		
-		compra3.setVale(vale2);
-		vale2.setCompra(compra3);
-		
-		session.save(compra1);
-		session.save(compra2);
-		session.save(compra3);
 		
 		
 		Usuario uss1 = new Usuario("pedro345", "123456", "pedrito", "Rodrigues" , "pedrRod@gmail.com" , null);
@@ -76,17 +56,7 @@ public class Main {
         
         session.save(uss3);
         session.save(urs4);
-        
-        
-        
-        
-        
-        
-		
-        
-        
-        
-        
+         
         Telefono tlf = new Telefono(1001,414,2484727);
 		Empresa empresa1 = new Empresa("Cines Unidos", "Cotiza", 5, tlf);
 		session.save(empresa1);
@@ -119,6 +89,8 @@ public class Main {
 		uss3.getTdcs().add(tdc3);
 		tdc3.setUsuario(uss3);
 		
+		
+		
 		session.save(tdc1);
 		session.save(tdc2);
 		session.save(tdc3);
@@ -138,9 +110,44 @@ public class Main {
 		session.save(uss1);
 		session.save(uss2);
 		session.save(uss3);
+		session.save(dp1);
+		session.save(dp2);
+		session.save(dp3);
 		
 		uss1.setDinProm(dp1);
 		dp1.setUsuario(uss1);
+		
+		ValePromocion vale1= new ValePromocion(1, "Este es un vale", "jose@gmail.com", true, null);
+		ValePromocion vale2= new ValePromocion(1, "Este es un vale", "jose@gmail.com", true, null);
+		ValeRegalo vale3= new ValeRegalo(1, "Este es un vale", "jose@gmail.com", true, null,null);
+		
+		Compra compra1 = new Compra(3, 8532247, null);
+		Compra compra2 = new Compra(67, 834547, null);
+		Compra compra3 = new Compra(98, 854744, null);
+		
+		compra1.setVale(vale1);
+		vale1.setCompra(compra1);
+
+		compra2.setVale(vale3);
+		vale3.setCompra(compra2);
+		
+		compra3.setVale(vale2);
+		vale2.setCompra(compra3);
+		
+		
+		compra1.setMetodoPagos(tdc1);
+		compra2.setMetodoPagos(tdc2);
+		compra3.setMetodoPagos(dp3);
+		
+		session.save(compra1);
+		session.save(compra2);
+		session.save(compra3);
+		tdc1.setCompra(compra1);
+		dp1.setCompra(compra1);
+		/*
+		session.save(tdc1);
+		session.save(dp1);
+		*/
 		
 		ciudad1.getPromociones().add(promo1);
 		ciudad1.getPromociones().add(promo2);
@@ -190,9 +197,6 @@ public class Main {
         uss1.getCategorias().add(cat1);
         uss2.getCategorias().add(cat1);
         uss3.getCategorias().add(cat1);
-        
-        
-        
         
         
 		session.getTransaction().commit();

@@ -10,7 +10,7 @@ Both Person and Employee model class are defined within one hbm file.-->
  
   <class name="MetodoPago" table="METODO_DE_PAGO">
         <id name="methodId" column="ID_METODO">
-            <generator class="native">
+            <generator class="increment">
         </generator></id>
  
 	<discriminator column="DISCRIMINATOR" type="string"/>
@@ -26,7 +26,7 @@ Both Person and Employee model class are defined within one hbm file.-->
 		</many-to-one>
         </subclass>
 	
-	<subclass name="DineroPromocion" extends="MetodoPago" discriminator-value="DP">
+	    <subclass name="DineroPromocion" extends="MetodoPago" discriminator-value="DP">
                 <property name="dineroVirtual" column="DINERO_VIRTUAL"/>      
                 <!--<one-to-one name="usuario" class="Usuario" constrained="true"/>-->
 		  		<many-to-one name="usuario" class="Usuario" column="login" unique="true"/>

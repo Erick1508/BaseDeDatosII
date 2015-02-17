@@ -1,18 +1,24 @@
 package clases;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Compra {
 
 	//id
 	//la foranea al vale de promocion
     private int codigo_de_vale;
+    //asociacion 1-1 con ValePromocion
     private ValePromocion vale;
     private ValeRegalo valeR;
     
 	private int cantidadPromocion;
     private int montoDeCompra;
     private Date fechaCompra;
+    
+    //asociacion 1-1..2 con metodo de pago
+    private MetodoPago metodoPagos;
         
     public Compra(int cantidadPromocion, int montoDeCompra, Date fechaCompra) {
 		this.cantidadPromocion = cantidadPromocion;
@@ -67,7 +73,14 @@ public class Compra {
 	public void setValeR(ValeRegalo valeR) {
 		this.valeR = valeR;
 	}
-    
+
+	public MetodoPago getMetodoPagos() {
+		return metodoPagos;
+	}
+
+	public void setMetodoPagos(MetodoPago metodoPagos) {
+		this.metodoPagos = metodoPagos;
+	}    
     
     
 }
