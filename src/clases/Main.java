@@ -267,9 +267,54 @@ public class Main {
 		*/
 		Main main = new Main();
 		
-		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		
-		ArrayList<Empresa> empresas = new ArrayList<Empresa>();
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		/*
+		 * DECLARACION DE VARIABLES PARA LLENAR LA BD 
+		 */
+		ArrayList<Empresa> empresas = new ArrayList<Empresa>();		
+		ArrayList<Categoria> categorias = new ArrayList<Categoria>();		
+		ArrayList<Subcategoria> subcategorias = new ArrayList<Subcategoria>();						
+		ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();			
+		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+		ArrayList<UsuarioRedSocial> usuariosRedSocials = new ArrayList<UsuarioRedSocial>();
+		ArrayList<TDC> tdcs = new ArrayList<TDC>();		
+		ArrayList<DineroPromocion> dinPromo = new ArrayList<DineroPromocion>();
+		/*
+		 * fin declaraciones 
+		 */
+		
+		/*GUARDANDO DATOS A INSERTAR*/
+		llenarArreglos(empresas, subcategorias, categorias, ciudades, usuarios,usuariosRedSocials,tdcs, dinPromo);
+		setearAmigos(usuarios);
+		setearRedesSocialesAUsuarios(usuarios, usuariosRedSocials);
+		setearTdcsAUsuarios(usuarios,tdcs);
+		setearDineroPromocionAUsuarios(usuarios, dinPromo);
+		setearSubcategoriasACategorias(subcategorias, categorias);
+		setearCategoriasUsuarios(usuarios, categorias);
+		
+		/*AGREGANDO DATOS*/
+		main.agregarEmpresas(empresas,sessionFactory);
+		main.agregarCategorias(categorias, sessionFactory);	
+		main.agregarSubcategorias(subcategorias, sessionFactory);		
+		main.agregarCiudades(ciudades, sessionFactory);
+		main.agregarUsuarios(usuarios, sessionFactory);
+		main.agregarRedesSocialesAUsuarios(usuarios, usuariosRedSocials, sessionFactory);
+		main.agregarTDCs(tdcs, sessionFactory);
+		main.agregarDinPromocion(dinPromo, sessionFactory);
+		
+
+		sessionFactory.close();
+	}
+	
+	
+	public static void llenarArreglos(ArrayList<Empresa> empresas,ArrayList<Subcategoria> subcategorias,
+									  ArrayList<Categoria> categorias,ArrayList<Ciudad> ciudades, ArrayList<Usuario> usuarios,
+									  ArrayList<UsuarioRedSocial> usuariosRedSocials, ArrayList<TDC> tdcs, 
+									  ArrayList<DineroPromocion> dinPromo){
+		/*
+		 * ARREGLO DE EMPRESAS
+		 * */
 		Telefono tlf1 = new Telefono(58, 239, 2487895);
 		Telefono tlf2 = new Telefono(56, 287, 8527493);
 		Telefono tlf3 = new Telefono(58, 212, 7842569);
@@ -281,15 +326,17 @@ public class Main {
 		empresas.add(new Empresa("Zara", "C.C. Grandes Tiendas, piso 2, local 15", 36, tlf4));
 		empresas.add(new Empresa("Aerolineas LissandraX", "Oficina central en calle 4 edifico Perez Perez piso 1", 22, tlf5));
 		
-		main.agregarEmpresas(empresas,sessionFactory);
-		
-		ArrayList<Categoria> categorias = new ArrayList<Categoria>();
+		/*
+		 * ARREGLO DE CATEGORIAS
+		 * */
 		categorias.add(new Categoria("Gastronomia y Bebidas", "Comida, postres, cocteles, y relacionados"));
 		categorias.add(new Categoria("Moda y Accesorios", "Todo lo que desees de vestimenta y accesorios"));
 		categorias.add(new Categoria("Eventos Sociales", "Reuniones programas entre personas de un rango social"));
 		categorias.add(new Categoria("Viajes", "Muchos destinos para disfrutar de tu tiempo libre"));
 		
-		ArrayList<Subcategoria> subcategorias = new ArrayList<Subcategoria>();
+		/*
+		 * ARREGLO DE SUBCATEGORIAS
+		 * */
 		subcategorias.add(new Subcategoria("Bares y Restaurantes", "Bienestar y tranquilidad a la hora de comer"));
 		subcategorias.add(new Subcategoria("Comida Rapida", "Una comida completa y en solo instantes"));
 		subcategorias.add(new Subcategoria("Conferencias", "Reuniones dirigidas a publico especifico de un area particular"));
@@ -299,38 +346,70 @@ public class Main {
 		subcategorias.add(new Subcategoria("Hoteles", "Habitaciones singulares, familiares en los mejores lugares"));
 		subcategorias.add(new Subcategoria("Parques Varios", "Los diferentes parques a nivel internacional"));
 		
-		main.agregarSubcategorias(subcategorias, categorias, sessionFactory);
-		
-		ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
+		/*
+		 * ARREGLO DE CIUDADES
+		 * */
 		ciudades.add(new Ciudad("Madrid", "Espana"));
 		ciudades.add(new Ciudad("Caracas", "Venezuela"));
 		ciudades.add(new Ciudad("Roma", "Italia"));
 		ciudades.add(new Ciudad("Lisboa", "Portugal"));
 		ciudades.add(new Ciudad("Bogota", "Colombia"));
 		
-		main.agregarCiudades(ciudades, sessionFactory);
+		/*
+		 * ARREGLO DE USUARIOS
+		 * */
+		usuarios.add(new Usuario("pedrito1", "pedro1789", "Pedro", "Perez", "pedro@gmail.com", new Date())); // 2 urs
+		usuarios.add(new Usuario("rosagerman2", "185rosa_", "Rosa", "German", "rosGerm@gmail.com", new Date())); // 3
+		usuarios.add(new Usuario("cBautista", "7c8b2ut", "Carlos", "Bautista", "bautistaC@gmail.com", new Date())); // 1
+		usuarios.add(new Usuario("martinezJose", "mjose164", "Jose", "Martinez", "josemart@gmail.com", new Date())); // 2
+		usuarios.add(new Usuario("homerSim", "simp50n", "Homero", "Simpson", "daug@gmail.com", new Date())); // 3
 		
-		// 
-		//no puedo agregar las tdcs sin los usuarios
-		//
+		/*
+		 * ARREGLO DE USUARIOS RED SOCIAL
+		 * */
+		//pedro
+		usuariosRedSocials.add(new UsuarioRedSocial("pedro56"));
+		usuariosRedSocials.add(new UsuarioRedSocial("@pedro5"));
+		//rosa
+		usuariosRedSocials.add(new UsuarioRedSocial("rosGer"));
+		usuariosRedSocials.add(new UsuarioRedSocial("@rositaG"));
+		usuariosRedSocials.add(new UsuarioRedSocial("rosa21"));
+		//bautista
+		usuariosRedSocials.add(new UsuarioRedSocial("@bautistaC12"));
+		//jose
+		usuariosRedSocials.add(new UsuarioRedSocial("@mart1"));
+		usuariosRedSocials.add(new UsuarioRedSocial("joseM"));
+		// homero
+		usuariosRedSocials.add(new UsuarioRedSocial("hsimp"));
+		usuariosRedSocials.add(new UsuarioRedSocial("@daugHomer"));
+		usuariosRedSocials.add(new UsuarioRedSocial("simpsonsHom"));
 		
-		ArrayList<TDC> tdcs = new ArrayList<TDC>();
+		/*
+		 * ARREGLO DE Tarjetas De Credito 
+		 * */
 		tdcs.add(new TDC(145878253, "BBVA", 354, "VISA"));
 		tdcs.add(new TDC(785214630, "Bicentenario", 278, "MASTER CARD"));
 		tdcs.add(new TDC(874145369, "Mercantil", 894, "VISA"));
 		tdcs.add(new TDC(147214523, "BOD", 145, "VISA"));
-		tdcs.add(new TDC(365874125, "Bancaribe", 214, "MASTER CARD"));
+		tdcs.add(new TDC(365874125, "Bancaribe", 214, "MASTER CARD"));		
+		tdcs.add(new TDC(854723624, "Mercantil", 778, "VISA"));
+		tdcs.add(new TDC(365339837, "BBVA", 325, "VISA"));
+		tdcs.add(new TDC(778142578, "Bicentenario", 134, "MASTER CARD"));
+		
 		/*
-		main.agregarTDCs(tdcs, sessionFactory);
-		*/
+		 * ARREGLO DE DINERO DE PROMOCION
+		 * */
+		dinPromo.add(new DineroPromocion(0));
+		dinPromo.add(new DineroPromocion(0));
+		dinPromo.add(new DineroPromocion(0));
+		dinPromo.add(new DineroPromocion(0));
+		dinPromo.add(new DineroPromocion(0));
+
 		
-		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-		usuarios.add(new Usuario("pedrito1", "pedro1789", "Pedro", "Perez", "pedro@gmail.com", new Date()));
-		usuarios.add(new Usuario("rosagerman2", "185rosa_", "Rosa", "German", "rosGerm@gmail.com", new Date()));
-		usuarios.add(new Usuario("cBautista", "7c8b2ut", "Carlos", "Bautista", "bautistaC@gmail.com", new Date()));
-		usuarios.add(new Usuario("martinezJose", "mjose164", "Jose", "Martinez", "josemart@gmail.com", new Date()));
-		usuarios.add(new Usuario("homerSim", "simp50n", "Homero", "Simpson", "daug@gmail.com", new Date()));
 		
+	}
+	
+	public static void setearAmigos(ArrayList<Usuario> usuarios){		
 		usuarios.get(0).getAmigos().add(usuarios.get(1));
 		usuarios.get(0).getAmigos().add(usuarios.get(2));
 		usuarios.get(0).getAmigos().add(usuarios.get(3));
@@ -340,13 +419,92 @@ public class Main {
 		usuarios.get(1).getAmigos().add(usuarios.get(4));
 		
 		usuarios.get(2).getAmigos().add(usuarios.get(4));
-		
-		main.agregarUsuarios(usuarios, sessionFactory);
-		
-		
-		sessionFactory.close();
 	}
 	
+	public static void setearRedesSocialesAUsuarios(ArrayList<Usuario> usuarios, ArrayList<UsuarioRedSocial> usuariosRedSocials){
+				
+		int tam = usuariosRedSocials.size();
+		int uss = 0;
+		for (int i=0; i<tam; i++){
+			if ((i == 2) || (i==5) || (i==6) || (i==8)){
+			uss+=1;
+			}
+			usuarios.get(uss).getURSocial().add(usuariosRedSocials.get(i));
+			usuariosRedSocials.get(i).setUsuario(usuarios.get(uss));
+						
+		}
+	}
+	
+	public static void setearTdcsAUsuarios(ArrayList<Usuario> usuarios, ArrayList<TDC> tdcs){
+		
+		int tam = tdcs.size(); //8tdcs
+		int uss = 1;
+		for (int i=0; i<tam; i++){
+			if ((i == 1) || (i==3) || (i==6) ){
+				uss+=1;
+			}
+			usuarios.get(uss).getTdcs().add(tdcs.get(i));
+			tdcs.get(i).setUsuario(usuarios.get(uss));
+						
+		}
+	}
+
+	public static void setearDineroPromocionAUsuarios(ArrayList<Usuario> usuarios, ArrayList<DineroPromocion> dinPromo){
+		
+		int tam = dinPromo.size(); //8tdcs
+		for (int i=0; i<tam; i++){			
+			usuarios.get(i).setDinProm(dinPromo.get(i));
+			dinPromo.get(i).setUsuario(usuarios.get(i));		
+		}
+	}
+	
+	public static void setearCategoriasUsuarios(ArrayList<Usuario> usuarios, ArrayList<Categoria> categorias){
+				
+		//usuario0
+		usuarios.get(0).getCategorias().add(categorias.get(0));
+		usuarios.get(0).getCategorias().add(categorias.get(1));
+		usuarios.get(0).getCategorias().add(categorias.get(3));		
+		/*categorias.get(0).getUsuarios().add(usuarios.get(0));
+		categorias.get(1).getUsuarios().add(usuarios.get(0));
+		categorias.get(3).getUsuarios().add(usuarios.get(0));
+		*/
+		//usuario1
+		usuarios.get(1).getCategorias().add(categorias.get(2));
+	//	categorias.get(2).getUsuarios().add(usuarios.get(1));
+		
+		//usuario2
+		usuarios.get(2).getCategorias().add(categorias.get(0));
+		usuarios.get(2).getCategorias().add(categorias.get(2));
+		/*categorias.get(0).getUsuarios().add(usuarios.get(2));
+		categorias.get(2).getUsuarios().add(usuarios.get(2));
+		*/
+		//usuario3
+		usuarios.get(3).getCategorias().add(categorias.get(1));
+		usuarios.get(3).getCategorias().add(categorias.get(2));
+		usuarios.get(3).getCategorias().add(categorias.get(3));
+		/*categorias.get(1).getUsuarios().add(usuarios.get(3));
+		categorias.get(2).getUsuarios().add(usuarios.get(3));
+		categorias.get(3).getUsuarios().add(usuarios.get(3));
+		*/
+		//usuario4
+		usuarios.get(4).getCategorias().add(categorias.get(0));
+		//categorias.get(0).getUsuarios().add(usuarios.get(4));
+
+	}
+
+	public static void setearSubcategoriasACategorias(ArrayList<Subcategoria> subcategorias, ArrayList<Categoria> categorias){
+		
+		int tam = subcategorias.size(); 
+		int cat = 0;
+		for (int i=0; i<tam; i++){			
+			if ((i % 2 == 0) && i>=1){
+				cat = cat+1;
+			}
+			categorias.get(cat).getSubcategorias().add(subcategorias.get(i));						
+			subcategorias.get(i).setCategoria(categorias.get(cat));						
+			
+		}
+	}
 	
 	public void agregarEmpresas(ArrayList<Empresa> empresas,SessionFactory sessionFactory){
 		Session session = sessionFactory.openSession();
@@ -362,24 +520,28 @@ public class Main {
 		session.close();
 
 	}
+	
+	public void agregarCategorias(ArrayList<Categoria> categorias, SessionFactory sessionFactory){
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
 		
-	public void agregarSubcategorias(ArrayList<Subcategoria> subcategorias,
-			                         ArrayList<Categoria> categorias, SessionFactory sessionFactory){
+		int tam = categorias.size(); 
+		for (int i=0; i<tam; i++){						
+		session.save(categorias.get(i));	
+		}
+		
+		session.getTransaction().commit();
+		session.close();
+		
+	}
+	
+	public void agregarSubcategorias(ArrayList<Subcategoria> subcategorias, SessionFactory sessionFactory){
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
 		int tam = subcategorias.size(); 
-		int cat = 0;
-		for (int i=0; i<tam; i++){			
-			if ((i % 2 == 0) && i>=1){
-				cat = cat+1;
-			}
-			categorias.get(cat).getSubcategorias().add(subcategorias.get(i));			
-			session.save(categorias.get(cat));
-			subcategorias.get(i).setCategoria(categorias.get(cat));
+		for (int i=0; i<tam; i++){						
 			session.save(subcategorias.get(i));	
-			
-			
 		}
 		
 		session.getTransaction().commit();
@@ -416,6 +578,22 @@ public class Main {
 		session.close();
 
 	}
+		
+	public void agregarRedesSocialesAUsuarios(ArrayList<Usuario> usuarios, ArrayList<UsuarioRedSocial> usuariosRedSocials,
+											  SessionFactory sessionFactory){
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		int tam = usuariosRedSocials.size();
+		for (int i=0; i<tam; i++){			
+			session.save(usuariosRedSocials.get(i));					
+		}
+		
+		session.getTransaction().commit();
+		session.close();
+
+	}
+	
 	
 	public void agregarTDCs(ArrayList<TDC> tdcs,SessionFactory sessionFactory){
 		Session session = sessionFactory.openSession();
@@ -424,6 +602,21 @@ public class Main {
 		int tam = tdcs.size();
 		for (int i=0; i<tam; i++){
 			session.save(tdcs.get(i));
+			//System.out.println("Empresa = \n"+empresas.get(i).getNombreEmpresa());			
+		}
+		
+		session.getTransaction().commit();
+		session.close();
+
+	}
+	
+	public void agregarDinPromocion(ArrayList<DineroPromocion> dinPromo,SessionFactory sessionFactory){
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		int tam = dinPromo.size();
+		for (int i=0; i<tam; i++){
+			session.save(dinPromo.get(i));
 			//System.out.println("Empresa = \n"+empresas.get(i).getNombreEmpresa());			
 		}
 		
