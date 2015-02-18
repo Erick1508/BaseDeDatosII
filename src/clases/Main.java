@@ -281,13 +281,20 @@ public class Main {
 		ArrayList<TDC> tdcs = new ArrayList<TDC>();		
 		ArrayList<DineroPromocion> dinPromo = new ArrayList<DineroPromocion>();
 		ArrayList<Promocion> promociones = new ArrayList<Promocion>();
+		ArrayList<FechaAsociada> fechasAsoc = new ArrayList<FechaAsociada>();
+		
+		ArrayList<Compra> compras = new ArrayList<Compra>();
+		ArrayList<ValePromocion> valesPromos = new ArrayList<ValePromocion>();
+		ArrayList<ValeRegalo> valesRegalos = new ArrayList<ValeRegalo>();
 		
 		//
 		// fin declaraciones 
 		//
 		
 		//GUARDANDO DATOS A INSERTAR
-		llenarArreglos(empresas, subcategorias, categorias, ciudades, usuarios,usuariosRedSocials,tdcs, dinPromo, promociones);
+		llenarArreglos(empresas, subcategorias, categorias, ciudades, usuarios,
+				  	   usuariosRedSocials,tdcs, dinPromo, promociones, compras,
+				  	   valesPromos, valesRegalos,fechasAsoc);
 		setearAmigos(usuarios);
 		setearRedesSocialesAUsuarios(usuarios, usuariosRedSocials);
 		setearTdcsAUsuarios(usuarios,tdcs);
@@ -298,6 +305,7 @@ public class Main {
 		setearEmpresasAPromociones(empresas, promociones);
 		setearSubcategoriasAPromociones(subcategorias, promociones);
 		setearCiudadAPromociones(promociones, ciudades);
+		setearFechasAPromociones(fechasAsoc, promociones);
 		
 		//AGREGANDO DATOS
 		main.agregarEmpresas(empresas,sessionFactory);
@@ -305,20 +313,24 @@ public class Main {
 		main.agregarSubcategorias(subcategorias, sessionFactory);		
 		main.agregarCiudades(ciudades, sessionFactory);
 		main.agregarUsuarios(usuarios, sessionFactory);
-		main.agregarRedesSocialesAUsuarios(usuarios, usuariosRedSocials, sessionFactory);
+		main.agregarRedesSocialesAUsuarios(usuariosRedSocials, sessionFactory);
 		main.agregarTDCs(tdcs, sessionFactory);
-		main.agregarDinPromocion(dinPromo, sessionFactory);
-		
+		main.agregarDinPromocion(dinPromo, sessionFactory);		
 		main.agregarPromocion(promociones, sessionFactory);	
+		main.agregarFechasAsocAPromociones(fechasAsoc, sessionFactory);
 
 		sessionFactory.close();
 	}
 	
 	
+	@SuppressWarnings("deprecation")
 	public static void llenarArreglos(ArrayList<Empresa> empresas,ArrayList<Subcategoria> subcategorias,
 									  ArrayList<Categoria> categorias,ArrayList<Ciudad> ciudades, ArrayList<Usuario> usuarios,
 									  ArrayList<UsuarioRedSocial> usuariosRedSocials, ArrayList<TDC> tdcs, 
-									  ArrayList<DineroPromocion> dinPromo, ArrayList<Promocion> promociones){
+									  ArrayList<DineroPromocion> dinPromo, ArrayList<Promocion> promociones,
+									  ArrayList<Compra> compras, ArrayList<ValePromocion> valesPromos,
+									  ArrayList<ValeRegalo> valesRegalos, ArrayList<FechaAsociada> fechasAsoc){
+					
 		/*
 		 * ARREGLO DE EMPRESAS
 		 * */
@@ -328,10 +340,10 @@ public class Main {
 		Telefono tlf4 = new Telefono(33, 874, 1036987);
 		Telefono tlf5 = new Telefono(31, 342, 0142043);
 		empresas.add(new Empresa("La Espetada C.A.", "Carretera Charallave Cua Km 5", 18, tlf1));
-		empresas.add(new Empresa("Hermanos a la casta", "Avenida Valencia con Calle san Jose", 14, tlf2));
-		empresas.add(new Empresa("AGUI C.A.", "Edificio Carlo Andres, calle 12 con avenida Miranda", 28, tlf3));
+		empresas.add(new Empresa("AGUI C.A.", "Edificio Carlo Andres, calle 12 con avenida Miranda", 28, tlf3));				
 		empresas.add(new Empresa("Zara", "C.C. Grandes Tiendas, piso 2, local 15", 36, tlf4));
 		empresas.add(new Empresa("Aerolineas LissandraX", "Oficina central en calle 4 edifico Perez Perez piso 1", 22, tlf5));
+		empresas.add(new Empresa("Hermanos a la casta", "Avenida Valencia con Calle san Jose", 14, tlf2));
 		
 		/*
 		 * ARREGLO DE CATEGORIAS
@@ -427,25 +439,52 @@ public class Main {
 		UbicacionGeografica ubgeo10 = new UbicacionGeografica(9.4, 76.5, 82.9);
 		
 		/*
+		 * ARREGLO DE FECVHASASOC
+		 * */
+		// a~no, mes 0-11, dia, hora, minutos, segundos		
+		//@SuppressWarnings("deprecation")
+		
+		//promo1 y 2
+		fechasAsoc.add(new FechaAsociada(new Date(115, 2, 16, 23, 59, 0)));
+		fechasAsoc.add(new FechaAsociada(new Date(115, 3, 20, 23, 59, 0)));
+		
+		//promo3
+		fechasAsoc.add(new FechaAsociada(new Date(115, 8, 15, 23, 59, 0)));
+		fechasAsoc.add(new FechaAsociada(new Date(115, 8, 16, 23, 59, 0)));
+		fechasAsoc.add(new FechaAsociada(new Date(115, 8, 17, 23, 59, 0)));
+		fechasAsoc.add(new FechaAsociada(new Date(115, 8, 18, 19, 0, 0)));
+		
+		//promo4
+		fechasAsoc.add(new FechaAsociada(new Date(115, 5, 13, 23, 59, 0)));
+		fechasAsoc.add(new FechaAsociada(new Date(115, 5, 15, 23, 59, 0)));
+		
+		//las demas
+		fechasAsoc.add(new FechaAsociada(new Date(115,6,5,20,0,0)));
+		fechasAsoc.add(new FechaAsociada(new Date(115,2,27,17,0,0)));
+		fechasAsoc.add(new FechaAsociada(new Date(115,11,1,23,59,0)));
+		fechasAsoc.add(new FechaAsociada(new Date(115,7,31,18,0,0)));
+		fechasAsoc.add(new FechaAsociada(new Date(115,3,15,23,59,0)));
+		fechasAsoc.add(new FechaAsociada(new Date(115,4,1,23,59,0)));
+		
+		/*
 		 * ARREGLO DE PROMOCIONES
-		 * */		
-		promociones.add(new Promocion("promo1", 5280, 3800.50, "www.laespetada.com/promo", new Date(), ubgeo1));
-		promociones.add(new Promocion("promo2", 3590, 2999.99, "www.laespetada.com/promo", new Date(), ubgeo2));
+		 * */
+		promociones.add(new Promocion("promo1", 5280, 3800.50, "www.laespetada.com/promo", new Date(115, 2, 16, 23, 59, 23), ubgeo1));
+		promociones.add(new Promocion("promo2", 3590, 2999.99, "www.laespetada.com/promo", new Date(115, 3, 20, 23, 59, 0), ubgeo2));
 		
-		promociones.add(new Promocion("promo3", 6210, 4800.90, "www.hnoscasta.org", new Date(), ubgeo3));
-		promociones.add(new Promocion("promo4", 9000, 4500, "www.hnoscasta.org", new Date(), ubgeo4));
+		// AGREGAR FECHAS ASOCIADAS 4 AL PROMO 3 Y 2 AL PROMO 4
+		promociones.add(new Promocion("promo3", 6210, 4800.90, "www.aguieventos.co.ve", new Date(115, 8, 18, 19, 0, 0), ubgeo3));
+		promociones.add(new Promocion("promo4", 9000, 4500, "www.aguieventos.co.ve", new Date(115, 5, 15, 23, 59, 0), ubgeo4));
 		
-		promociones.add(new Promocion("promo5", 2500, 1100.20, "www.aguieventos.co.ve", new Date(), ubgeo5));
-		promociones.add(new Promocion("promo6", 1500, 799.99, "www.aguieventos.co.ve", new Date(), ubgeo6));
+		promociones.add(new Promocion("promo5", 2500, 1100.20, "zara.jimbo.com/descuentos", new Date(115,6,5,20,0,0), ubgeo5));
+		promociones.add(new Promocion("promo6", 1500, 799.99, "zara.jimbo.com/descuentos", new Date(115,2,27,17,0,0), ubgeo6));
 		
-		promociones.add(new Promocion("promo7", 3640, 2420.36, "zara.jimbo.com/descuentos", new Date(), ubgeo7));
-		promociones.add(new Promocion("promo8", 2340, 1799.40, "zara.jimbo.com/descuentos", new Date(), ubgeo8));
+		promociones.add(new Promocion("promo7", 3640, 2420.36, "lisandrax-airlines.com", new Date(115,11,1,23,59,0), ubgeo7));
+		promociones.add(new Promocion("promo8", 2340, 1799.40, "lisandrax-airlines.com", new Date(115,7,31,18,0,0), ubgeo8));
 		
-		promociones.add(new Promocion("promo9", 3150.35, 2499.49, "lisandrax-airlines.com", new Date(), ubgeo9));
-		promociones.add(new Promocion("promo10", 4320, 3600.89, "lisandrax-airlines.com", new Date(), ubgeo10));
-		
+		promociones.add(new Promocion("promo9", 3150.35, 2499.49, "www.hnoscasta.org", new Date(115,3,15,23,59,0), ubgeo9));
+		promociones.add(new Promocion("promo10", 4320, 3600.89, "www.hnoscasta.org", new Date(115,4,1,23,59,0), ubgeo10));
 
-		
 		
 	}
 	
@@ -624,6 +663,25 @@ public class Main {
 	}
 	/*METODOS MARCADOS CON ** ES PORQUE REQUEIREN AGREGARLE A LOS OBJETOS DESPUES DE SER INSERTADOS EN LA BD*/
 	
+	public static void setearFechasAPromociones(ArrayList<FechaAsociada> fechasAsoc, ArrayList<Promocion> promociones){
+		
+		int tam = fechasAsoc.size(); //8tdcs
+		int prom = 0;
+		for (int i=0; i<tam; i++){
+			
+			
+			fechasAsoc.get(i).setPromocion(promociones.get(prom));
+			promociones.get(prom).getFechasAsociadas().add(fechasAsoc.get(i));
+			if (i >= 2 && i<=4){
+				prom--;
+			}
+			if (i==6){
+				prom = 2;
+			}
+			prom++;
+		}
+	}
+	
 	public void agregarEmpresas(ArrayList<Empresa> empresas,SessionFactory sessionFactory){
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
@@ -697,7 +755,7 @@ public class Main {
 
 	}
 		
-	public void agregarRedesSocialesAUsuarios(ArrayList<Usuario> usuarios, ArrayList<UsuarioRedSocial> usuariosRedSocials,
+	public void agregarRedesSocialesAUsuarios(ArrayList<UsuarioRedSocial> usuariosRedSocials,
 											  SessionFactory sessionFactory){
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
@@ -740,6 +798,20 @@ public class Main {
 		session.getTransaction().commit();
 		session.close();
 
+	}
+	
+	public void agregarFechasAsocAPromociones(ArrayList<FechaAsociada> fechasAsoc, SessionFactory sessionFactory){
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		int tam = fechasAsoc.size();
+		for (int i=0; i<tam; i++){			
+			session.save(fechasAsoc.get(i));					
+		}
+		
+		session.getTransaction().commit();
+		session.close();
+	
 	}
 	public void agregarPromocion(ArrayList<Promocion> promociones,SessionFactory sessionFactory){
 		Session session = sessionFactory.openSession();
