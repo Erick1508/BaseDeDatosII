@@ -297,6 +297,7 @@ public class Main {
 		setearCiudadAUsuarios(usuarios, ciudades);
 		setearEmpresasAPromociones(empresas, promociones);
 		setearSubcategoriasAPromociones(subcategorias, promociones);
+		setearCiudadAPromociones(promociones, ciudades);
 		
 		//AGREGANDO DATOS
 		main.agregarEmpresas(empresas,sessionFactory);
@@ -497,7 +498,7 @@ public class Main {
 		}
 	}
 	
-	public static void setearCategoriasUsuarios(ArrayList<Usuario> usuarios, ArrayList<Categoria> categorias){
+	/****/public static void setearCategoriasUsuarios(ArrayList<Usuario> usuarios, ArrayList<Categoria> categorias){
 				
 		//usuario0
 		usuarios.get(0).getCategorias().add(categorias.get(0));
@@ -545,31 +546,37 @@ public class Main {
 		}
 	}
 	
-	public static void setearCiudadAUsuarios(ArrayList<Usuario> usuarios, ArrayList<Ciudad> ciudades){
+	/****/public static void setearCiudadAUsuarios(ArrayList<Usuario> usuarios, ArrayList<Ciudad> ciudades){
 		
 		//usuario0
 		usuarios.get(0).getCiudades().add(ciudades.get(0));
 		usuarios.get(0).getCiudades().add(ciudades.get(1));
+		//ciudades.get(0).getUsuarios().add(usuarios.get(0));
+		//ciudades.get(1).getUsuarios().add(usuarios.get(0));
 		
 		//usuario1
 		usuarios.get(1).getCiudades().add(ciudades.get(1));
 		usuarios.get(1).getCiudades().add(ciudades.get(2));
+		//ciudades.get(1).getUsuarios().add(usuarios.get(1));
+		//ciudades.get(2).getUsuarios().add(usuarios.get(1));
 		
 		//usuario2
 		usuarios.get(2).getCiudades().add(ciudades.get(2));
 		usuarios.get(2).getCiudades().add(ciudades.get(3));
+		//ciudades.get(2).getUsuarios().add(usuarios.get(2));
+		//ciudades.get(3).getUsuarios().add(usuarios.get(2));
 		
 		//usuario3
 		usuarios.get(3).getCiudades().add(ciudades.get(3));
 		usuarios.get(3).getCiudades().add(ciudades.get(4));
-		
+		//ciudades.get(3).getUsuarios().add(usuarios.get(3));
+		//ciudades.get(4).getUsuarios().add(usuarios.get(3));
+				
 		//usuario4
 		usuarios.get(4).getCiudades().add(ciudades.get(4));
 		usuarios.get(4).getCiudades().add(ciudades.get(0));
-		
-		/*categorias.get(0).getUsuarios().add(usuarios.get(0));
-		categorias.get(1).getUsuarios().add(usuarios.get(0));
-		*/
+		//ciudades.get(4).getUsuarios().add(usuarios.get(4));
+		//ciudades.get(0).getUsuarios().add(usuarios.get(4));
 
 	}
 	
@@ -587,7 +594,6 @@ public class Main {
 			
 		}
 	}
-	
 	public static void setearEmpresasAPromociones(ArrayList<Empresa> empresas, ArrayList<Promocion> promociones){
 		
 		int tam = promociones.size(); 
@@ -601,6 +607,22 @@ public class Main {
 		}
 	}
 	
+	/****/public static void setearCiudadAPromociones(ArrayList<Promocion> promociones, ArrayList<Ciudad> ciudades){
+		
+		//SEGUN ESTO CADA PROMOCION TIENE 2 CIUDADES
+		int tam=promociones.size();
+		int maxciudades=ciudades.size();
+		for (int i=0;i<tam;i++){
+			
+			promociones.get(i).getCiudades().add(ciudades.get(i % maxciudades));
+			promociones.get(i).getCiudades().add(ciudades.get((i+1) % maxciudades));
+			//promociones.get(i).getCiudades().add(ciudades.get((i+2) % maxciudades));
+		}
+		
+		
+
+	}
+	/*METODOS MARCADOS CON ** ES PORQUE REQUEIREN AGREGARLE A LOS OBJETOS DESPUES DE SER INSERTADOS EN LA BD*/
 	
 	public void agregarEmpresas(ArrayList<Empresa> empresas,SessionFactory sessionFactory){
 		Session session = sessionFactory.openSession();
@@ -719,7 +741,6 @@ public class Main {
 		session.close();
 
 	}
-
 	public void agregarPromocion(ArrayList<Promocion> promociones,SessionFactory sessionFactory){
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
