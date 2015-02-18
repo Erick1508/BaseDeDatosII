@@ -292,6 +292,7 @@ public class Main {
 		setearDineroPromocionAUsuarios(usuarios, dinPromo);
 		setearSubcategoriasACategorias(subcategorias, categorias);
 		setearCategoriasUsuarios(usuarios, categorias);
+		setearCiudadAUsuarios(usuarios, ciudades);
 		
 		/*AGREGANDO DATOS*/
 		main.agregarEmpresas(empresas,sessionFactory);
@@ -505,6 +506,35 @@ public class Main {
 			
 		}
 	}
+	
+	public static void setearCiudadAUsuarios(ArrayList<Usuario> usuarios, ArrayList<Ciudad> ciudades){
+		
+		//usuario0
+		usuarios.get(0).getCiudades().add(ciudades.get(0));
+		usuarios.get(0).getCiudades().add(ciudades.get(1));
+		
+		//usuario1
+		usuarios.get(1).getCiudades().add(ciudades.get(1));
+		usuarios.get(1).getCiudades().add(ciudades.get(2));
+		
+		//usuario2
+		usuarios.get(2).getCiudades().add(ciudades.get(2));
+		usuarios.get(2).getCiudades().add(ciudades.get(3));
+		
+		//usuario3
+		usuarios.get(3).getCiudades().add(ciudades.get(3));
+		usuarios.get(3).getCiudades().add(ciudades.get(4));
+		
+		//usuario4
+		usuarios.get(4).getCiudades().add(ciudades.get(4));
+		usuarios.get(4).getCiudades().add(ciudades.get(0));
+		
+		/*categorias.get(0).getUsuarios().add(usuarios.get(0));
+		categorias.get(1).getUsuarios().add(usuarios.get(0));
+		*/
+
+	}
+	
 	
 	public void agregarEmpresas(ArrayList<Empresa> empresas,SessionFactory sessionFactory){
 		Session session = sessionFactory.openSession();
