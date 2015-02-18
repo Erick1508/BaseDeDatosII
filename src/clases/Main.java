@@ -269,9 +269,9 @@ public class Main {
 		
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-		/*
-		 * DECLARACION DE VARIABLES PARA LLENAR LA BD 
-		 */
+		//
+		// DECLARACION DE VARIABLES PARA LLENAR LA BD 
+		//
 		ArrayList<Empresa> empresas = new ArrayList<Empresa>();		
 		ArrayList<Categoria> categorias = new ArrayList<Categoria>();		
 		ArrayList<Subcategoria> subcategorias = new ArrayList<Subcategoria>();						
@@ -280,12 +280,14 @@ public class Main {
 		ArrayList<UsuarioRedSocial> usuariosRedSocials = new ArrayList<UsuarioRedSocial>();
 		ArrayList<TDC> tdcs = new ArrayList<TDC>();		
 		ArrayList<DineroPromocion> dinPromo = new ArrayList<DineroPromocion>();
-		/*
-		 * fin declaraciones 
-		 */
+		ArrayList<Promocion> promociones = new ArrayList<Promocion>();
 		
-		/*GUARDANDO DATOS A INSERTAR*/
-		llenarArreglos(empresas, subcategorias, categorias, ciudades, usuarios,usuariosRedSocials,tdcs, dinPromo);
+		//
+		// fin declaraciones 
+		//
+		
+		//GUARDANDO DATOS A INSERTAR
+		llenarArreglos(empresas, subcategorias, categorias, ciudades, usuarios,usuariosRedSocials,tdcs, dinPromo, promociones);
 		setearAmigos(usuarios);
 		setearRedesSocialesAUsuarios(usuarios, usuariosRedSocials);
 		setearTdcsAUsuarios(usuarios,tdcs);
@@ -293,8 +295,10 @@ public class Main {
 		setearSubcategoriasACategorias(subcategorias, categorias);
 		setearCategoriasUsuarios(usuarios, categorias);
 		setearCiudadAUsuarios(usuarios, ciudades);
+		setearEmpresasAPromociones(empresas, promociones);
+		setearSubcategoriasAPromociones(subcategorias, promociones);
 		
-		/*AGREGANDO DATOS*/
+		//AGREGANDO DATOS
 		main.agregarEmpresas(empresas,sessionFactory);
 		main.agregarCategorias(categorias, sessionFactory);	
 		main.agregarSubcategorias(subcategorias, sessionFactory);		
@@ -304,6 +308,7 @@ public class Main {
 		main.agregarTDCs(tdcs, sessionFactory);
 		main.agregarDinPromocion(dinPromo, sessionFactory);
 		
+		main.agregarPromocion(promociones, sessionFactory);	
 
 		sessionFactory.close();
 	}
@@ -312,7 +317,7 @@ public class Main {
 	public static void llenarArreglos(ArrayList<Empresa> empresas,ArrayList<Subcategoria> subcategorias,
 									  ArrayList<Categoria> categorias,ArrayList<Ciudad> ciudades, ArrayList<Usuario> usuarios,
 									  ArrayList<UsuarioRedSocial> usuariosRedSocials, ArrayList<TDC> tdcs, 
-									  ArrayList<DineroPromocion> dinPromo){
+									  ArrayList<DineroPromocion> dinPromo, ArrayList<Promocion> promociones){
 		/*
 		 * ARREGLO DE EMPRESAS
 		 * */
@@ -405,6 +410,39 @@ public class Main {
 		dinPromo.add(new DineroPromocion(0));
 		dinPromo.add(new DineroPromocion(0));
 		dinPromo.add(new DineroPromocion(0));
+		
+		/*
+		 * Ubicaciones Geograficas de las promociones
+		 * */
+		UbicacionGeografica ubgeo1 = new UbicacionGeografica(78.5, 47, 12.3);
+		UbicacionGeografica ubgeo2 = new UbicacionGeografica(18.5, 85.1, 17.9);
+		UbicacionGeografica ubgeo3 = new UbicacionGeografica(23.7, 51.2, 19.8);
+		UbicacionGeografica ubgeo4 = new UbicacionGeografica(35.5, 96, 65.6);
+		UbicacionGeografica ubgeo5 = new UbicacionGeografica(41.1, 40.5, 42.6);
+		UbicacionGeografica ubgeo6 = new UbicacionGeografica(68.2, 47, 12.3);
+		UbicacionGeografica ubgeo7 = new UbicacionGeografica(17.4, 58.7, 92.3);
+		UbicacionGeografica ubgeo8 = new UbicacionGeografica(77.7, 7, 11.6);
+		UbicacionGeografica ubgeo9 = new UbicacionGeografica(28.5, 37.8, 52.4);
+		UbicacionGeografica ubgeo10 = new UbicacionGeografica(9.4, 76.5, 82.9);
+		
+		/*
+		 * ARREGLO DE PROMOCIONES
+		 * */		
+		promociones.add(new Promocion("promo1", 5280, 3800.50, "www.laespetada.com/promo", new Date(), ubgeo1));
+		promociones.add(new Promocion("promo2", 3590, 2999.99, "www.laespetada.com/promo", new Date(), ubgeo2));
+		
+		promociones.add(new Promocion("promo3", 6210, 4800.90, "www.hnoscasta.org", new Date(), ubgeo3));
+		promociones.add(new Promocion("promo4", 9000, 4500, "www.hnoscasta.org", new Date(), ubgeo4));
+		
+		promociones.add(new Promocion("promo5", 2500, 1100.20, "www.aguieventos.co.ve", new Date(), ubgeo5));
+		promociones.add(new Promocion("promo6", 1500, 799.99, "www.aguieventos.co.ve", new Date(), ubgeo6));
+		
+		promociones.add(new Promocion("promo7", 3640, 2420.36, "zara.jimbo.com/descuentos", new Date(), ubgeo7));
+		promociones.add(new Promocion("promo8", 2340, 1799.40, "zara.jimbo.com/descuentos", new Date(), ubgeo8));
+		
+		promociones.add(new Promocion("promo9", 3150.35, 2499.49, "lisandrax-airlines.com", new Date(), ubgeo9));
+		promociones.add(new Promocion("promo10", 4320, 3600.89, "lisandrax-airlines.com", new Date(), ubgeo10));
+		
 
 		
 		
@@ -535,6 +573,34 @@ public class Main {
 
 	}
 	
+	public static void setearSubcategoriasAPromociones(ArrayList<Subcategoria> subcategorias, ArrayList<Promocion> promociones){
+		
+		int tam = promociones.size(); 
+		int cat = 0;
+		for (int i=0; i<tam; i++){			
+			if (i == 8){
+				cat = 0;
+			}
+			promociones.get(i).setSubcategoria(subcategorias.get(cat));	
+			subcategorias.get(cat).getPromociones().add(promociones.get(i));
+			cat++;
+			
+		}
+	}
+	
+	public static void setearEmpresasAPromociones(ArrayList<Empresa> empresas, ArrayList<Promocion> promociones){
+		
+		int tam = promociones.size(); 
+		int cat = 0;
+		for (int i=0; i<tam; i++){			
+			if (i==2 || i==4 || i==6 || i==8){
+				cat = cat+1;
+			}					
+			empresas.get(cat).getPromociones().add(promociones.get(i));
+			promociones.get(i).setEmpresa(empresas.get(cat));
+		}
+	}
+	
 	
 	public void agregarEmpresas(ArrayList<Empresa> empresas,SessionFactory sessionFactory){
 		Session session = sessionFactory.openSession();
@@ -624,7 +690,6 @@ public class Main {
 
 	}
 	
-	
 	public void agregarTDCs(ArrayList<TDC> tdcs,SessionFactory sessionFactory){
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
@@ -655,4 +720,18 @@ public class Main {
 
 	}
 
+	public void agregarPromocion(ArrayList<Promocion> promociones,SessionFactory sessionFactory){
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		int tam = promociones.size();
+		for (int i=0; i<tam; i++){
+			session.save(promociones.get(i));
+			//System.out.println("Empresa = \n"+empresas.get(i).getNombreEmpresa());			
+		}
+		
+		session.getTransaction().commit();
+		session.close();
+
+	}
 }

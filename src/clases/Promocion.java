@@ -9,8 +9,8 @@ public class Promocion{
 	
 	private int promocion_id;
 	private String descripcionPromocion;
-	private int monto_original;
-	private int monto_ofertado;
+	private double monto_original;
+	private double monto_ofertado;
 	private String URL_detalles;
 	private Date periodo_vigencia;
 	
@@ -34,8 +34,8 @@ public class Promocion{
 	
 	public Promocion(){};
 	
-	public Promocion(String descripcionPromocion, int monto_original,
-			int monto_ofertado, String uRL_detalles, Date periodo_vigencia, UbicacionGeografica ubgeo) {
+	public Promocion(String descripcionPromocion, double monto_original,
+			double monto_ofertado, String uRL_detalles, Date periodo_vigencia, UbicacionGeografica ubgeo) {
 		this.descripcionPromocion = descripcionPromocion;
 		this.monto_original = monto_original;
 		this.monto_ofertado = monto_ofertado;
@@ -68,19 +68,19 @@ public class Promocion{
 		this.descripcionPromocion = descripcionPromocion;
 	}
 
-	public int getMonto_original() {
+	public double getMonto_original() {
 		return monto_original;
 	}
 
-	public void setMonto_original(int monto_original) {
+	public void setMonto_original(double monto_original) {
 		this.monto_original = monto_original;
 	}
 
-	public int getMonto_ofertado() {
+	public double getMonto_ofertado() {
 		return monto_ofertado;
 	}
 
-	public void setMonto_ofertado(int monto_ofertado) {
+	public void setMonto_ofertado(double monto_ofertado) {
 		this.monto_ofertado = monto_ofertado;
 	}
 

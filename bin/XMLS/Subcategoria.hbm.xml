@@ -8,7 +8,7 @@
     <class name="Subcategoria" table="SUBCATEGORIA">
         <id name="subcat_id">
          <column name="SUBCAT_ID" not-null="true"/> 
-        	<generator class="native">
+        	<generator class="identity">
 	</generator></id>
     
  	<property name="nombreSubCat" column="NOMBRE_SUB_CAT"/>
@@ -24,7 +24,7 @@
  
 	<set name="promociones" table="PROMOCION" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="promocion_id" not-null="true"/>
+                <column name="subcat_id" not-null="true"/>
             </key>
             <one-to-many class="Promocion"></one-to-many>
         </set>
