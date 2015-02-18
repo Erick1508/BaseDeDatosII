@@ -306,6 +306,7 @@ public class Main {
 		setearSubcategoriasAPromociones(subcategorias, promociones);
 		setearCiudadAPromociones(promociones, ciudades);
 		setearFechasAPromociones(fechasAsoc, promociones);
+		setearValesConCompras(valesPromos, valesRegalos, compras);
 		
 		//AGREGANDO DATOS
 		main.agregarEmpresas(empresas,sessionFactory);
@@ -318,7 +319,9 @@ public class Main {
 		main.agregarDinPromocion(dinPromo, sessionFactory);		
 		main.agregarPromocion(promociones, sessionFactory);	
 		main.agregarFechasAsocAPromociones(fechasAsoc, sessionFactory);
-
+		
+		main.agregarVales(valesPromos, valesRegalos, sessionFactory);
+		//main.agregarCompras(compras, sessionFactory);
 		sessionFactory.close();
 	}
 	
@@ -441,23 +444,17 @@ public class Main {
 		/*
 		 * ARREGLO DE FECVHASASOC
 		 * */
-		// a~no, mes 0-11, dia, hora, minutos, segundos		
-		//@SuppressWarnings("deprecation")
-		
 		//promo1 y 2
 		fechasAsoc.add(new FechaAsociada(new Date(115, 2, 16, 23, 59, 0)));
 		fechasAsoc.add(new FechaAsociada(new Date(115, 3, 20, 23, 59, 0)));
-		
 		//promo3
 		fechasAsoc.add(new FechaAsociada(new Date(115, 8, 15, 23, 59, 0)));
 		fechasAsoc.add(new FechaAsociada(new Date(115, 8, 16, 23, 59, 0)));
 		fechasAsoc.add(new FechaAsociada(new Date(115, 8, 17, 23, 59, 0)));
 		fechasAsoc.add(new FechaAsociada(new Date(115, 8, 18, 19, 0, 0)));
-		
 		//promo4
 		fechasAsoc.add(new FechaAsociada(new Date(115, 5, 13, 23, 59, 0)));
 		fechasAsoc.add(new FechaAsociada(new Date(115, 5, 15, 23, 59, 0)));
-		
 		//las demas
 		fechasAsoc.add(new FechaAsociada(new Date(115,6,5,20,0,0)));
 		fechasAsoc.add(new FechaAsociada(new Date(115,2,27,17,0,0)));
@@ -471,20 +468,58 @@ public class Main {
 		 * */
 		promociones.add(new Promocion("promo1", 5280, 3800.50, "www.laespetada.com/promo", new Date(115, 2, 16, 23, 59, 23), ubgeo1));
 		promociones.add(new Promocion("promo2", 3590, 2999.99, "www.laespetada.com/promo", new Date(115, 3, 20, 23, 59, 0), ubgeo2));
-		
 		// AGREGAR FECHAS ASOCIADAS 4 AL PROMO 3 Y 2 AL PROMO 4
 		promociones.add(new Promocion("promo3", 6210, 4800.90, "www.aguieventos.co.ve", new Date(115, 8, 18, 19, 0, 0), ubgeo3));
 		promociones.add(new Promocion("promo4", 9000, 4500, "www.aguieventos.co.ve", new Date(115, 5, 15, 23, 59, 0), ubgeo4));
-		
 		promociones.add(new Promocion("promo5", 2500, 1100.20, "zara.jimbo.com/descuentos", new Date(115,6,5,20,0,0), ubgeo5));
-		promociones.add(new Promocion("promo6", 1500, 799.99, "zara.jimbo.com/descuentos", new Date(115,2,27,17,0,0), ubgeo6));
-		
-		promociones.add(new Promocion("promo7", 3640, 2420.36, "lisandrax-airlines.com", new Date(115,11,1,23,59,0), ubgeo7));
-		promociones.add(new Promocion("promo8", 2340, 1799.40, "lisandrax-airlines.com", new Date(115,7,31,18,0,0), ubgeo8));
-		
-		promociones.add(new Promocion("promo9", 3150.35, 2499.49, "www.hnoscasta.org", new Date(115,3,15,23,59,0), ubgeo9));
+		promociones.add(new Promocion("promo6", 1500, 799.99, "zara.jimbo.com/descuentos", new Date(115,2,27,17,0,0), ubgeo6));		
+		promociones.add(new Promocion("promo7", 3640, 2420.36, "lisandrax-airlines.com", new Date(115,11,1,23,59,0), ubgeo7));		
+		promociones.add(new Promocion("promo8", 2340, 1799.40, "lisandrax-airlines.com", new Date(115,7,31,18,0,0), ubgeo8));		
+		promociones.add(new Promocion("promo9", 3150.35, 2499.49, "www.hnoscasta.org", new Date(115,3,15,23,59,0), ubgeo9));		
 		promociones.add(new Promocion("promo10", 4320, 3600.89, "www.hnoscasta.org", new Date(115,4,1,23,59,0), ubgeo10));
-
+		
+		/*
+		 * ARREGLO DE COMPRAS
+		 * */		
+		//compras 0-9 promo con compra, todas con ValesPromo
+		compras.add(new Compra(2, 2*3800.50, new Date(115, 1, 28, 15, 47, 3)));		
+		compras.add(new Compra(1, 2999.99, new Date(115, 2, 8, 10, 50, 30)));		
+		compras.add(new Compra(4, 4*4800.90, new Date(115, 3, 11, 12, 28, 0)));
+		compras.add(new Compra(1, 4500, new Date(115, 2, 27, 9, 43, 10)));		
+		compras.add(new Compra(3, 3*1100.20, new Date(115, 5, 30, 11, 3, 57)));		
+		compras.add(new Compra(1, 799.99, new Date(115, 2, 20, 21, 30, 7)));
+		compras.add(new Compra(2, 2*2420.36, new Date(115, 8, 16, 18, 38, 12)));
+		compras.add(new Compra(1, 1799.40, new Date(115, 4, 3, 6, 5, 16)));
+		compras.add(new Compra(1, 2499.49, new Date(115, 1, 28, 13, 49, 17)));
+		compras.add(new Compra(3, 3*3600.89, new Date(115, 2, 11, 14, 19, 40)));
+		// compras 10-14 promo con compra, todas valesRegalo
+		compras.add(new Compra(1, 3800.50, new Date(115, 2, 10, 11, 27, 30)));				
+		compras.add(new Compra(1, 4800.90, new Date(115, 6, 30, 16, 58, 0)));
+		compras.add(new Compra(1, 1100.20, new Date(115, 4, 14, 8, 16, 5)));		
+		compras.add(new Compra(1, 2420.36, new Date(115, 8, 9, 8, 40, 12)));
+		compras.add(new Compra(1, 2499.49, new Date(115, 1, 26, 15, 58, 37)));
+				
+		/*
+		 * ARREGLO DE VALES PROMOCIONES
+		 * */			
+		// 0-9
+		valesPromos.add(new ValePromocion(2, "este es un vale de la primera (1) compra", "juanju@gmail.com", false, new Date(115, 2, 16, 23, 59, 23)));
+		valesPromos.add(new ValePromocion(1, "este es un vale de la segunda (2) compra", "pedro@gmail.com", false, new Date(115, 3, 20, 23, 59, 0)));
+		valesPromos.add(new ValePromocion(4, "este es un vale de la tercera (3) compra", "rosGerm@gmail.com", false, new Date(115, 8, 18, 19, 0, 0)));
+		valesPromos.add(new ValePromocion(1, "este es un vale de la cuarta (4) compra", "daug@gmail.com", false, new Date(115, 5, 15, 23, 59, 0)));
+		valesPromos.add(new ValePromocion(3, "este es un vale de la quinta (5) compra", "bautistaC@gmail.com", false, new Date(115,6,5,20,0,0)));
+		valesPromos.add(new ValePromocion(1, "este es un vale de la sexta (6) compra", "josemart@gmail.com", false, new Date(115,2,27,17,0,0)));
+		valesPromos.add(new ValePromocion(2, "este es un vale de la septima (7) compra", "Rodigrez1342@gmail.com", false, new Date(115,11,1,23,59,0)));
+		valesPromos.add(new ValePromocion(1, "este es un vale de la octava (8) compra", "daug@gmail.com", false, new Date(115,7,31,18,0,0)));
+		valesPromos.add(new ValePromocion(1, "este es un vale de la novena (9) compra", "HernanGuedez@gmail.com", false, new Date(115,3,15,23,59,0)));
+		valesPromos.add(new ValePromocion(3, "este es un vale de la decima (10) compra", "Rubyhornan1274@gmail.com", false, new Date(115,4,1,23,59,0)));
+		// 10-14
+		valesRegalos.add(new ValeRegalo(1, "este es un vale Regalo de la compra (11)", "pedro@gmail.com", false, new Date(115, 2, 16, 23, 59, 23),new Date(115, 2, 17, 2, 0, 0)));
+		valesRegalos.add(new ValeRegalo(1, "este es un vale Regalo de la compra (12)", "rosGerm@gmail.com", false, new Date(115, 8, 18, 19, 0, 0),new Date(115, 8, 1, 0, 0, 0)));
+		valesRegalos.add(new ValeRegalo(1, "este es un vale Regalo de la compra (13)", "CasemIro45@gmail.com", false, new Date(115,6,5,20,0,0),new Date(115, 5, 2, 8, 0, 0)));
+		valesRegalos.add(new ValeRegalo(1, "este es un vale Regalo de la compra (14)", "RubenCarmona87@gmail.com", false, new Date(115,11,1,23,59,0),new Date(115, 10, 20, 12, 0, 0)));
+		valesRegalos.add(new ValeRegalo(1, "este es un vale Regalo de la compra (15)", "nuestracasaDe52@gmail.com", false, new Date(115,3,15,23,59,0),new Date(115, 2, 1, 0, 0, 0)));
+		
 		
 	}
 	
@@ -682,6 +717,24 @@ public class Main {
 		}
 	}
 	
+	public static void setearValesConCompras(ArrayList<ValePromocion> valesPromos, ArrayList<ValeRegalo> valesRegalos,
+											 ArrayList<Compra> compras){
+		
+		int tam = compras.size(); //8tdcs
+		int regalo = 0;
+		for (int i=0; i<tam; i++){
+			if (i<10){
+				compras.get(i).setVale(valesPromos.get(i));
+				valesPromos.get(i).setCompra(compras.get(i));
+			} else {
+				compras.get(i).setValeR(valesRegalos.get(regalo));
+				valesRegalos.get(regalo).setCompra(compras.get(i));
+				regalo++;
+			}
+			
+		}
+	}
+	
 	public void agregarEmpresas(ArrayList<Empresa> empresas,SessionFactory sessionFactory){
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
@@ -827,4 +880,43 @@ public class Main {
 		session.close();
 
 	}
+	
+	public void agregarVales(ArrayList<ValePromocion> valesPromos, ArrayList<ValeRegalo> valesRegalos,
+							 SessionFactory sessionFactory){
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		int tam = valesPromos.size();
+		for (int i=0; i<tam; i++){
+			session.save(valesPromos.get(i));
+			//System.out.println("Empresa = \n"+empresas.get(i).getNombreEmpresa());			
+		}
+		tam = valesRegalos.size();
+		for (int i=0; i<tam; i++){
+			session.save(valesRegalos.get(i));
+			//System.out.println("Empresa = \n"+empresas.get(i).getNombreEmpresa());			
+		}
+		
+		session.getTransaction().commit();
+		session.close();
+
+	}
+	
+	public void agregarCompras(ArrayList<Compra> compras, SessionFactory sessionFactory){
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		int tam = compras.size();
+		for (int i=0; i<tam; i++){
+			session.save(compras.get(i));
+			//System.out.println("Empresa = \n"+empresas.get(i).getNombreEmpresa());			
+		}
+		
+		
+		session.getTransaction().commit();
+		session.close();
+	
+	}
+
+	
 }

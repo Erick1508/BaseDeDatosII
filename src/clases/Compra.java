@@ -1,6 +1,6 @@
 package clases;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,7 +14,7 @@ public class Compra {
     private ValeRegalo valeR;
     
 	private int cantidadPromocion;
-    private int montoDeCompra;
+    private double montoDeCompra;
     private Date fechaCompra;
     
     //asociacion 1-1..2 con metodo de pago
@@ -29,7 +29,7 @@ public class Compra {
     private Usuario usuario;
     private Promocion promocion;
         
-    public Compra(int cantidadPromocion, int montoDeCompra, Date fechaCompra) {
+    public Compra(int cantidadPromocion, double montoDeCompra, Date fechaCompra) {
 		this.cantidadPromocion = cantidadPromocion;
 		this.montoDeCompra = montoDeCompra;
 		this.fechaCompra = fechaCompra;
@@ -43,11 +43,11 @@ public class Compra {
 		this.cantidadPromocion = cantidadPromocion;
 	}
 
-	public int getMontoDeCompra() {
+	public double getMontoDeCompra() {
 		return montoDeCompra;
 	}
 
-	public void setMontoDeCompra(int montoDeCompra) {
+	public void setMontoDeCompra(double montoDeCompra) {
 		this.montoDeCompra = montoDeCompra;
 	}
 
