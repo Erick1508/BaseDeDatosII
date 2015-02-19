@@ -14,11 +14,11 @@
 	
 	<discriminator column="DISCRIMINATOR" type="string"/> <!--discriminator-value="ValeNormal"-->
 	
-        <property name="cantidadVales" column="cantidadVales"/>
-        <property name="descripcionVale" column="descripcionVale"/>
-        <property name="fechaVigencia" type="date" column="fechaVigencia"/>
-        <property name="dir_correo" column="dir_correo"/>
-	<property name="validado_por_mobile" type="java.lang.Boolean" column="validado_por_mobile"/>
+        <property name="cantidadVales" column="CANTIDAD_VALES"/>
+        <property name="descripcionVale" column="DESCRIPCION_DEL_VALE"/>
+        <property name="fechaVigencia" type="date" column="PERIODO_VIGENCIA"/>
+        <property name="dir_correo" column="DESTINATARIO"/>
+	<property name="validado_por_mobile" type="java.lang.Boolean" column="VALIDADO_POR_MOBILE"/>
 	
 	<subclass name="ValeRegalo" extends="ValePromocion" discriminator-value="ValeRegalo">
                 <property name="fechaEnvio" type="date" column="FECHA_DE_ENVIO"/>                

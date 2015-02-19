@@ -307,6 +307,9 @@ public class Main {
 		setearCiudadAPromociones(promociones, ciudades);
 		setearFechasAPromociones(fechasAsoc, promociones);
 		setearValesConCompras(valesPromos, valesRegalos, compras);
+		setearTDCsConCompras(compras, tdcs, usuarios);
+		setearUsuariosConCompras(compras, usuarios);
+		setearPromocionesConCompras(compras, promociones);
 		
 		//AGREGANDO DATOS
 		main.agregarEmpresas(empresas,sessionFactory);
@@ -320,8 +323,8 @@ public class Main {
 		main.agregarPromocion(promociones, sessionFactory);	
 		main.agregarFechasAsocAPromociones(fechasAsoc, sessionFactory);
 		
-		main.agregarVales(valesPromos, valesRegalos, sessionFactory);
-		//main.agregarCompras(compras, sessionFactory);
+		//main.agregarVales(valesPromos, valesRegalos, sessionFactory);
+		main.agregarCompras(compras, sessionFactory);
 		sessionFactory.close();
 	}
 	
@@ -552,9 +555,9 @@ public class Main {
 	public static void setearTdcsAUsuarios(ArrayList<Usuario> usuarios, ArrayList<TDC> tdcs){
 		
 		int tam = tdcs.size(); //8tdcs
-		int uss = 1;
+		int uss = 0;
 		for (int i=0; i<tam; i++){
-			if ((i == 1) || (i==3) || (i==6) ){
+			if ((i == 1) || (i==3) || (i==5) || (i==6) ){
 				uss+=1;
 			}
 			usuarios.get(uss).getTdcs().add(tdcs.get(i));
@@ -727,11 +730,56 @@ public class Main {
 				compras.get(i).setVale(valesPromos.get(i));
 				valesPromos.get(i).setCompra(compras.get(i));
 			} else {
-				compras.get(i).setValeR(valesRegalos.get(regalo));
+				compras.get(i).setVale(valesRegalos.get(regalo));
 				valesRegalos.get(regalo).setCompra(compras.get(i));
 				regalo++;
 			}
 			
+		}
+	}
+
+	/****/public static void setearTDCsConCompras(ArrayList<Compra> compras, ArrayList<TDC> tdcs, ArrayList<Usuario> usuarios){
+
+		int tam = compras.size(); //8tdcs
+		int tarjeta = 0;
+		int uss = 0;
+		for (int i=0; i<tam; i++){
+			if (i % 3 == 0 && i>=1) uss++; 
+			
+			List<TDC> list = new ArrayList<TDC>(usuarios.get(uss).getTdcs());
+			compras.get(i).setMetodoPagos(list.get(tarjeta));
+		}
+	}
+
+	public static void setearUsuariosConCompras(ArrayList<Compra> compras, ArrayList<Usuario> usuarios){
+
+		int tam = compras.size(); //8tdcs
+		int uss = 0;
+		for (int i=0; i<tam; i++){
+			
+			if (i % 3 == 0 && i>=1) uss++; 
+			
+			compras.get(i).setUsuario(usuarios.get(uss));
+			usuarios.get(uss).getCompras().add(compras.get(i));
+			
+		}
+	}
+	
+	public static void setearPromocionesConCompras(ArrayList<Compra> compras, ArrayList<Promocion> promociones){
+
+		int tam = compras.size(); //8tdcs
+		int prom = 0;
+		for (int i=0; i<tam; i++){
+			
+			if (i == 10) prom=0; 
+			if (i == 11) prom=2;
+			if (i == 12) prom=4;
+			if (i == 13) prom=6;
+			if (i == 14) prom=8;			
+			
+			compras.get(i).setPromocion(promociones.get(prom));
+			promociones.get(prom).getCompras().add(compras.get(i));
+			prom++;
 		}
 	}
 	

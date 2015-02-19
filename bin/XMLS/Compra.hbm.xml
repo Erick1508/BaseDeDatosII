@@ -18,22 +18,22 @@
         
         <one-to-one name="vale" class="ValePromocion" constrained="true"></one-to-one>
         
-        <property name="cantidadPromocion" column="cantidadPromocion"/>
-        <property name="montoDeCompra" column="montoDeCompra"/>
-        <property name="fechaCompra" type="date" column="fechaCompra"/>
+        <property name="cantidadPromocion" column="CANTIDAD_COMPRADA"/>
+        <property name="montoDeCompra" column="TOTAL_COMPRA"/>
+        <property name="fechaCompra" type="date" column="FECHA_DE_COMPRA"/>
   
 	<many-to-one name="metodoPagos" class="MetodoPago" fetch="select">
-	    	<column name="Id_Metodo_Pago" not-null="true">
+	    	<column name="ID_METODO_PAGO" not-null="true">
 	    	</column>
         </many-to-one>
         
         <many-to-one name="usuario" class="Usuario" fetch="select">
-	    	<column name="login" not-null="true">
+	    	<column name="LOGIN" not-null="true">
 	    	</column>
         </many-to-one>
 	
 	<many-to-one name="promocion" class="Promocion" fetch="select">
-	    	<column name="promocion_id" not-null="true">
+	    	<column name="PROMOCION_ID" not-null="true">
 	    	</column>
         </many-to-one>
         
