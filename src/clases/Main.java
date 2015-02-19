@@ -310,6 +310,7 @@ public class Main {
 		setearTDCsConCompras(compras, tdcs, usuarios);
 		setearUsuariosConCompras(compras, usuarios);
 		setearPromocionesConCompras(compras, promociones);
+		setearCompartidosConCompras(compras, usuarios);
 		
 		//AGREGANDO DATOS
 		main.agregarEmpresas(empresas,sessionFactory);
@@ -671,6 +672,7 @@ public class Main {
 			
 		}
 	}
+	
 	public static void setearEmpresasAPromociones(ArrayList<Empresa> empresas, ArrayList<Promocion> promociones){
 		
 		int tam = promociones.size(); 
@@ -699,7 +701,7 @@ public class Main {
 		
 
 	}
-	/*METODOS MARCADOS CON ** ES PORQUE REQUEIREN AGREGARLE A LOS OBJETOS DESPUES DE SER INSERTADOS EN LA BD*/
+	/*METODOS MARCADOS CON ** ES PORQUE QUIZAS REQUEIREN AGREGARLE A LOS OBJETOS DESPUES DE SER INSERTADOS EN LA BD*/
 	
 	public static void setearFechasAPromociones(ArrayList<FechaAsociada> fechasAsoc, ArrayList<Promocion> promociones){
 		
@@ -782,6 +784,62 @@ public class Main {
 			prom++;
 		}
 	}
+	
+	public static void setearCompartidosConCompras(ArrayList<Compra> compras, ArrayList<Usuario> usuarios){
+		
+		// USUARIOS QUE COMPRARON UNA PROMOCION COMPARTIDA
+		compras.get(0).getUsuariosCompartir().add(usuarios.get(3));
+		compras.get(2).getUsuariosCompartir().add(usuarios.get(3));
+		
+		compras.get(12).getUsuariosCompartir().add(usuarios.get(1));
+		compras.get(13).getUsuariosCompartir().add(usuarios.get(2));
+		
+		compras.get(14).getUsuariosCompartir().add(usuarios.get(2));
+				
+		// COMPRAS QUE FUERON COMPARTIDAS Y SE IGNORARON
+		compras.get(0).getUsuariosCompartir().add(usuarios.get(2));
+		compras.get(0).getUsuariosCompartir().add(usuarios.get(4));
+		
+		compras.get(1).getUsuariosCompartir().add(usuarios.get(1));
+		
+		compras.get(2).getUsuariosCompartir().add(usuarios.get(1));
+		compras.get(2).getUsuariosCompartir().add(usuarios.get(4));
+		
+		
+		compras.get(3).getUsuariosCompartir().add(usuarios.get(0));
+		compras.get(3).getUsuariosCompartir().add(usuarios.get(4));
+		
+		compras.get(4).getUsuariosCompartir().add(usuarios.get(0));
+		compras.get(4).getUsuariosCompartir().add(usuarios.get(3));
+		
+		compras.get(6).getUsuariosCompartir().add(usuarios.get(4));
+		compras.get(8).getUsuariosCompartir().add(usuarios.get(4));
+		compras.get(7).getUsuariosCompartir().add(usuarios.get(0));
+		
+		compras.get(9).getUsuariosCompartir().add(usuarios.get(0));
+		compras.get(9).getUsuariosCompartir().add(usuarios.get(1));
+		compras.get(10).getUsuariosCompartir().add(usuarios.get(1));
+		compras.get(11).getUsuariosCompartir().add(usuarios.get(0));
+		compras.get(11).getUsuariosCompartir().add(usuarios.get(1));
+		
+		compras.get(12).getUsuariosCompartir().add(usuarios.get(2));
+		compras.get(13).getUsuariosCompartir().add(usuarios.get(0));
+		compras.get(13).getUsuariosCompartir().add(usuarios.get(1));
+		compras.get(14).getUsuariosCompartir().add(usuarios.get(1));
+		
+		/*usuarios.get(3).getComprasCompartidas().add(compras.get(0));
+		usuarios.get(3).getComprasCompartidas().add(compras.get(2));
+
+		usuarios.get(1).getComprasCompartidas().add(compras.get(12));
+		usuarios.get(2).getComprasCompartidas().add(compras.get(13));
+		
+		usuarios.get(2).getComprasCompartidas().add(compras.get(14));
+		*/
+		
+
+	}
+	
+	
 	
 	public void agregarEmpresas(ArrayList<Empresa> empresas,SessionFactory sessionFactory){
 		Session session = sessionFactory.openSession();
@@ -914,6 +972,7 @@ public class Main {
 		session.close();
 	
 	}
+	
 	public void agregarPromocion(ArrayList<Promocion> promociones,SessionFactory sessionFactory){
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
