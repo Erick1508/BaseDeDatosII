@@ -265,13 +265,14 @@ public class Main {
 		session.close();
 		sessionFactory.close();
 		*/
+		
 		Main main = new Main();
 		
-		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-		//
-		// DECLARACION DE VARIABLES PARA LLENAR LA BD 
-		//
+		
+		/********************************************************************************
+		 * DECLARACION DE VARIABLES PARA LLENAR LA BD									*
+		 ********************************************************************************/
 		ArrayList<Empresa> empresas = new ArrayList<Empresa>();		
 		ArrayList<Categoria> categorias = new ArrayList<Categoria>();		
 		ArrayList<Subcategoria> subcategorias = new ArrayList<Subcategoria>();						
@@ -281,17 +282,18 @@ public class Main {
 		ArrayList<TDC> tdcs = new ArrayList<TDC>();		
 		ArrayList<DineroPromocion> dinPromo = new ArrayList<DineroPromocion>();
 		ArrayList<Promocion> promociones = new ArrayList<Promocion>();
-		ArrayList<FechaAsociada> fechasAsoc = new ArrayList<FechaAsociada>();
-		
+		ArrayList<FechaAsociada> fechasAsoc = new ArrayList<FechaAsociada>();		
 		ArrayList<Compra> compras = new ArrayList<Compra>();
 		ArrayList<ValePromocion> valesPromos = new ArrayList<ValePromocion>();
 		ArrayList<ValeRegalo> valesRegalos = new ArrayList<ValeRegalo>();
+		/********************************************************************************
+		 * FIN DE DECLARACIONES															*
+		 ********************************************************************************/
 		
-		//
-		// fin declaraciones 
-		//
 		
-		//GUARDANDO DATOS A INSERTAR
+		/********************************************************************************
+		 * SETEANDO DATOS A ALMACENAR EN LA BD											*
+		 ********************************************************************************/
 		llenarArreglos(empresas, subcategorias, categorias, ciudades, usuarios,
 				  	   usuariosRedSocials,tdcs, dinPromo, promociones, compras,
 				  	   valesPromos, valesRegalos,fechasAsoc);
@@ -312,7 +314,9 @@ public class Main {
 		setearPromocionesConCompras(compras, promociones);
 		setearCompartidosConCompras(compras, usuarios);
 		
-		//AGREGANDO DATOS
+		/********************************************************************************
+		 * INSERTANDO A LA BD LOS DATOS DESEADOS										*
+		 ********************************************************************************/		
 		main.agregarEmpresas(empresas,sessionFactory);
 		main.agregarCategorias(categorias, sessionFactory);	
 		main.agregarSubcategorias(subcategorias, sessionFactory);		
@@ -322,14 +326,16 @@ public class Main {
 		main.agregarTDCs(tdcs, sessionFactory);
 		main.agregarDinPromocion(dinPromo, sessionFactory);		
 		main.agregarPromocion(promociones, sessionFactory);	
-		main.agregarFechasAsocAPromociones(fechasAsoc, sessionFactory);
-		
-		//main.agregarVales(valesPromos, valesRegalos, sessionFactory);
+		main.agregarFechasAsocAPromociones(fechasAsoc, sessionFactory);		
 		main.agregarCompras(compras, sessionFactory);
+		
 		sessionFactory.close();
 	}
 	
-	
+	/********************************************************************************
+	 * METODOS DE SETEO DE DATOS PARA 												*
+	 * AGREGAR A LA BD																*
+	 ********************************************************************************/
 	@SuppressWarnings("deprecation")
 	public static void llenarArreglos(ArrayList<Empresa> empresas,ArrayList<Subcategoria> subcategorias,
 									  ArrayList<Categoria> categorias,ArrayList<Ciudad> ciudades, ArrayList<Usuario> usuarios,
@@ -841,6 +847,10 @@ public class Main {
 	
 	
 	
+	/********************************************************************************
+	 * METODOS DE AGREGACION A LA BD 												*
+	 * SE USAN SESIONES																*
+	 ********************************************************************************/
 	public void agregarEmpresas(ArrayList<Empresa> empresas,SessionFactory sessionFactory){
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
