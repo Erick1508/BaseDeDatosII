@@ -283,8 +283,11 @@ public class Main {
 		ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();			
 		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 		ArrayList<UsuarioRedSocial> usuariosRedSocials = new ArrayList<UsuarioRedSocial>();
-		ArrayList<TDC> tdcs = new ArrayList<TDC>();		
-		ArrayList<DineroPromocion> dinPromo = new ArrayList<DineroPromocion>();
+		
+		//ArrayList<TDC> tdcs = new ArrayList<TDC>();		
+		//ArrayList<DineroPromocion> dinPromo = new ArrayList<DineroPromocion>();
+		ArrayList<MetodoPago> metodoPago = new ArrayList<MetodoPago>(); 
+		
 		ArrayList<Promocion> promociones = new ArrayList<Promocion>();
 		ArrayList<FechaAsociada> fechasAsoc = new ArrayList<FechaAsociada>();		
 		ArrayList<Compra> compras = new ArrayList<Compra>();
@@ -299,12 +302,15 @@ public class Main {
 		 * SETEANDO DATOS A ALMACENAR EN LA BD											*
 		 ********************************************************************************/
 		llenarArreglos(empresas, subcategorias, categorias, ciudades, usuarios,
-				  	   usuariosRedSocials,tdcs, dinPromo, promociones, compras,
+				  	   usuariosRedSocials,metodoPago, promociones, compras,
 				  	   valesPromos, valesRegalos,fechasAsoc);
 		setearAmigos(usuarios);
 		setearRedesSocialesAUsuarios(usuarios, usuariosRedSocials);
-		setearTdcsAUsuarios(usuarios,tdcs);
-		setearDineroPromocionAUsuarios(usuarios, dinPromo);
+		
+		setearMetodoDePagoAUsuarios(usuarios, metodoPago);
+	//	setearTdcsAUsuarios(usuarios,tdcs);
+//		setearDineroPromocionAUsuarios(usuarios, dinPromo);
+		
 		setearSubcategoriasACategorias(subcategorias, categorias);
 		setearCategoriasUsuarios(usuarios, categorias);
 		setearCiudadAUsuarios(usuarios, ciudades);
@@ -313,11 +319,13 @@ public class Main {
 		setearCiudadAPromociones(promociones, ciudades);
 		setearFechasAPromociones(fechasAsoc, promociones);
 		setearValesConCompras(valesPromos, valesRegalos, compras);
-		setearTDCsConCompras(compras, tdcs, usuarios);
+		
+		setearMetodoPagosConCompras(compras, metodoPago, usuarios);
+		
 		setearUsuariosConCompras(compras, usuarios);
 		setearPromocionesConCompras(compras, promociones);
 		setearCompartidosConCompras(compras, usuarios);
-		
+
 		/********************************************************************************
 		 * INSERTANDO A LA BD LOS DATOS DESEADOS										*
 		 ********************************************************************************/		
@@ -327,13 +335,16 @@ public class Main {
 		main.agregarCiudades(ciudades, sessionFactory);
 		main.agregarUsuarios(usuarios, sessionFactory);
 		main.agregarRedesSocialesAUsuarios(usuariosRedSocials, sessionFactory);
-		main.agregarTDCs(tdcs, sessionFactory);
-		main.agregarDinPromocion(dinPromo, sessionFactory);		
+		
+		main.agregarMetodoPago(metodoPago, sessionFactory);
+		
+		//main.agregarTDCs(tdcs, sessionFactory);
+		//main.agregarDinPromocion(dinPromo, sessionFactory);		
 		main.agregarPromocion(promociones, sessionFactory);	
 		main.agregarFechasAsocAPromociones(fechasAsoc, sessionFactory);		
 		main.agregarCompras(compras, sessionFactory);
 		
-		//consulta1(sessionFactory);
+		consulta1(sessionFactory);
 		
 		sessionFactory.close();
 	}
@@ -345,8 +356,34 @@ public class Main {
 		transaction = session.beginTransaction();
         
 		Query query = 
-				session.createQuery("from Usuario vp");
+				session.createQuery("select comp.usuario "
+								  + "from Compra comp join comp.promocion p1, "
+								       + "Compra comp2 join comp2.promocion p2 "
+								  + "where p1.promocion_id = p2.promocion_id and "
+								        + "comp.fechaCompra > comp2.fechaCompra and "
+								        + "comp.usuario in "
+								                   + "(from comp2.usuariosCompartir)");
 		
+		
+/*		SELECT C1.LOGIN
+		FROM COMPRA C1
+		WHERE (C1.PROMOCION_ID,C1.LOGIN) IN (
+			SELECT PROMOCION_ID AS PROM, COMP.NOMBRE_USUARIO AS LOGIN
+			FROM COMPARTIDOS COMP, COMPRA C
+			WHERE COMP.CODIGO_VALE = C.CODIGO_VALE AND C.FECHA_DE_COMPRA < C1.FECHA_DE_COMPRA)
+		ORDER BY C1.FECHA_DE_COMPRA;
+	*/	
+		
+		/*Query query = 
+				session.createQuery("select comp2.usuariosCompartir from Compra comp2");
+		*/
+		
+		/*Query query = 
+				session.createQuery("select comp.usuario "
+								  + "from Compra comp, Compra comp2 join Promocion prom"
+						  		  + "where comp1.promocion.promocion_id = comp2.promocion.promocion_id and "
+						  		  + "comp.usuario in (comp2.usuariosCompartir)");
+		*/
     	/*Query query = 
 			session.createQuery("from Compra comp"
 							  + "where comp in (from compra comp2"
@@ -369,17 +406,18 @@ public class Main {
 				*/
 	    
 		//Guardando en la lista todas las tuplas recibidas en el query	
-		List compra = query.list(); 
+		List uss = query.list(); 
 		System.out.println("USUARIOS QUE COMPRAN PROMOCIONES QUE SE LES COMPARTIERON");
 		System.out.println("--------------------------------------------------------");
-		System.out.println("| LOGIN USUARIOS  | PROMOCION ID                        |");
+		System.out.println("| LOGIN USUARIOS                                        |");
+		System.out.println("--------------------------------------------------------");
 		//Iterando sobre todas las tuplas almacenadas en la lista
-    	/*for (Iterator iterator = compra.iterator(); iterator.hasNext();) {
-    		Compra comp = (Compra) iterator.next(); 
-    		System.out.println("| "+comp.getUsuario().getLogin()+" | "+comp.getPromocion().getPromocion_id()
+    	for (Iterator iterator = uss.iterator(); iterator.hasNext();) {
+    		Usuario us = (Usuario) iterator.next(); 
+    		System.out.println("| "+us.getLogin()
     							+"                                  |");
-    		comp.getUsuariosCompartir().
-    	}*/
+    		//us.getUsuariosCompartir().
+    	}
     	
     	System.out.println("--------------------------------------------------------");
     	
@@ -396,8 +434,8 @@ public class Main {
 	@SuppressWarnings("deprecation")
 	public static void llenarArreglos(ArrayList<Empresa> empresas,ArrayList<Subcategoria> subcategorias,
 									  ArrayList<Categoria> categorias,ArrayList<Ciudad> ciudades, ArrayList<Usuario> usuarios,
-									  ArrayList<UsuarioRedSocial> usuariosRedSocials, ArrayList<TDC> tdcs, 
-									  ArrayList<DineroPromocion> dinPromo, ArrayList<Promocion> promociones,
+									  ArrayList<UsuarioRedSocial> usuariosRedSocials, ArrayList<MetodoPago> metodoPago, 
+									  ArrayList<Promocion> promociones,
 									  ArrayList<Compra> compras, ArrayList<ValePromocion> valesPromos,
 									  ArrayList<ValeRegalo> valesRegalos, ArrayList<FechaAsociada> fechasAsoc){
 					
@@ -476,23 +514,24 @@ public class Main {
 		/*
 		 * ARREGLO DE Tarjetas De Credito 
 		 * */
-		tdcs.add(new TDC(145878253, "BBVA", 354, "VISA"));
-		tdcs.add(new TDC(785214630, "Bicentenario", 278, "MASTER CARD"));
-		tdcs.add(new TDC(874145369, "Mercantil", 894, "VISA"));
-		tdcs.add(new TDC(147214523, "BOD", 145, "VISA"));
-		tdcs.add(new TDC(365874125, "Bancaribe", 214, "MASTER CARD"));		
-		tdcs.add(new TDC(854723624, "Mercantil", 778, "VISA"));
-		tdcs.add(new TDC(365339837, "BBVA", 325, "VISA"));
-		tdcs.add(new TDC(778142578, "Bicentenario", 134, "MASTER CARD"));
+		metodoPago.add(new MetodoPago(145878253, "BBVA", 354, "VISA"));
+		metodoPago.add(new MetodoPago(785214630, "Bicentenario", 278, "MASTER CARD"));
+		metodoPago.add(new MetodoPago(874145369, "Mercantil", 894, "VISA"));
+		metodoPago.add(new MetodoPago(147214523, "BOD", 145, "VISA"));
+		metodoPago.add(new MetodoPago(365874125, "Bancaribe", 214, "MASTER CARD"));		
+		metodoPago.add(new MetodoPago(854723624, "Mercantil", 778, "VISA"));
+		metodoPago.add(new MetodoPago(365339837, "BBVA", 325, "VISA"));
+		metodoPago.add(new MetodoPago(778142578, "Bicentenario", 134, "MASTER CARD"));
 		
 		/*
 		 * ARREGLO DE DINERO DE PROMOCION
 		 * */
-		dinPromo.add(new DineroPromocion(0.0));
-		dinPromo.add(new DineroPromocion(0.0));
-		dinPromo.add(new DineroPromocion(0.0));
-		dinPromo.add(new DineroPromocion(0.0));
-		dinPromo.add(new DineroPromocion(0.0));
+		metodoPago.add(new MetodoPago(0.0));
+		metodoPago.add(new MetodoPago(0.0));
+		metodoPago.add(new MetodoPago(0.0));
+		metodoPago.add(new MetodoPago(0.0));
+		metodoPago.add(new MetodoPago(0.0));
+		
 		
 		/*
 		 * Ubicaciones Geograficas de las promociones
@@ -613,6 +652,25 @@ public class Main {
 			usuarios.get(uss).getURSocial().add(usuariosRedSocials.get(i));
 			usuariosRedSocials.get(i).setUsuario(usuarios.get(uss));
 						
+		}
+	}
+	
+	public static void setearMetodoDePagoAUsuarios(ArrayList<Usuario> usuarios, ArrayList<MetodoPago> metodoPago){
+		
+		int tam = metodoPago.size(); //8tdcs
+		int uss = 0;
+		for (int i=0; i<tam; i++){
+			if (i<8){
+				if ((i == 1) || (i==3) || (i==5) || (i==6) ){
+					uss+=1;
+				}
+				usuarios.get(uss).getTdcs().add(metodoPago.get(i));
+				metodoPago.get(i).setUsuarioTDC(usuarios.get(uss));
+				if (i == 7) uss = 0;
+			} else {
+				usuarios.get(uss).getTdcs().add(metodoPago.get(i));
+				metodoPago.get(i).setUsuarioDP(usuarios.get(uss));
+			}	
 		}
 	}
 	
@@ -803,7 +861,7 @@ public class Main {
 		}
 	}
 
-	/****/public static void setearTDCsConCompras(ArrayList<Compra> compras, ArrayList<TDC> tdcs, ArrayList<Usuario> usuarios){
+	/****/public static void setearMetodoPagosConCompras(ArrayList<Compra> compras, ArrayList<MetodoPago> metodoPago, ArrayList<Usuario> usuarios){
 
 		int tam = compras.size(); //8tdcs
 		int tarjeta = 0;
@@ -811,7 +869,7 @@ public class Main {
 		for (int i=0; i<tam; i++){
 			if (i % 3 == 0 && i>=1) uss++; 
 			
-			List<TDC> list = new ArrayList<TDC>(usuarios.get(uss).getTdcs());
+			List<MetodoPago> list = new ArrayList<MetodoPago>(usuarios.get(uss).getTdcs());
 			compras.get(i).setMetodoPagos(list.get(tarjeta));
 		}
 	}
@@ -860,7 +918,7 @@ public class Main {
 		compras.get(14).getUsuariosCompartir().add(usuarios.get(2));
 				
 		// COMPRAS QUE FUERON COMPARTIDAS Y SE IGNORARON
-		/*compras.get(0).getUsuariosCompartir().add(usuarios.get(2));
+		compras.get(0).getUsuariosCompartir().add(usuarios.get(2));
 		compras.get(0).getUsuariosCompartir().add(usuarios.get(4));
 		
 		compras.get(1).getUsuariosCompartir().add(usuarios.get(1));
@@ -889,7 +947,7 @@ public class Main {
 		compras.get(13).getUsuariosCompartir().add(usuarios.get(0));
 		compras.get(13).getUsuariosCompartir().add(usuarios.get(1));
 		compras.get(14).getUsuariosCompartir().add(usuarios.get(1));
-		*/
+		
 		/*usuarios.get(3).getComprasCompartidas().add(compras.get(0));
 		usuarios.get(3).getComprasCompartidas().add(compras.get(2));
 
@@ -995,6 +1053,22 @@ public class Main {
 		session.close();
 
 	}
+	
+	public void agregarMetodoPago(ArrayList<MetodoPago> metodoPago,SessionFactory sessionFactory){
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		int tam = metodoPago.size();
+		for (int i=0; i<tam; i++){
+			session.save(metodoPago.get(i));
+			//System.out.println("Empresa = \n"+empresas.get(i).getNombreEmpresa());			
+		}
+		
+		session.getTransaction().commit();
+		session.close();
+
+	}
+	
 	
 	public void agregarTDCs(ArrayList<TDC> tdcs,SessionFactory sessionFactory){
 		Session session = sessionFactory.openSession();

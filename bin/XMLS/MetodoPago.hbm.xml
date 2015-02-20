@@ -10,27 +10,26 @@ Both Person and Employee model class are defined within one hbm file.-->
  
   <class name="MetodoPago" table="METODO_DE_PAGO">
         <id name="methodId" column="ID_METODO">
-            <generator class="identity">
-        </generator></id>
+            <generator class="native">
+        </generator>
+        </id>
  
-	<discriminator column="DISCRIMINATOR" type="string"/>
+	<property name="metodo" column="METODO" />
  
-        <subclass name="TDC" extends="MetodoPago" discriminator-value="TDC">
-                <property name="nroTDC" column="NUMERO_TDC"/>
-                <property name="banco" column="BANCO"/>
-                <property name="codigoSeguridad" column="CODIGO_DE_SEGURIDAD"/>
-                <property name="tipo" column="TIPO"/>
-                <many-to-one name="Usuario" class="Usuario" fetch="select">
-		    <column name="LOGIN" not-null="true">
-		</column>
-		</many-to-one>
-        </subclass>
-	
-	    <subclass name="DineroPromocion" extends="MetodoPago" discriminator-value="DP">
-                <property name="dineroVirtual" column="DINERO_VIRTUAL"/>      
-                <!--<one-to-one name="usuario" class="Usuario" constrained="true"/>-->
-		  		<many-to-one name="usuario" class="Usuario" column="login" unique="true"/>
-        </subclass>
+        <property name="nroTDC" column="NUMERO_TDC"/>
+        <property name="banco" column="BANCO"/>
+        <property name="codigoSeguridad" column="CODIGO_DE_SEGURIDAD"/>
+        <property name="tipo" column="TIPO"/>
+        <property name="dineroVirtual" column="DINERO_VIRTUAL"/>
+        
+        <many-to-one name="usuarioTDC" class="Usuario" fetch="select">
+	  <column name="LOGIN" not-null="false"/>
+	</many-to-one>
+       
+	  
+	            
+                <!--<one-to-one name="usuario" class="Usuario" constrained="true"/>
+		<one-to-one name="usuarioDP" class="Usuario" cascade="save-update"/>-->
         
   </class>
   

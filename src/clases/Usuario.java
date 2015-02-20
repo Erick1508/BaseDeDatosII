@@ -16,10 +16,10 @@ public class Usuario {
 	private Date ult_vez_online;
 	
 	// asociacion 1-* con TDC
-	private Set<TDC> tdcs = new HashSet<TDC>(0);
+	private Set<MetodoPago> tdcs = new HashSet<MetodoPago>(0);
 	
 	//asociacion 1-1 con dinero Promocion
-	private DineroPromocion DinProm;
+	private MetodoPago DinProm;
 	
 	// asociacion *->* es_amigo
 	private Set<Usuario> usuarios = new HashSet<Usuario>();
@@ -148,19 +148,19 @@ public class Usuario {
 		URSocial = uRSocial;
 	}
 
-	public DineroPromocion getDinProm() {
+	public MetodoPago getDinProm() {
 		return DinProm;
 	}
 
-	public void setDinProm(DineroPromocion dinProm) {
+	public void setDinProm(MetodoPago dinProm) {
 		DinProm = dinProm;
 	}
 
-	public Set<TDC> getTdcs() {
+	public Set<MetodoPago> getTdcs() {
 		return tdcs;
 	}
 
-	public void setTdcs(Set<TDC> tdcs) {
+	public void setTdcs(Set<MetodoPago> tdcs) {
 		this.tdcs = tdcs;
 	}
 

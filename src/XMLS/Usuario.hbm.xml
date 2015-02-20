@@ -19,13 +19,13 @@
     <!--asociacion 1-* con TDC-->
     <set name="tdcs" table="METODO_DE_PAGO" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="NUMERO_TDC" not-null="true"/>
+                <column name="ID_METODO" not-null="true"/>
             </key>
-            <one-to-many class="TDC"></one-to-many>
+            <one-to-many class="MetodoPago"></one-to-many>
     </set>
     
-    <!--Asociacion 1-1 con dinero de Promocion-->
-    <one-to-one name="DinProm" class="DineroPromocion" cascade="save-update"></one-to-one>
+    <!--Asociacion 1-1 con dinero de Promocion
+    <one-to-one name="DinProm" class="MetodoPago" cascade="save-update"></one-to-one>-->
       
     <!-- esta parte es para la asociacion amigos muchos -> muchos --> 
 	<set name="usuarios" table="AMIGOS" cascade="none" lazy="false">
