@@ -1,0 +1,236 @@
+/************************************************ 
+*  EVIDENCIA DE INSERCION A LA BD		*
+*  AUTORES: JUAN PEREIRA 09-11173		*
+*           ERICK MARRERO 09-10981		*
+*************************************************/
+
+Hibernate: insert into EMPRESA (DIRECCION, ESTIMADO_CLIENTE, CODIGO_PAIS, CODIGO_DE_AREA, NUMERO_TLF, NOMBRE_EMPRESA) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into EMPRESA (DIRECCION, ESTIMADO_CLIENTE, CODIGO_PAIS, CODIGO_DE_AREA, NUMERO_TLF, NOMBRE_EMPRESA) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into EMPRESA (DIRECCION, ESTIMADO_CLIENTE, CODIGO_PAIS, CODIGO_DE_AREA, NUMERO_TLF, NOMBRE_EMPRESA) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into EMPRESA (DIRECCION, ESTIMADO_CLIENTE, CODIGO_PAIS, CODIGO_DE_AREA, NUMERO_TLF, NOMBRE_EMPRESA) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into EMPRESA (DIRECCION, ESTIMADO_CLIENTE, CODIGO_PAIS, CODIGO_DE_AREA, NUMERO_TLF, NOMBRE_EMPRESA) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into CATEGORIA (DESCRIPCION_CAT, NOMBRE_CATEGORIA) values (?, ?)
+Hibernate: insert into CATEGORIA (DESCRIPCION_CAT, NOMBRE_CATEGORIA) values (?, ?)
+Hibernate: insert into CATEGORIA (DESCRIPCION_CAT, NOMBRE_CATEGORIA) values (?, ?)
+Hibernate: insert into CATEGORIA (DESCRIPCION_CAT, NOMBRE_CATEGORIA) values (?, ?)
+Hibernate: select categoria_.NOMBRE_CATEGORIA, categoria_.DESCRIPCION_CAT as DESCRIPC2_1_ from CATEGORIA categoria_ where categoria_.NOMBRE_CATEGORIA=?
+Hibernate: insert into SUBCATEGORIA (NOMBRE_SUB_CAT, DESCRIPCION_SUB, nombreCategoria) values (?, ?, ?)
+Hibernate: insert into SUBCATEGORIA (NOMBRE_SUB_CAT, DESCRIPCION_SUB, nombreCategoria) values (?, ?, ?)
+Hibernate: select categoria_.NOMBRE_CATEGORIA, categoria_.DESCRIPCION_CAT as DESCRIPC2_1_ from CATEGORIA categoria_ where categoria_.NOMBRE_CATEGORIA=?
+Hibernate: insert into SUBCATEGORIA (NOMBRE_SUB_CAT, DESCRIPCION_SUB, nombreCategoria) values (?, ?, ?)
+Hibernate: insert into SUBCATEGORIA (NOMBRE_SUB_CAT, DESCRIPCION_SUB, nombreCategoria) values (?, ?, ?)
+Hibernate: select categoria_.NOMBRE_CATEGORIA, categoria_.DESCRIPCION_CAT as DESCRIPC2_1_ from CATEGORIA categoria_ where categoria_.NOMBRE_CATEGORIA=?
+Hibernate: insert into SUBCATEGORIA (NOMBRE_SUB_CAT, DESCRIPCION_SUB, nombreCategoria) values (?, ?, ?)
+Hibernate: insert into SUBCATEGORIA (NOMBRE_SUB_CAT, DESCRIPCION_SUB, nombreCategoria) values (?, ?, ?)
+Hibernate: select categoria_.NOMBRE_CATEGORIA, categoria_.DESCRIPCION_CAT as DESCRIPC2_1_ from CATEGORIA categoria_ where categoria_.NOMBRE_CATEGORIA=?
+Hibernate: insert into SUBCATEGORIA (NOMBRE_SUB_CAT, DESCRIPCION_SUB, nombreCategoria) values (?, ?, ?)
+Hibernate: insert into SUBCATEGORIA (NOMBRE_SUB_CAT, DESCRIPCION_SUB, nombreCategoria) values (?, ?, ?)
+Hibernate: insert into CIUDAD (PAIS, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD (PAIS, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD (PAIS, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD (PAIS, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD (PAIS, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: select ciudad_.NOMBRE_CIUDAD, ciudad_.PAIS as PAIS2_2_ from CIUDAD ciudad_ where ciudad_.NOMBRE_CIUDAD=?
+Hibernate: select ciudad_.NOMBRE_CIUDAD, ciudad_.PAIS as PAIS2_2_ from CIUDAD ciudad_ where ciudad_.NOMBRE_CIUDAD=?
+Hibernate: select categoria_.NOMBRE_CATEGORIA, categoria_.DESCRIPCION_CAT as DESCRIPC2_1_ from CATEGORIA categoria_ where categoria_.NOMBRE_CATEGORIA=?
+Hibernate: select categoria_.NOMBRE_CATEGORIA, categoria_.DESCRIPCION_CAT as DESCRIPC2_1_ from CATEGORIA categoria_ where categoria_.NOMBRE_CATEGORIA=?
+Hibernate: select categoria_.NOMBRE_CATEGORIA, categoria_.DESCRIPCION_CAT as DESCRIPC2_1_ from CATEGORIA categoria_ where categoria_.NOMBRE_CATEGORIA=?
+Hibernate: select ciudad_.NOMBRE_CIUDAD, ciudad_.PAIS as PAIS2_2_ from CIUDAD ciudad_ where ciudad_.NOMBRE_CIUDAD=?
+Hibernate: select categoria_.NOMBRE_CATEGORIA, categoria_.DESCRIPCION_CAT as DESCRIPC2_1_ from CATEGORIA categoria_ where categoria_.NOMBRE_CATEGORIA=?
+Hibernate: select ciudad_.NOMBRE_CIUDAD, ciudad_.PAIS as PAIS2_2_ from CIUDAD ciudad_ where ciudad_.NOMBRE_CIUDAD=?
+Hibernate: select ciudad_.NOMBRE_CIUDAD, ciudad_.PAIS as PAIS2_2_ from CIUDAD ciudad_ where ciudad_.NOMBRE_CIUDAD=?
+Hibernate: insert into USUARIO (NOMBRE_USUARIO, APELLIDO, PASSWORD, DIRECCION_ELECTRONICA, VECES_ACCEDIDAS, ULT_VEZ_ONLINE, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into USUARIO (NOMBRE_USUARIO, APELLIDO, PASSWORD, DIRECCION_ELECTRONICA, VECES_ACCEDIDAS, ULT_VEZ_ONLINE, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into USUARIO (NOMBRE_USUARIO, APELLIDO, PASSWORD, DIRECCION_ELECTRONICA, VECES_ACCEDIDAS, ULT_VEZ_ONLINE, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into USUARIO (NOMBRE_USUARIO, APELLIDO, PASSWORD, DIRECCION_ELECTRONICA, VECES_ACCEDIDAS, ULT_VEZ_ONLINE, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into USUARIO (NOMBRE_USUARIO, APELLIDO, PASSWORD, DIRECCION_ELECTRONICA, VECES_ACCEDIDAS, ULT_VEZ_ONLINE, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into AMIGOS (AMIGO, usuario) values (?, ?)
+Hibernate: insert into AMIGOS (AMIGO, usuario) values (?, ?)
+Hibernate: insert into AMIGOS (AMIGO, usuario) values (?, ?)
+Hibernate: insert into AMIGOS (AMIGO, usuario) values (?, ?)
+Hibernate: insert into CIUDAD_USUARIOS (NOMBRE_USUARIO, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_USUARIOS (NOMBRE_USUARIO, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into USUARIO_CATEGORIA (NOMBRE_USUARIO, NOMBRE_CATEGORIA) values (?, ?)
+Hibernate: insert into USUARIO_CATEGORIA (NOMBRE_USUARIO, NOMBRE_CATEGORIA) values (?, ?)
+Hibernate: insert into USUARIO_CATEGORIA (NOMBRE_USUARIO, NOMBRE_CATEGORIA) values (?, ?)
+Hibernate: insert into AMIGOS (AMIGO, usuario) values (?, ?)
+Hibernate: insert into AMIGOS (AMIGO, usuario) values (?, ?)
+Hibernate: insert into CIUDAD_USUARIOS (NOMBRE_USUARIO, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_USUARIOS (NOMBRE_USUARIO, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into USUARIO_CATEGORIA (NOMBRE_USUARIO, NOMBRE_CATEGORIA) values (?, ?)
+Hibernate: insert into AMIGOS (AMIGO, usuario) values (?, ?)
+Hibernate: insert into CIUDAD_USUARIOS (NOMBRE_USUARIO, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_USUARIOS (NOMBRE_USUARIO, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into USUARIO_CATEGORIA (NOMBRE_USUARIO, NOMBRE_CATEGORIA) values (?, ?)
+Hibernate: insert into USUARIO_CATEGORIA (NOMBRE_USUARIO, NOMBRE_CATEGORIA) values (?, ?)
+Hibernate: insert into CIUDAD_USUARIOS (NOMBRE_USUARIO, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_USUARIOS (NOMBRE_USUARIO, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into USUARIO_CATEGORIA (NOMBRE_USUARIO, NOMBRE_CATEGORIA) values (?, ?)
+Hibernate: insert into USUARIO_CATEGORIA (NOMBRE_USUARIO, NOMBRE_CATEGORIA) values (?, ?)
+Hibernate: insert into USUARIO_CATEGORIA (NOMBRE_USUARIO, NOMBRE_CATEGORIA) values (?, ?)
+Hibernate: insert into CIUDAD_USUARIOS (NOMBRE_USUARIO, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_USUARIOS (NOMBRE_USUARIO, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into USUARIO_CATEGORIA (NOMBRE_USUARIO, NOMBRE_CATEGORIA) values (?, ?)
+Hibernate: select usuario_.LOGIN, usuario_.NOMBRE_USUARIO as NOMBRE_U2_12_, usuario_.APELLIDO as APELLIDO3_12_, usuario_.PASSWORD as PASSWORD4_12_, usuario_.DIRECCION_ELECTRONICA as DIRECCIO5_12_, usuario_.VECES_ACCEDIDAS as VECES_AC6_12_, usuario_.ULT_VEZ_ONLINE as ULT_VEZ_7_12_ from USUARIO usuario_ where usuario_.LOGIN=?
+Hibernate: insert into USUARIO_RED_SOCIAL (NOMBRE_USUARIO_RS, LOGIN) values (?, ?)
+Hibernate: insert into USUARIO_RED_SOCIAL (NOMBRE_USUARIO_RS, LOGIN) values (?, ?)
+Hibernate: select usuario_.LOGIN, usuario_.NOMBRE_USUARIO as NOMBRE_U2_12_, usuario_.APELLIDO as APELLIDO3_12_, usuario_.PASSWORD as PASSWORD4_12_, usuario_.DIRECCION_ELECTRONICA as DIRECCIO5_12_, usuario_.VECES_ACCEDIDAS as VECES_AC6_12_, usuario_.ULT_VEZ_ONLINE as ULT_VEZ_7_12_ from USUARIO usuario_ where usuario_.LOGIN=?
+Hibernate: insert into USUARIO_RED_SOCIAL (NOMBRE_USUARIO_RS, LOGIN) values (?, ?)
+Hibernate: insert into USUARIO_RED_SOCIAL (NOMBRE_USUARIO_RS, LOGIN) values (?, ?)
+Hibernate: insert into USUARIO_RED_SOCIAL (NOMBRE_USUARIO_RS, LOGIN) values (?, ?)
+Hibernate: select usuario_.LOGIN, usuario_.NOMBRE_USUARIO as NOMBRE_U2_12_, usuario_.APELLIDO as APELLIDO3_12_, usuario_.PASSWORD as PASSWORD4_12_, usuario_.DIRECCION_ELECTRONICA as DIRECCIO5_12_, usuario_.VECES_ACCEDIDAS as VECES_AC6_12_, usuario_.ULT_VEZ_ONLINE as ULT_VEZ_7_12_ from USUARIO usuario_ where usuario_.LOGIN=?
+Hibernate: insert into USUARIO_RED_SOCIAL (NOMBRE_USUARIO_RS, LOGIN) values (?, ?)
+Hibernate: select usuario_.LOGIN, usuario_.NOMBRE_USUARIO as NOMBRE_U2_12_, usuario_.APELLIDO as APELLIDO3_12_, usuario_.PASSWORD as PASSWORD4_12_, usuario_.DIRECCION_ELECTRONICA as DIRECCIO5_12_, usuario_.VECES_ACCEDIDAS as VECES_AC6_12_, usuario_.ULT_VEZ_ONLINE as ULT_VEZ_7_12_ from USUARIO usuario_ where usuario_.LOGIN=?
+Hibernate: insert into USUARIO_RED_SOCIAL (NOMBRE_USUARIO_RS, LOGIN) values (?, ?)
+Hibernate: insert into USUARIO_RED_SOCIAL (NOMBRE_USUARIO_RS, LOGIN) values (?, ?)
+Hibernate: select usuario_.LOGIN, usuario_.NOMBRE_USUARIO as NOMBRE_U2_12_, usuario_.APELLIDO as APELLIDO3_12_, usuario_.PASSWORD as PASSWORD4_12_, usuario_.DIRECCION_ELECTRONICA as DIRECCIO5_12_, usuario_.VECES_ACCEDIDAS as VECES_AC6_12_, usuario_.ULT_VEZ_ONLINE as ULT_VEZ_7_12_ from USUARIO usuario_ where usuario_.LOGIN=?
+Hibernate: insert into USUARIO_RED_SOCIAL (NOMBRE_USUARIO_RS, LOGIN) values (?, ?)
+Hibernate: insert into USUARIO_RED_SOCIAL (NOMBRE_USUARIO_RS, LOGIN) values (?, ?)
+Hibernate: insert into USUARIO_RED_SOCIAL (NOMBRE_USUARIO_RS, LOGIN) values (?, ?)
+Hibernate: select usuario_.LOGIN, usuario_.NOMBRE_USUARIO as NOMBRE_U2_12_, usuario_.APELLIDO as APELLIDO3_12_, usuario_.PASSWORD as PASSWORD4_12_, usuario_.DIRECCION_ELECTRONICA as DIRECCIO5_12_, usuario_.VECES_ACCEDIDAS as VECES_AC6_12_, usuario_.ULT_VEZ_ONLINE as ULT_VEZ_7_12_ from USUARIO usuario_ where usuario_.LOGIN=?
+Hibernate: insert into METODO_DE_PAGO (METODO, NUMERO_TDC, BANCO, CODIGO_DE_SEGURIDAD, TIPO, DINERO_VIRTUAL, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: select usuario_.LOGIN, usuario_.NOMBRE_USUARIO as NOMBRE_U2_12_, usuario_.APELLIDO as APELLIDO3_12_, usuario_.PASSWORD as PASSWORD4_12_, usuario_.DIRECCION_ELECTRONICA as DIRECCIO5_12_, usuario_.VECES_ACCEDIDAS as VECES_AC6_12_, usuario_.ULT_VEZ_ONLINE as ULT_VEZ_7_12_ from USUARIO usuario_ where usuario_.LOGIN=?
+Hibernate: insert into METODO_DE_PAGO (METODO, NUMERO_TDC, BANCO, CODIGO_DE_SEGURIDAD, TIPO, DINERO_VIRTUAL, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into METODO_DE_PAGO (METODO, NUMERO_TDC, BANCO, CODIGO_DE_SEGURIDAD, TIPO, DINERO_VIRTUAL, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: select usuario_.LOGIN, usuario_.NOMBRE_USUARIO as NOMBRE_U2_12_, usuario_.APELLIDO as APELLIDO3_12_, usuario_.PASSWORD as PASSWORD4_12_, usuario_.DIRECCION_ELECTRONICA as DIRECCIO5_12_, usuario_.VECES_ACCEDIDAS as VECES_AC6_12_, usuario_.ULT_VEZ_ONLINE as ULT_VEZ_7_12_ from USUARIO usuario_ where usuario_.LOGIN=?
+Hibernate: insert into METODO_DE_PAGO (METODO, NUMERO_TDC, BANCO, CODIGO_DE_SEGURIDAD, TIPO, DINERO_VIRTUAL, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into METODO_DE_PAGO (METODO, NUMERO_TDC, BANCO, CODIGO_DE_SEGURIDAD, TIPO, DINERO_VIRTUAL, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: select usuario_.LOGIN, usuario_.NOMBRE_USUARIO as NOMBRE_U2_12_, usuario_.APELLIDO as APELLIDO3_12_, usuario_.PASSWORD as PASSWORD4_12_, usuario_.DIRECCION_ELECTRONICA as DIRECCIO5_12_, usuario_.VECES_ACCEDIDAS as VECES_AC6_12_, usuario_.ULT_VEZ_ONLINE as ULT_VEZ_7_12_ from USUARIO usuario_ where usuario_.LOGIN=?
+Hibernate: insert into METODO_DE_PAGO (METODO, NUMERO_TDC, BANCO, CODIGO_DE_SEGURIDAD, TIPO, DINERO_VIRTUAL, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: select usuario_.LOGIN, usuario_.NOMBRE_USUARIO as NOMBRE_U2_12_, usuario_.APELLIDO as APELLIDO3_12_, usuario_.PASSWORD as PASSWORD4_12_, usuario_.DIRECCION_ELECTRONICA as DIRECCIO5_12_, usuario_.VECES_ACCEDIDAS as VECES_AC6_12_, usuario_.ULT_VEZ_ONLINE as ULT_VEZ_7_12_ from USUARIO usuario_ where usuario_.LOGIN=?
+Hibernate: insert into METODO_DE_PAGO (METODO, NUMERO_TDC, BANCO, CODIGO_DE_SEGURIDAD, TIPO, DINERO_VIRTUAL, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into METODO_DE_PAGO (METODO, NUMERO_TDC, BANCO, CODIGO_DE_SEGURIDAD, TIPO, DINERO_VIRTUAL, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into METODO_DE_PAGO (METODO, NUMERO_TDC, BANCO, CODIGO_DE_SEGURIDAD, TIPO, DINERO_VIRTUAL, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into METODO_DE_PAGO (METODO, NUMERO_TDC, BANCO, CODIGO_DE_SEGURIDAD, TIPO, DINERO_VIRTUAL, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into METODO_DE_PAGO (METODO, NUMERO_TDC, BANCO, CODIGO_DE_SEGURIDAD, TIPO, DINERO_VIRTUAL, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into METODO_DE_PAGO (METODO, NUMERO_TDC, BANCO, CODIGO_DE_SEGURIDAD, TIPO, DINERO_VIRTUAL, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into METODO_DE_PAGO (METODO, NUMERO_TDC, BANCO, CODIGO_DE_SEGURIDAD, TIPO, DINERO_VIRTUAL, LOGIN) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: select empresa_.NOMBRE_EMPRESA, empresa_.DIRECCION as DIRECCIO2_7_, empresa_.ESTIMADO_CLIENTE as ESTIMADO3_7_, empresa_.CODIGO_PAIS as CODIGO_P4_7_, empresa_.CODIGO_DE_AREA as CODIGO_D5_7_, empresa_.NUMERO_TLF as NUMERO_T6_7_ from EMPRESA empresa_ where empresa_.NOMBRE_EMPRESA=?
+Hibernate: insert into PROMOCION (DESCRIPCION_PROMOCION, MONTO_ORIGINAL, MONTO_OFERTADO, URL_DETALLES, FECHA_VIGENCIA, LATITUD, LONGITUD, ALTITUD, nombreEmpresa, subcat_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: select ciudad_.NOMBRE_CIUDAD, ciudad_.PAIS as PAIS2_2_ from CIUDAD ciudad_ where ciudad_.NOMBRE_CIUDAD=?
+Hibernate: select ciudad_.NOMBRE_CIUDAD, ciudad_.PAIS as PAIS2_2_ from CIUDAD ciudad_ where ciudad_.NOMBRE_CIUDAD=?
+Hibernate: insert into PROMOCION (DESCRIPCION_PROMOCION, MONTO_ORIGINAL, MONTO_OFERTADO, URL_DETALLES, FECHA_VIGENCIA, LATITUD, LONGITUD, ALTITUD, nombreEmpresa, subcat_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: select ciudad_.NOMBRE_CIUDAD, ciudad_.PAIS as PAIS2_2_ from CIUDAD ciudad_ where ciudad_.NOMBRE_CIUDAD=?
+Hibernate: select empresa_.NOMBRE_EMPRESA, empresa_.DIRECCION as DIRECCIO2_7_, empresa_.ESTIMADO_CLIENTE as ESTIMADO3_7_, empresa_.CODIGO_PAIS as CODIGO_P4_7_, empresa_.CODIGO_DE_AREA as CODIGO_D5_7_, empresa_.NUMERO_TLF as NUMERO_T6_7_ from EMPRESA empresa_ where empresa_.NOMBRE_EMPRESA=?
+Hibernate: insert into PROMOCION (DESCRIPCION_PROMOCION, MONTO_ORIGINAL, MONTO_OFERTADO, URL_DETALLES, FECHA_VIGENCIA, LATITUD, LONGITUD, ALTITUD, nombreEmpresa, subcat_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: select ciudad_.NOMBRE_CIUDAD, ciudad_.PAIS as PAIS2_2_ from CIUDAD ciudad_ where ciudad_.NOMBRE_CIUDAD=?
+Hibernate: insert into PROMOCION (DESCRIPCION_PROMOCION, MONTO_ORIGINAL, MONTO_OFERTADO, URL_DETALLES, FECHA_VIGENCIA, LATITUD, LONGITUD, ALTITUD, nombreEmpresa, subcat_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: select ciudad_.NOMBRE_CIUDAD, ciudad_.PAIS as PAIS2_2_ from CIUDAD ciudad_ where ciudad_.NOMBRE_CIUDAD=?
+Hibernate: select empresa_.NOMBRE_EMPRESA, empresa_.DIRECCION as DIRECCIO2_7_, empresa_.ESTIMADO_CLIENTE as ESTIMADO3_7_, empresa_.CODIGO_PAIS as CODIGO_P4_7_, empresa_.CODIGO_DE_AREA as CODIGO_D5_7_, empresa_.NUMERO_TLF as NUMERO_T6_7_ from EMPRESA empresa_ where empresa_.NOMBRE_EMPRESA=?
+Hibernate: insert into PROMOCION (DESCRIPCION_PROMOCION, MONTO_ORIGINAL, MONTO_OFERTADO, URL_DETALLES, FECHA_VIGENCIA, LATITUD, LONGITUD, ALTITUD, nombreEmpresa, subcat_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into PROMOCION (DESCRIPCION_PROMOCION, MONTO_ORIGINAL, MONTO_OFERTADO, URL_DETALLES, FECHA_VIGENCIA, LATITUD, LONGITUD, ALTITUD, nombreEmpresa, subcat_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: select empresa_.NOMBRE_EMPRESA, empresa_.DIRECCION as DIRECCIO2_7_, empresa_.ESTIMADO_CLIENTE as ESTIMADO3_7_, empresa_.CODIGO_PAIS as CODIGO_P4_7_, empresa_.CODIGO_DE_AREA as CODIGO_D5_7_, empresa_.NUMERO_TLF as NUMERO_T6_7_ from EMPRESA empresa_ where empresa_.NOMBRE_EMPRESA=?
+Hibernate: insert into PROMOCION (DESCRIPCION_PROMOCION, MONTO_ORIGINAL, MONTO_OFERTADO, URL_DETALLES, FECHA_VIGENCIA, LATITUD, LONGITUD, ALTITUD, nombreEmpresa, subcat_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into PROMOCION (DESCRIPCION_PROMOCION, MONTO_ORIGINAL, MONTO_OFERTADO, URL_DETALLES, FECHA_VIGENCIA, LATITUD, LONGITUD, ALTITUD, nombreEmpresa, subcat_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: select empresa_.NOMBRE_EMPRESA, empresa_.DIRECCION as DIRECCIO2_7_, empresa_.ESTIMADO_CLIENTE as ESTIMADO3_7_, empresa_.CODIGO_PAIS as CODIGO_P4_7_, empresa_.CODIGO_DE_AREA as CODIGO_D5_7_, empresa_.NUMERO_TLF as NUMERO_T6_7_ from EMPRESA empresa_ where empresa_.NOMBRE_EMPRESA=?
+Hibernate: insert into PROMOCION (DESCRIPCION_PROMOCION, MONTO_ORIGINAL, MONTO_OFERTADO, URL_DETALLES, FECHA_VIGENCIA, LATITUD, LONGITUD, ALTITUD, nombreEmpresa, subcat_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into PROMOCION (DESCRIPCION_PROMOCION, MONTO_ORIGINAL, MONTO_OFERTADO, URL_DETALLES, FECHA_VIGENCIA, LATITUD, LONGITUD, ALTITUD, nombreEmpresa, subcat_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into CIUDAD_PROMOCION (PROMOCION_ID, NOMBRE_CIUDAD) values (?, ?)
+Hibernate: insert into FECHA_ASOCIADA (FECHA, PROMOCION_ID) values (?, ?)
+Hibernate: insert into FECHA_ASOCIADA (FECHA, PROMOCION_ID) values (?, ?)
+Hibernate: insert into FECHA_ASOCIADA (FECHA, PROMOCION_ID) values (?, ?)
+Hibernate: insert into FECHA_ASOCIADA (FECHA, PROMOCION_ID) values (?, ?)
+Hibernate: insert into FECHA_ASOCIADA (FECHA, PROMOCION_ID) values (?, ?)
+Hibernate: insert into FECHA_ASOCIADA (FECHA, PROMOCION_ID) values (?, ?)
+Hibernate: insert into FECHA_ASOCIADA (FECHA, PROMOCION_ID) values (?, ?)
+Hibernate: insert into FECHA_ASOCIADA (FECHA, PROMOCION_ID) values (?, ?)
+Hibernate: insert into FECHA_ASOCIADA (FECHA, PROMOCION_ID) values (?, ?)
+Hibernate: insert into FECHA_ASOCIADA (FECHA, PROMOCION_ID) values (?, ?)
+Hibernate: insert into FECHA_ASOCIADA (FECHA, PROMOCION_ID) values (?, ?)
+Hibernate: insert into FECHA_ASOCIADA (FECHA, PROMOCION_ID) values (?, ?)
+Hibernate: insert into FECHA_ASOCIADA (FECHA, PROMOCION_ID) values (?, ?)
+Hibernate: insert into FECHA_ASOCIADA (FECHA, PROMOCION_ID) values (?, ?)
+Hibernate: insert into VALEPROMOCION (CANTIDAD_VALES, DESCRIPCION_DEL_VALE, PERIODO_VIGENCIA, DESTINATARIO, VALIDADO_POR_MOBILE, DISCRIMINATOR) values (?, ?, ?, ?, ?, 'ValeNormal')
+Hibernate: select usuario_.LOGIN, usuario_.NOMBRE_USUARIO as NOMBRE_U2_12_, usuario_.APELLIDO as APELLIDO3_12_, usuario_.PASSWORD as PASSWORD4_12_, usuario_.DIRECCION_ELECTRONICA as DIRECCIO5_12_, usuario_.VECES_ACCEDIDAS as VECES_AC6_12_, usuario_.ULT_VEZ_ONLINE as ULT_VEZ_7_12_ from USUARIO usuario_ where usuario_.LOGIN=?
+Hibernate: select usuario_.LOGIN, usuario_.NOMBRE_USUARIO as NOMBRE_U2_12_, usuario_.APELLIDO as APELLIDO3_12_, usuario_.PASSWORD as PASSWORD4_12_, usuario_.DIRECCION_ELECTRONICA as DIRECCIO5_12_, usuario_.VECES_ACCEDIDAS as VECES_AC6_12_, usuario_.ULT_VEZ_ONLINE as ULT_VEZ_7_12_ from USUARIO usuario_ where usuario_.LOGIN=?
+Hibernate: select ciudad_.NOMBRE_CIUDAD, ciudad_.PAIS as PAIS2_2_ from CIUDAD ciudad_ where ciudad_.NOMBRE_CIUDAD=?
+Hibernate: select ciudad_.NOMBRE_CIUDAD, ciudad_.PAIS as PAIS2_2_ from CIUDAD ciudad_ where ciudad_.NOMBRE_CIUDAD=?
+Hibernate: select categoria_.NOMBRE_CATEGORIA, categoria_.DESCRIPCION_CAT as DESCRIPC2_1_ from CATEGORIA categoria_ where categoria_.NOMBRE_CATEGORIA=?
+Hibernate: select categoria_.NOMBRE_CATEGORIA, categoria_.DESCRIPCION_CAT as DESCRIPC2_1_ from CATEGORIA categoria_ where categoria_.NOMBRE_CATEGORIA=?
+Hibernate: select usuario_.LOGIN, usuario_.NOMBRE_USUARIO as NOMBRE_U2_12_, usuario_.APELLIDO as APELLIDO3_12_, usuario_.PASSWORD as PASSWORD4_12_, usuario_.DIRECCION_ELECTRONICA as DIRECCIO5_12_, usuario_.VECES_ACCEDIDAS as VECES_AC6_12_, usuario_.ULT_VEZ_ONLINE as ULT_VEZ_7_12_ from USUARIO usuario_ where usuario_.LOGIN=?
+Hibernate: select ciudad_.NOMBRE_CIUDAD, ciudad_.PAIS as PAIS2_2_ from CIUDAD ciudad_ where ciudad_.NOMBRE_CIUDAD=?
+Hibernate: select categoria_.NOMBRE_CATEGORIA, categoria_.DESCRIPCION_CAT as DESCRIPC2_1_ from CATEGORIA categoria_ where categoria_.NOMBRE_CATEGORIA=?
+Hibernate: select categoria_.NOMBRE_CATEGORIA, categoria_.DESCRIPCION_CAT as DESCRIPC2_1_ from CATEGORIA categoria_ where categoria_.NOMBRE_CATEGORIA=?
+Hibernate: select usuario_.LOGIN, usuario_.NOMBRE_USUARIO as NOMBRE_U2_12_, usuario_.APELLIDO as APELLIDO3_12_, usuario_.PASSWORD as PASSWORD4_12_, usuario_.DIRECCION_ELECTRONICA as DIRECCIO5_12_, usuario_.VECES_ACCEDIDAS as VECES_AC6_12_, usuario_.ULT_VEZ_ONLINE as ULT_VEZ_7_12_ from USUARIO usuario_ where usuario_.LOGIN=?
+Hibernate: select ciudad_.NOMBRE_CIUDAD, ciudad_.PAIS as PAIS2_2_ from CIUDAD ciudad_ where ciudad_.NOMBRE_CIUDAD=?
+Hibernate: insert into COMPRA (CANTIDAD_COMPRADA, TOTAL_COMPRA, FECHA_DE_COMPRA, ID_METODO_PAGO, LOGIN, PROMOCION_ID, CODIGO_VALE) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into VALEPROMOCION (CANTIDAD_VALES, DESCRIPCION_DEL_VALE, PERIODO_VIGENCIA, DESTINATARIO, VALIDADO_POR_MOBILE, DISCRIMINATOR) values (?, ?, ?, ?, ?, 'ValeNormal')
+Hibernate: select usuario_.LOGIN, usuario_.NOMBRE_USUARIO as NOMBRE_U2_12_, usuario_.APELLIDO as APELLIDO3_12_, usuario_.PASSWORD as PASSWORD4_12_, usuario_.DIRECCION_ELECTRONICA as DIRECCIO5_12_, usuario_.VECES_ACCEDIDAS as VECES_AC6_12_, usuario_.ULT_VEZ_ONLINE as ULT_VEZ_7_12_ from USUARIO usuario_ where usuario_.LOGIN=?
+Hibernate: select ciudad_.NOMBRE_CIUDAD, ciudad_.PAIS as PAIS2_2_ from CIUDAD ciudad_ where ciudad_.NOMBRE_CIUDAD=?
+Hibernate: insert into COMPRA (CANTIDAD_COMPRADA, TOTAL_COMPRA, FECHA_DE_COMPRA, ID_METODO_PAGO, LOGIN, PROMOCION_ID, CODIGO_VALE) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into VALEPROMOCION (CANTIDAD_VALES, DESCRIPCION_DEL_VALE, PERIODO_VIGENCIA, DESTINATARIO, VALIDADO_POR_MOBILE, DISCRIMINATOR) values (?, ?, ?, ?, ?, 'ValeNormal')
+Hibernate: insert into COMPRA (CANTIDAD_COMPRADA, TOTAL_COMPRA, FECHA_DE_COMPRA, ID_METODO_PAGO, LOGIN, PROMOCION_ID, CODIGO_VALE) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into VALEPROMOCION (CANTIDAD_VALES, DESCRIPCION_DEL_VALE, PERIODO_VIGENCIA, DESTINATARIO, VALIDADO_POR_MOBILE, DISCRIMINATOR) values (?, ?, ?, ?, ?, 'ValeNormal')
+Hibernate: insert into COMPRA (CANTIDAD_COMPRADA, TOTAL_COMPRA, FECHA_DE_COMPRA, ID_METODO_PAGO, LOGIN, PROMOCION_ID, CODIGO_VALE) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into VALEPROMOCION (CANTIDAD_VALES, DESCRIPCION_DEL_VALE, PERIODO_VIGENCIA, DESTINATARIO, VALIDADO_POR_MOBILE, DISCRIMINATOR) values (?, ?, ?, ?, ?, 'ValeNormal')
+Hibernate: insert into COMPRA (CANTIDAD_COMPRADA, TOTAL_COMPRA, FECHA_DE_COMPRA, ID_METODO_PAGO, LOGIN, PROMOCION_ID, CODIGO_VALE) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into VALEPROMOCION (CANTIDAD_VALES, DESCRIPCION_DEL_VALE, PERIODO_VIGENCIA, DESTINATARIO, VALIDADO_POR_MOBILE, DISCRIMINATOR) values (?, ?, ?, ?, ?, 'ValeNormal')
+Hibernate: insert into COMPRA (CANTIDAD_COMPRADA, TOTAL_COMPRA, FECHA_DE_COMPRA, ID_METODO_PAGO, LOGIN, PROMOCION_ID, CODIGO_VALE) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into VALEPROMOCION (CANTIDAD_VALES, DESCRIPCION_DEL_VALE, PERIODO_VIGENCIA, DESTINATARIO, VALIDADO_POR_MOBILE, DISCRIMINATOR) values (?, ?, ?, ?, ?, 'ValeNormal')
+Hibernate: insert into COMPRA (CANTIDAD_COMPRADA, TOTAL_COMPRA, FECHA_DE_COMPRA, ID_METODO_PAGO, LOGIN, PROMOCION_ID, CODIGO_VALE) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into VALEPROMOCION (CANTIDAD_VALES, DESCRIPCION_DEL_VALE, PERIODO_VIGENCIA, DESTINATARIO, VALIDADO_POR_MOBILE, DISCRIMINATOR) values (?, ?, ?, ?, ?, 'ValeNormal')
+Hibernate: insert into COMPRA (CANTIDAD_COMPRADA, TOTAL_COMPRA, FECHA_DE_COMPRA, ID_METODO_PAGO, LOGIN, PROMOCION_ID, CODIGO_VALE) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into VALEPROMOCION (CANTIDAD_VALES, DESCRIPCION_DEL_VALE, PERIODO_VIGENCIA, DESTINATARIO, VALIDADO_POR_MOBILE, DISCRIMINATOR) values (?, ?, ?, ?, ?, 'ValeNormal')
+Hibernate: insert into COMPRA (CANTIDAD_COMPRADA, TOTAL_COMPRA, FECHA_DE_COMPRA, ID_METODO_PAGO, LOGIN, PROMOCION_ID, CODIGO_VALE) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into VALEPROMOCION (CANTIDAD_VALES, DESCRIPCION_DEL_VALE, PERIODO_VIGENCIA, DESTINATARIO, VALIDADO_POR_MOBILE, DISCRIMINATOR) values (?, ?, ?, ?, ?, 'ValeNormal')
+Hibernate: insert into COMPRA (CANTIDAD_COMPRADA, TOTAL_COMPRA, FECHA_DE_COMPRA, ID_METODO_PAGO, LOGIN, PROMOCION_ID, CODIGO_VALE) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into VALEPROMOCION (CANTIDAD_VALES, DESCRIPCION_DEL_VALE, PERIODO_VIGENCIA, DESTINATARIO, VALIDADO_POR_MOBILE, FECHA_DE_ENVIO, DISCRIMINATOR) values (?, ?, ?, ?, ?, ?, 'ValeRegalo')
+Hibernate: insert into COMPRA (CANTIDAD_COMPRADA, TOTAL_COMPRA, FECHA_DE_COMPRA, ID_METODO_PAGO, LOGIN, PROMOCION_ID, CODIGO_VALE) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into VALEPROMOCION (CANTIDAD_VALES, DESCRIPCION_DEL_VALE, PERIODO_VIGENCIA, DESTINATARIO, VALIDADO_POR_MOBILE, FECHA_DE_ENVIO, DISCRIMINATOR) values (?, ?, ?, ?, ?, ?, 'ValeRegalo')
+Hibernate: insert into COMPRA (CANTIDAD_COMPRADA, TOTAL_COMPRA, FECHA_DE_COMPRA, ID_METODO_PAGO, LOGIN, PROMOCION_ID, CODIGO_VALE) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into VALEPROMOCION (CANTIDAD_VALES, DESCRIPCION_DEL_VALE, PERIODO_VIGENCIA, DESTINATARIO, VALIDADO_POR_MOBILE, FECHA_DE_ENVIO, DISCRIMINATOR) values (?, ?, ?, ?, ?, ?, 'ValeRegalo')
+Hibernate: insert into COMPRA (CANTIDAD_COMPRADA, TOTAL_COMPRA, FECHA_DE_COMPRA, ID_METODO_PAGO, LOGIN, PROMOCION_ID, CODIGO_VALE) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into VALEPROMOCION (CANTIDAD_VALES, DESCRIPCION_DEL_VALE, PERIODO_VIGENCIA, DESTINATARIO, VALIDADO_POR_MOBILE, FECHA_DE_ENVIO, DISCRIMINATOR) values (?, ?, ?, ?, ?, ?, 'ValeRegalo')
+Hibernate: insert into COMPRA (CANTIDAD_COMPRADA, TOTAL_COMPRA, FECHA_DE_COMPRA, ID_METODO_PAGO, LOGIN, PROMOCION_ID, CODIGO_VALE) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into VALEPROMOCION (CANTIDAD_VALES, DESCRIPCION_DEL_VALE, PERIODO_VIGENCIA, DESTINATARIO, VALIDADO_POR_MOBILE, FECHA_DE_ENVIO, DISCRIMINATOR) values (?, ?, ?, ?, ?, ?, 'ValeRegalo')
+Hibernate: insert into COMPRA (CANTIDAD_COMPRADA, TOTAL_COMPRA, FECHA_DE_COMPRA, ID_METODO_PAGO, LOGIN, PROMOCION_ID, CODIGO_VALE) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: update USUARIO set NOMBRE_USUARIO=?, APELLIDO=?, PASSWORD=?, DIRECCION_ELECTRONICA=?, VECES_ACCEDIDAS=?, ULT_VEZ_ONLINE=? where LOGIN=?
+Hibernate: update USUARIO set NOMBRE_USUARIO=?, APELLIDO=?, PASSWORD=?, DIRECCION_ELECTRONICA=?, VECES_ACCEDIDAS=?, ULT_VEZ_ONLINE=? where LOGIN=?
+Hibernate: update USUARIO set NOMBRE_USUARIO=?, APELLIDO=?, PASSWORD=?, DIRECCION_ELECTRONICA=?, VECES_ACCEDIDAS=?, ULT_VEZ_ONLINE=? where LOGIN=?
+Hibernate: update USUARIO set NOMBRE_USUARIO=?, APELLIDO=?, PASSWORD=?, DIRECCION_ELECTRONICA=?, VECES_ACCEDIDAS=?, ULT_VEZ_ONLINE=? where LOGIN=?
+Hibernate: update USUARIO set NOMBRE_USUARIO=?, APELLIDO=?, PASSWORD=?, DIRECCION_ELECTRONICA=?, VECES_ACCEDIDAS=?, ULT_VEZ_ONLINE=? where LOGIN=?
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)
+Hibernate: insert into COMPARTIDOS (CODIGO_VALE, NOMBRE_USUARIO) values (?, ?)

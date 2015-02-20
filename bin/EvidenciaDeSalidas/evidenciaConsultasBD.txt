@@ -1,0 +1,37 @@
+/************************************************ 
+*  EVIDENCIA DE SALIDA DE LAS CONSULTAS		*
+*  AUTORES: JUAN PEREIRA 09-11173		*
+*           ERICK MARRERO 09-10981		*
+*************************************************/
+
+USUARIOS QUE COMPRAN PROMOCIONES QUE SE LES COMPARTIERON
+--------------------------------------------------------
+| LOGIN USUARIOS                                        |
+--------------------------------------------------------
+| rosagerman2                                  |
+| cBautista                                  |
+| cBautista                                  |
+| martinezJose                                  |
+| martinezJose                                  |
+--------------------------------------------------------
+
+CANTIDAD DE PROMOCIONES ADQUIRIDAS POR UNA CATEGORIA ESPECIFICA
+--------------------------------------------------------
+| NOMBRE CATEGORIA : CANTIDAD                          |
+--------------------------------------------------------
+| Eventos Sociales : 3                                  |
+| Gastronomia y Bebidas : 6                                  |
+| Moda y Accesorios : 3                                  |
+| Viajes : 3                                  |
+--------------------------------------------------------
+
+TOTAL DE VENTAS POR CADA EMPRESA EN EL PORTAL
+--------------------------------------------------------
+| NOMBRE EMPRESA : TOTAL VENTAS                        |
+--------------------------------------------------------
+| Aerolineas LissandraX : 9060.480000000001                                  |
+| AGUI C.A. : 28504.5                                  |
+| Hermanos a la casta : 15801.65                                  |
+| La Espetada C.A. : 14401.49                                  |
+| Zara : 5200.79                                  |
+--------------------------------------------------------

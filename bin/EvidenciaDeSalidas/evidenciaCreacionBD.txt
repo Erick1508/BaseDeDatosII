@@ -1,0 +1,260 @@
+/************************************************ 
+*  EVIDENCIA DE CREACION DE LA BD		*
+*  AUTORES: JUAN PEREIRA 09-11173		*
+*           ERICK MARRERO 09-10981		*
+*************************************************/
+
+feb 20, 2015 6:07:37 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+feb 20, 2015 6:07:37 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {4.3.8.Final}
+feb 20, 2015 6:07:37 PM org.hibernate.cfg.Environment <clinit>
+INFO: HHH000206: hibernate.properties not found
+feb 20, 2015 6:07:37 PM org.hibernate.cfg.Environment buildBytecodeProvider
+INFO: HHH000021: Bytecode provider name : javassist
+feb 20, 2015 6:07:37 PM org.hibernate.cfg.Configuration configure
+INFO: HHH000043: Configuring from resource: /hibernate.cfg.xml
+feb 20, 2015 6:07:37 PM org.hibernate.cfg.Configuration getConfigurationInputStream
+INFO: HHH000040: Configuration resource: /hibernate.cfg.xml
+feb 20, 2015 6:07:37 PM org.hibernate.cfg.Configuration addResource
+INFO: HHH000221: Reading mappings from resource: XMLS/ValePromocion.hbm.xml
+feb 20, 2015 6:07:37 PM org.hibernate.cfg.Configuration addResource
+INFO: HHH000221: Reading mappings from resource: XMLS/Compra.hbm.xml
+feb 20, 2015 6:07:37 PM org.hibernate.cfg.Configuration addResource
+INFO: HHH000221: Reading mappings from resource: XMLS/Usuario.hbm.xml
+feb 20, 2015 6:07:37 PM org.hibernate.cfg.Configuration addResource
+INFO: HHH000221: Reading mappings from resource: XMLS/Empresa.hbm.xml
+feb 20, 2015 6:07:37 PM org.hibernate.cfg.Configuration addResource
+INFO: HHH000221: Reading mappings from resource: XMLS/Categoria.hbm.xml
+feb 20, 2015 6:07:37 PM org.hibernate.cfg.Configuration addResource
+INFO: HHH000221: Reading mappings from resource: XMLS/Ciudad.hbm.xml
+feb 20, 2015 6:07:37 PM org.hibernate.cfg.Configuration addResource
+INFO: HHH000221: Reading mappings from resource: XMLS/MetodoPago.hbm.xml
+feb 20, 2015 6:07:37 PM org.hibernate.cfg.Configuration addResource
+INFO: HHH000221: Reading mappings from resource: XMLS/UsuarioRedSocial.hbm.xml
+feb 20, 2015 6:07:37 PM org.hibernate.cfg.Configuration addResource
+INFO: HHH000221: Reading mappings from resource: XMLS/FechaAsociada.hbm.xml
+feb 20, 2015 6:07:37 PM org.hibernate.cfg.Configuration addResource
+INFO: HHH000221: Reading mappings from resource: XMLS/Promocion.hbm.xml
+feb 20, 2015 6:07:37 PM org.hibernate.cfg.Configuration addResource
+INFO: HHH000221: Reading mappings from resource: XMLS/Subcategoria.hbm.xml
+feb 20, 2015 6:07:37 PM org.hibernate.cfg.Configuration doConfigure
+INFO: HHH000041: Configured SessionFactory: null
+feb 20, 2015 6:07:37 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH000402: Using Hibernate built-in connection pool (not for production use!)
+feb 20, 2015 6:07:37 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/basededatos]
+feb 20, 2015 6:07:37 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH000046: Connection properties: {user=root, password=****}
+feb 20, 2015 6:07:37 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH000006: Autocommit mode: false
+feb 20, 2015 6:07:37 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+INFO: HHH000115: Hibernate connection pool size: 1 (min=1)
+feb 20, 2015 6:07:37 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+feb 20, 2015 6:07:37 PM org.hibernate.engine.transaction.internal.TransactionFactoryInitiator initiateService
+INFO: HHH000399: Using default transaction strategy (direct JDBC transactions)
+feb 20, 2015 6:07:37 PM org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory <init>
+INFO: HHH000397: Using ASTQueryTranslatorFactory
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport execute
+INFO: HHH000227: Running hbm2ddl schema export
+Hibernate: alter table AMIGOS drop foreign key FK_68m0nayowjcbbo4tlqqbbwo6n
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table AMIGOS drop foreign key FK_68m0nayowjcbbo4tlqqbbwo6n
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.AMIGOS' doesn't exist
+Hibernate: alter table AMIGOS drop foreign key FK_3wxjq49fg860cw8yss864t4s1
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table AMIGOS drop foreign key FK_3wxjq49fg860cw8yss864t4s1
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.AMIGOS' doesn't exist
+Hibernate: alter table CIUDAD_PROMOCION drop foreign key FK_3v5hwpv42uh0n5v24bv31p1w5
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table CIUDAD_PROMOCION drop foreign key FK_3v5hwpv42uh0n5v24bv31p1w5
+Hibernate: alter table CIUDAD_PROMOCION drop foreign key FK_q7yixiogj0lbxjvrwq8449hip
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.CIUDAD_PROMOCION' doesn't exist
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table CIUDAD_PROMOCION drop foreign key FK_q7yixiogj0lbxjvrwq8449hip
+Hibernate: alter table CIUDAD_USUARIOS drop foreign key FK_j3dcsuw4fkd3w37qwt9bkbljm
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.CIUDAD_PROMOCION' doesn't exist
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table CIUDAD_USUARIOS drop foreign key FK_j3dcsuw4fkd3w37qwt9bkbljm
+Hibernate: alter table CIUDAD_USUARIOS drop foreign key FK_i7su6k4iwbh8dkph0qiiy3o0c
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.CIUDAD_USUARIOS' doesn't exist
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table CIUDAD_USUARIOS drop foreign key FK_i7su6k4iwbh8dkph0qiiy3o0c
+Hibernate: alter table COMPARTIDOS drop foreign key FK_ap1etrskh7mmiaotwv41ofcm4
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.CIUDAD_USUARIOS' doesn't exist
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table COMPARTIDOS drop foreign key FK_ap1etrskh7mmiaotwv41ofcm4
+Hibernate: alter table COMPARTIDOS drop foreign key FK_bbai57sr65g17dkoqvtw76tn1
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.COMPARTIDOS' doesn't exist
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table COMPARTIDOS drop foreign key FK_bbai57sr65g17dkoqvtw76tn1
+Hibernate: alter table COMPRA drop foreign key FK_o750hfxug9d13sfa1hltyljn4
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.COMPARTIDOS' doesn't exist
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table COMPRA drop foreign key FK_o750hfxug9d13sfa1hltyljn4
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.COMPRA' doesn't exist
+Hibernate: alter table COMPRA drop foreign key FK_shrx3qd4ft3quhktwo4jb9j85
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table COMPRA drop foreign key FK_shrx3qd4ft3quhktwo4jb9j85
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.COMPRA' doesn't exist
+Hibernate: alter table COMPRA drop foreign key FK_o6r60mtlgl3u75iibjc11i3l4
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table COMPRA drop foreign key FK_o6r60mtlgl3u75iibjc11i3l4
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.COMPRA' doesn't exist
+Hibernate: alter table COMPRA drop foreign key FK_ibii84d7yewdw82iuecb696uy
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table COMPRA drop foreign key FK_ibii84d7yewdw82iuecb696uy
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.COMPRA' doesn't exist
+Hibernate: alter table FECHA_ASOCIADA drop foreign key FK_mnhpbk7u4ac9tdc9971ki0cmu
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table FECHA_ASOCIADA drop foreign key FK_mnhpbk7u4ac9tdc9971ki0cmu
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.FECHA_ASOCIADA' doesn't exist
+Hibernate: alter table FECHA_ASOCIADA drop foreign key FK_2ao3w8f5f0ke0l9lp48dbsfbv
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table FECHA_ASOCIADA drop foreign key FK_2ao3w8f5f0ke0l9lp48dbsfbv
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.FECHA_ASOCIADA' doesn't exist
+Hibernate: alter table METODO_DE_PAGO drop foreign key FK_nkn7ebuc993mkcv88ll8xd1x7
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table METODO_DE_PAGO drop foreign key FK_nkn7ebuc993mkcv88ll8xd1x7
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.METODO_DE_PAGO' doesn't exist
+Hibernate: alter table METODO_DE_PAGO drop foreign key FK_9lmg946mh7l0bicats3u0gq3l
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table METODO_DE_PAGO drop foreign key FK_9lmg946mh7l0bicats3u0gq3l
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.METODO_DE_PAGO' doesn't exist
+Hibernate: alter table PROMOCION drop foreign key FK_ax6xfpl0tnwqrcfqyr29xrfdd
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table PROMOCION drop foreign key FK_ax6xfpl0tnwqrcfqyr29xrfdd
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.PROMOCION' doesn't exist
+Hibernate: alter table PROMOCION drop foreign key FK_lf5d1knxiv4hgp1pd6bgh1053
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table PROMOCION drop foreign key FK_lf5d1knxiv4hgp1pd6bgh1053
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.PROMOCION' doesn't exist
+Hibernate: alter table PROMOCION drop foreign key FK_o22sv5u1lj1qd8dpfre232sy0
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table PROMOCION drop foreign key FK_o22sv5u1lj1qd8dpfre232sy0
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.PROMOCION' doesn't exist
+Hibernate: alter table SUBCATEGORIA drop foreign key FK_l8v0bffpvk7grvaqsxqyu9jpw
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table SUBCATEGORIA drop foreign key FK_l8v0bffpvk7grvaqsxqyu9jpw
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.SUBCATEGORIA' doesn't exist
+Hibernate: alter table SUBCATEGORIA drop foreign key FK_3lwyqs582nsuntcek5u05golp
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table SUBCATEGORIA drop foreign key FK_3lwyqs582nsuntcek5u05golp
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.SUBCATEGORIA' doesn't exist
+Hibernate: alter table USUARIO_CATEGORIA drop foreign key FK_688u03khy0wvogp3egiipxt1u
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table USUARIO_CATEGORIA drop foreign key FK_688u03khy0wvogp3egiipxt1u
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.USUARIO_CATEGORIA' doesn't exist
+Hibernate: alter table USUARIO_CATEGORIA drop foreign key FK_4dvbe5cugw0w2owugg3lhgj6j
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table USUARIO_CATEGORIA drop foreign key FK_4dvbe5cugw0w2owugg3lhgj6j
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.USUARIO_CATEGORIA' doesn't exist
+Hibernate: alter table USUARIO_RED_SOCIAL drop foreign key FK_aao4e94kllja19amt9avtetbs
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table USUARIO_RED_SOCIAL drop foreign key FK_aao4e94kllja19amt9avtetbs
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.USUARIO_RED_SOCIAL' doesn't exist
+Hibernate: alter table USUARIO_RED_SOCIAL drop foreign key FK_llehcapjo704g7kitqqn6esv1
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table USUARIO_RED_SOCIAL drop foreign key FK_llehcapjo704g7kitqqn6esv1
+feb 20, 2015 6:07:38 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'basededatos.USUARIO_RED_SOCIAL' doesn't exist
+Hibernate: drop table if exists AMIGOS
+Hibernate: drop table if exists CATEGORIA
+Hibernate: drop table if exists CIUDAD
+Hibernate: drop table if exists CIUDAD_PROMOCION
+Hibernate: drop table if exists CIUDAD_USUARIOS
+Hibernate: drop table if exists COMPARTIDOS
+Hibernate: drop table if exists COMPRA
+Hibernate: drop table if exists EMPRESA
+Hibernate: drop table if exists FECHA_ASOCIADA
+Hibernate: drop table if exists METODO_DE_PAGO
+Hibernate: drop table if exists PROMOCION
+Hibernate: drop table if exists SUBCATEGORIA
+Hibernate: drop table if exists USUARIO
+Hibernate: drop table if exists USUARIO_CATEGORIA
+Hibernate: drop table if exists USUARIO_RED_SOCIAL
+Hibernate: drop table if exists VALEPROMOCION
+Hibernate: create table AMIGOS (USUARIO varchar(255) not null, amigo varchar(255) not null, primary key (AMIGO, usuario))
+Hibernate: create table CATEGORIA (NOMBRE_CATEGORIA varchar(255) not null, DESCRIPCION_CAT varchar(255), primary key (NOMBRE_CATEGORIA))
+Hibernate: create table CIUDAD (NOMBRE_CIUDAD varchar(255) not null, PAIS varchar(255), primary key (NOMBRE_CIUDAD))
+Hibernate: create table CIUDAD_PROMOCION (NOMBRE_CIUDAD varchar(255) not null, PROMOCION_ID integer not null, primary key (PROMOCION_ID, NOMBRE_CIUDAD))
+Hibernate: create table CIUDAD_USUARIOS (NOMBRE_USUARIO varchar(255) not null, NOMBRE_CIUDAD varchar(255) not null, primary key (NOMBRE_CIUDAD, NOMBRE_USUARIO))
+Hibernate: create table COMPARTIDOS (CODIGO_VALE integer not null, NOMBRE_USUARIO varchar(255) not null, primary key (NOMBRE_USUARIO, CODIGO_VALE))
+Hibernate: create table COMPRA (CODIGO_VALE integer not null, CANTIDAD_COMPRADA integer, TOTAL_COMPRA double precision, FECHA_DE_COMPRA date, ID_METODO_PAGO integer not null, LOGIN varchar(255) not null, PROMOCION_ID integer not null, primary key (CODIGO_VALE))
+Hibernate: create table EMPRESA (NOMBRE_EMPRESA varchar(255) not null, DIRECCION varchar(255), ESTIMADO_CLIENTE integer, CODIGO_PAIS integer, CODIGO_DE_AREA integer, NUMERO_TLF integer, primary key (NOMBRE_EMPRESA))
+Hibernate: create table FECHA_ASOCIADA (fecha_id bigint not null auto_increment, FECHA date, PROMOCION_ID integer not null, primary key (fecha_id))
+Hibernate: create table METODO_DE_PAGO (ID_METODO integer not null auto_increment, METODO varchar(255), NUMERO_TDC integer, BANCO varchar(255), CODIGO_DE_SEGURIDAD integer, TIPO varchar(255), DINERO_VIRTUAL double precision, LOGIN varchar(255), primary key (ID_METODO))
+Hibernate: create table PROMOCION (PROMOCION_ID integer not null auto_increment, DESCRIPCION_PROMOCION varchar(255), MONTO_ORIGINAL double precision, MONTO_OFERTADO double precision, URL_DETALLES varchar(255), FECHA_VIGENCIA date, LATITUD double precision, LONGITUD double precision, ALTITUD double precision, nombreEmpresa varchar(255) not null, subcat_id integer not null, primary key (PROMOCION_ID))
+Hibernate: create table SUBCATEGORIA (SUBCAT_ID integer not null auto_increment, NOMBRE_SUB_CAT varchar(255), DESCRIPCION_SUB varchar(255), nombreCategoria varchar(255) not null, primary key (SUBCAT_ID))
+Hibernate: create table USUARIO (LOGIN varchar(255) not null, NOMBRE_USUARIO varchar(255), APELLIDO varchar(255), PASSWORD varchar(255), DIRECCION_ELECTRONICA varchar(255), VECES_ACCEDIDAS integer, ULT_VEZ_ONLINE datetime, primary key (LOGIN))
+Hibernate: create table USUARIO_CATEGORIA (NOMBRE_USUARIO varchar(255) not null, NOMBRE_CATEGORIA varchar(255) not null, primary key (NOMBRE_CATEGORIA, NOMBRE_USUARIO))
+Hibernate: create table USUARIO_RED_SOCIAL (USR_ID integer not null auto_increment, NOMBRE_USUARIO_RS varchar(255), LOGIN varchar(255) not null, primary key (USR_ID))
+Hibernate: create table VALEPROMOCION (CODIGO_VALE integer not null auto_increment, DISCRIMINATOR varchar(255) not null, CANTIDAD_VALES integer, DESCRIPCION_DEL_VALE varchar(255), PERIODO_VIGENCIA date, DESTINATARIO varchar(255), VALIDADO_POR_MOBILE bit, FECHA_DE_ENVIO date, primary key (CODIGO_VALE))
+Hibernate: alter table EMPRESA add constraint UK_5lpuhqhl0td60jebg0oh9lplf  unique (CODIGO_PAIS, CODIGO_DE_AREA, NUMERO_TLF)
+Hibernate: alter table PROMOCION add constraint UK_eq9ch808cd3li3j9nvf6ubvcg  unique (LATITUD, LONGITUD, ALTITUD)
+Hibernate: alter table AMIGOS add constraint FK_68m0nayowjcbbo4tlqqbbwo6n foreign key (amigo) references USUARIO (LOGIN)
+Hibernate: alter table AMIGOS add constraint FK_3wxjq49fg860cw8yss864t4s1 foreign key (USUARIO) references USUARIO (LOGIN)
+Hibernate: alter table CIUDAD_PROMOCION add constraint FK_3v5hwpv42uh0n5v24bv31p1w5 foreign key (PROMOCION_ID) references PROMOCION (PROMOCION_ID)
+Hibernate: alter table CIUDAD_PROMOCION add constraint FK_q7yixiogj0lbxjvrwq8449hip foreign key (NOMBRE_CIUDAD) references CIUDAD (NOMBRE_CIUDAD)
+Hibernate: alter table CIUDAD_USUARIOS add constraint FK_j3dcsuw4fkd3w37qwt9bkbljm foreign key (NOMBRE_CIUDAD) references CIUDAD (NOMBRE_CIUDAD)
+Hibernate: alter table CIUDAD_USUARIOS add constraint FK_i7su6k4iwbh8dkph0qiiy3o0c foreign key (NOMBRE_USUARIO) references USUARIO (LOGIN)
+Hibernate: alter table COMPARTIDOS add constraint FK_ap1etrskh7mmiaotwv41ofcm4 foreign key (NOMBRE_USUARIO) references USUARIO (LOGIN)
+Hibernate: alter table COMPARTIDOS add constraint FK_bbai57sr65g17dkoqvtw76tn1 foreign key (CODIGO_VALE) references COMPRA (CODIGO_VALE)
+Hibernate: alter table COMPRA add constraint FK_o750hfxug9d13sfa1hltyljn4 foreign key (CODIGO_VALE) references VALEPROMOCION (CODIGO_VALE)
+Hibernate: alter table COMPRA add constraint FK_shrx3qd4ft3quhktwo4jb9j85 foreign key (ID_METODO_PAGO) references METODO_DE_PAGO (ID_METODO)
+Hibernate: alter table COMPRA add constraint FK_o6r60mtlgl3u75iibjc11i3l4 foreign key (LOGIN) references USUARIO (LOGIN)
+Hibernate: alter table COMPRA add constraint FK_ibii84d7yewdw82iuecb696uy foreign key (PROMOCION_ID) references PROMOCION (PROMOCION_ID)
+Hibernate: alter table FECHA_ASOCIADA add constraint FK_mnhpbk7u4ac9tdc9971ki0cmu foreign key (PROMOCION_ID) references PROMOCION (PROMOCION_ID)
+Hibernate: alter table FECHA_ASOCIADA add constraint FK_2ao3w8f5f0ke0l9lp48dbsfbv foreign key (fecha_id) references PROMOCION (PROMOCION_ID)
+feb 20, 2015 6:07:42 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table FECHA_ASOCIADA add constraint FK_2ao3w8f5f0ke0l9lp48dbsfbv foreign key (fecha_id) references PROMOCION (PROMOCION_ID)
+Hibernate: alter table METODO_DE_PAGO add constraint FK_nkn7ebuc993mkcv88ll8xd1x7 foreign key (LOGIN) references USUARIO (LOGIN)
+feb 20, 2015 6:07:42 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Can't create table 'basededatos.#sql-3e3_61' (errno: 150)
+Hibernate: alter table METODO_DE_PAGO add constraint FK_9lmg946mh7l0bicats3u0gq3l foreign key (ID_METODO) references USUARIO (LOGIN)
+feb 20, 2015 6:07:42 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table METODO_DE_PAGO add constraint FK_9lmg946mh7l0bicats3u0gq3l foreign key (ID_METODO) references USUARIO (LOGIN)
+feb 20, 2015 6:07:42 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Can't create table 'basededatos.#sql-3e3_61' (errno: 150)
+Hibernate: alter table PROMOCION add constraint FK_ax6xfpl0tnwqrcfqyr29xrfdd foreign key (nombreEmpresa) references EMPRESA (NOMBRE_EMPRESA)
+Hibernate: alter table PROMOCION add constraint FK_lf5d1knxiv4hgp1pd6bgh1053 foreign key (subcat_id) references SUBCATEGORIA (SUBCAT_ID)
+Hibernate: alter table PROMOCION add constraint FK_o22sv5u1lj1qd8dpfre232sy0 foreign key (promocion_id) references EMPRESA (NOMBRE_EMPRESA)
+feb 20, 2015 6:07:42 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table PROMOCION add constraint FK_o22sv5u1lj1qd8dpfre232sy0 foreign key (promocion_id) references EMPRESA (NOMBRE_EMPRESA)
+feb 20, 2015 6:07:42 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Can't create table 'basededatos.#sql-3e3_61' (errno: 150)
+Hibernate: alter table SUBCATEGORIA add constraint FK_l8v0bffpvk7grvaqsxqyu9jpw foreign key (nombreCategoria) references CATEGORIA (NOMBRE_CATEGORIA)
+Hibernate: alter table SUBCATEGORIA add constraint FK_3lwyqs582nsuntcek5u05golp foreign key (subcat_id) references CATEGORIA (NOMBRE_CATEGORIA)
+feb 20, 2015 6:07:43 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table SUBCATEGORIA add constraint FK_3lwyqs582nsuntcek5u05golp foreign key (subcat_id) references CATEGORIA (NOMBRE_CATEGORIA)
+Hibernate: alter table USUARIO_CATEGORIA add constraint FK_688u03khy0wvogp3egiipxt1u foreign key (NOMBRE_CATEGORIA) references CATEGORIA (NOMBRE_CATEGORIA)
+feb 20, 2015 6:07:43 PM org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Can't create table 'basededatos.#sql-3e3_61' (errno: 150)
+Hibernate: alter table USUARIO_CATEGORIA add constraint FK_4dvbe5cugw0w2owugg3lhgj6j foreign key (NOMBRE_USUARIO) references USUARIO (LOGIN)
+Hibernate: alter table USUARIO_RED_SOCIAL add constraint FK_aao4e94kllja19amt9avtetbs foreign key (LOGIN) references USUARIO (LOGIN)
+Hibernate: alter table USUARIO_RED_SOCIAL add constraint FK_llehcapjo704g7kitqqn6esv1 foreign key (USR_ID) references USUARIO (LOGIN)
