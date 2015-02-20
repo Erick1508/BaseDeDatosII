@@ -10,7 +10,7 @@ Both Person and Employee model class are defined within one hbm file.-->
  
   <class name="MetodoPago" table="METODO_DE_PAGO">
         <id name="methodId" column="ID_METODO">
-            <generator class="increment">
+            <generator class="identity">
         </generator></id>
  
 	<discriminator column="DISCRIMINATOR" type="string"/>

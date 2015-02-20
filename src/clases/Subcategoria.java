@@ -15,6 +15,8 @@ public class Subcategoria {
 	//asociacion con promocion
 	private Set<Promocion> promociones = new HashSet<Promocion>(0);
 	
+	public Subcategoria(){}
+	
 	public Subcategoria(String nombreSubCat, String descripcionSubCat) {
 		this.nombreSubCat = nombreSubCat;
 		this.descripcionSubCat = descripcionSubCat;

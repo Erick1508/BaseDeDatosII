@@ -40,6 +40,8 @@ public class Usuario {
     // asociacion *-* con Compra
     private Set<Compra> ComprasCompartidas = new HashSet<Compra>();
     
+    public Usuario(){}
+    
 	public Usuario(String login, String password, String nombre,
 			String apellido, String email, Date ult_vez_online) {
 		this.login = login;

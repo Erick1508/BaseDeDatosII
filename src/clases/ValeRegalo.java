@@ -6,6 +6,8 @@ public class ValeRegalo extends ValePromocion{
 
 	private Date fechaEnvio;
 	
+	public ValeRegalo(){}
+	
 	public ValeRegalo(int cantidadVales, String descripcionVale,
 			String dir_correo, boolean validado_por_mobile, Date fechaVigencia, Date fechaEnvio) {
 		super(cantidadVales, descripcionVale, dir_correo, validado_por_mobile,

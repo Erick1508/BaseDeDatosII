@@ -7,6 +7,8 @@ public class DineroPromocion extends MetodoPago{
 	//asociacion 1-1 con usuarios
 	private Usuario usuario;
 
+	public DineroPromocion(){}
+	
 	public DineroPromocion(double dineroVirtual) {
 		super();
 		this.dineroVirtual = dineroVirtual;

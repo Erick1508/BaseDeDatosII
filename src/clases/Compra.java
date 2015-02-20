@@ -28,7 +28,9 @@ public class Compra {
     // tener las dos private many to one.
     private Usuario usuario;
     private Promocion promocion;
-        
+    
+    public Compra(){}
+    
     public Compra(int cantidadPromocion, double montoDeCompra, Date fechaCompra) {
 		this.cantidadPromocion = cantidadPromocion;
 		this.montoDeCompra = montoDeCompra;

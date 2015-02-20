@@ -10,6 +10,8 @@ public class TDC extends MetodoPago{
 	//asociacion 1-* con usuario
 	private Usuario usuario;
 	
+	public TDC(){}
+	
 	public TDC(int nroTDC, String banco, int codigoSeguridad, String tipo) {
 		super();
 		this.nroTDC = nroTDC;

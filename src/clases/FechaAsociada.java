@@ -9,6 +9,8 @@ public class FechaAsociada {
 	
 	private Promocion promocion;
 	
+	public FechaAsociada(){}
+	
 	public FechaAsociada(Date fecha) {
 		this.fecha = fecha;
 	}

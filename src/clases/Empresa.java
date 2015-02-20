@@ -13,6 +13,8 @@ public class Empresa {
 	
 	private Set<Promocion> promociones = new HashSet<Promocion>(0); //La empresa tiene un set de promociones
 	
+	public Empresa(){}
+	
 	public Empresa(String nombreEmpresa, String direccionFisica,
 			int estimadoCliente, Telefono tlf) {
 		this.nombreEmpresa = nombreEmpresa;

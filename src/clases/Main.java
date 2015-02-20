@@ -1,13 +1,17 @@
 package clases;
 
+import org.hibernate.Query;
+
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.Transaction;
 
 public class Main {
 	
@@ -329,8 +333,61 @@ public class Main {
 		main.agregarFechasAsocAPromociones(fechasAsoc, sessionFactory);		
 		main.agregarCompras(compras, sessionFactory);
 		
+		//consulta1(sessionFactory);
+		
 		sessionFactory.close();
 	}
+	
+	public static void consulta1(SessionFactory sessionFactory){
+		
+		Session session = sessionFactory.openSession();
+		Transaction transaction = null;
+		transaction = session.beginTransaction();
+        
+		Query query = 
+				session.createQuery("from Usuario vp");
+		
+    	/*Query query = 
+			session.createQuery("from Compra comp"
+							  + "where comp in (from compra comp2"
+							  				 + "where comp1.getPromocion().getPromocion_id() = comp2.getPromocion().getPromocion_id()"
+							  				 + "and c2.usuariosCompartir.getLogin() = comp1.getUsuario().getLogin())"); 							  
+			*/				  
+							  /*+" in (select c2.usuarioscompartir.getlogin()"
+							  					 + "from compra c2"
+							  					 + "where c1.promocion_id = c2.promocion_id and"
+							  					 + "c2.usuarioscompartir.getlogin() = c1.login and"
+							  					 + "c2.fecha_de_compra < c1.fecha_de_compra)");
+*/
+							  
+							  
+							  		  /*"(C1.PROMOCION_ID,C1.LOGIN) IN "
+									+ "(SELECT PROMOCION_ID AS PROM, COMP.NOMBRE_USUARIO AS LOGIN"
+									+ "FROM COMPARTIDOS COMP, COMPRA C"
+									+ "WHERE COMP.CODIGO_VALE = C.CODIGO_VALE AND C.FECHA_DE_COMPRA < C1.FECHA_DE_COMPRA)"
+									+ "ORDER BY C1.FECHA_DE_COMPRA;");
+				*/
+	    
+		//Guardando en la lista todas las tuplas recibidas en el query	
+		List compra = query.list(); 
+		System.out.println("USUARIOS QUE COMPRAN PROMOCIONES QUE SE LES COMPARTIERON");
+		System.out.println("--------------------------------------------------------");
+		System.out.println("| LOGIN USUARIOS  | PROMOCION ID                        |");
+		//Iterando sobre todas las tuplas almacenadas en la lista
+    	/*for (Iterator iterator = compra.iterator(); iterator.hasNext();) {
+    		Compra comp = (Compra) iterator.next(); 
+    		System.out.println("| "+comp.getUsuario().getLogin()+" | "+comp.getPromocion().getPromocion_id()
+    							+"                                  |");
+    		comp.getUsuariosCompartir().
+    	}*/
+    	
+    	System.out.println("--------------------------------------------------------");
+    	
+    	transaction.commit();
+		session.close();
+	}
+	
+	
 	
 	/********************************************************************************
 	 * METODOS DE SETEO DE DATOS PARA 												*
@@ -431,11 +488,11 @@ public class Main {
 		/*
 		 * ARREGLO DE DINERO DE PROMOCION
 		 * */
-		dinPromo.add(new DineroPromocion(0));
-		dinPromo.add(new DineroPromocion(0));
-		dinPromo.add(new DineroPromocion(0));
-		dinPromo.add(new DineroPromocion(0));
-		dinPromo.add(new DineroPromocion(0));
+		dinPromo.add(new DineroPromocion(0.0));
+		dinPromo.add(new DineroPromocion(0.0));
+		dinPromo.add(new DineroPromocion(0.0));
+		dinPromo.add(new DineroPromocion(0.0));
+		dinPromo.add(new DineroPromocion(0.0));
 		
 		/*
 		 * Ubicaciones Geograficas de las promociones
@@ -803,7 +860,7 @@ public class Main {
 		compras.get(14).getUsuariosCompartir().add(usuarios.get(2));
 				
 		// COMPRAS QUE FUERON COMPARTIDAS Y SE IGNORARON
-		compras.get(0).getUsuariosCompartir().add(usuarios.get(2));
+		/*compras.get(0).getUsuariosCompartir().add(usuarios.get(2));
 		compras.get(0).getUsuariosCompartir().add(usuarios.get(4));
 		
 		compras.get(1).getUsuariosCompartir().add(usuarios.get(1));
@@ -832,7 +889,7 @@ public class Main {
 		compras.get(13).getUsuariosCompartir().add(usuarios.get(0));
 		compras.get(13).getUsuariosCompartir().add(usuarios.get(1));
 		compras.get(14).getUsuariosCompartir().add(usuarios.get(1));
-		
+		*/
 		/*usuarios.get(3).getComprasCompartidas().add(compras.get(0));
 		usuarios.get(3).getComprasCompartidas().add(compras.get(2));
 

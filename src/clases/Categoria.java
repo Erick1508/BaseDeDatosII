@@ -14,6 +14,8 @@ public class Categoria {
 	// asociacion con usuarios *->*
 	private Set<Usuario> usuarios = new HashSet<Usuario>();
 	
+	public Categoria(){}
+	
 	public Categoria(String nombreCategoria, String descripcionCat) {
 		this.nombreCategoria = nombreCategoria;
 		this.descripcionCat = descripcionCat;

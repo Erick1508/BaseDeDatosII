@@ -15,6 +15,8 @@ public class ValePromocion {
 	    
 	private Compra compra;
 	    
+	public ValePromocion(){}
+	
 	public ValePromocion(int cantidadVales,
 			String descripcionVale, String dir_correo,
 		boolean validado_por_mobile, Date fechaVigencia) {

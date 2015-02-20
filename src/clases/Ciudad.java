@@ -14,6 +14,8 @@ public class Ciudad {
 	// asociacion *->* con usuario
 	private Set<Usuario> usuarios = new HashSet<Usuario>();
 	
+	public Ciudad(){}
+	
 	public Ciudad(String nombreCiudad, String pais) {
 		this.nombreCiudad = nombreCiudad;
 		this.pais = pais;
