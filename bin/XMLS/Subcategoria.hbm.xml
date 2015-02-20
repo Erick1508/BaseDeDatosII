@@ -17,7 +17,7 @@
         <!-- fetch="select" The fetch attribute tells hibernate how to get the children. -->
  	<!-- fetch="select" lo que hace es recuperar de la bd o seleccionar el dpto
  	en donde trabaja el empleado -->
-        <many-to-one name="Categoria" class="Categoria" fetch="select">
+        <many-to-one name="categoria" class="Categoria" fetch="select">
             <column name="nombreCategoria" not-null="true">
         </column>
         </many-to-one>

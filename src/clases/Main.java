@@ -306,10 +306,7 @@ public class Main {
 				  	   valesPromos, valesRegalos,fechasAsoc);
 		setearAmigos(usuarios);
 		setearRedesSocialesAUsuarios(usuarios, usuariosRedSocials);
-		
 		setearMetodoDePagoAUsuarios(usuarios, metodoPago);
-	//	setearTdcsAUsuarios(usuarios,tdcs);
-//		setearDineroPromocionAUsuarios(usuarios, dinPromo);
 		
 		setearSubcategoriasACategorias(subcategorias, categorias);
 		setearCategoriasUsuarios(usuarios, categorias);
@@ -345,10 +342,11 @@ public class Main {
 		main.agregarCompras(compras, sessionFactory);
 		
 		consulta1(sessionFactory);
-		
+		consulta2(sessionFactory);
 		sessionFactory.close();
 	}
 	
+	//USUARIOS QUE COMPRAN PROMOCIONES QUE SE ELS COMPARTIERON
 	public static void consulta1(SessionFactory sessionFactory){
 		
 		Session session = sessionFactory.openSession();
@@ -364,46 +362,6 @@ public class Main {
 								        + "comp.usuario in "
 								                   + "(from comp2.usuariosCompartir)");
 		
-		
-/*		SELECT C1.LOGIN
-		FROM COMPRA C1
-		WHERE (C1.PROMOCION_ID,C1.LOGIN) IN (
-			SELECT PROMOCION_ID AS PROM, COMP.NOMBRE_USUARIO AS LOGIN
-			FROM COMPARTIDOS COMP, COMPRA C
-			WHERE COMP.CODIGO_VALE = C.CODIGO_VALE AND C.FECHA_DE_COMPRA < C1.FECHA_DE_COMPRA)
-		ORDER BY C1.FECHA_DE_COMPRA;
-	*/	
-		
-		/*Query query = 
-				session.createQuery("select comp2.usuariosCompartir from Compra comp2");
-		*/
-		
-		/*Query query = 
-				session.createQuery("select comp.usuario "
-								  + "from Compra comp, Compra comp2 join Promocion prom"
-						  		  + "where comp1.promocion.promocion_id = comp2.promocion.promocion_id and "
-						  		  + "comp.usuario in (comp2.usuariosCompartir)");
-		*/
-    	/*Query query = 
-			session.createQuery("from Compra comp"
-							  + "where comp in (from compra comp2"
-							  				 + "where comp1.getPromocion().getPromocion_id() = comp2.getPromocion().getPromocion_id()"
-							  				 + "and c2.usuariosCompartir.getLogin() = comp1.getUsuario().getLogin())"); 							  
-			*/				  
-							  /*+" in (select c2.usuarioscompartir.getlogin()"
-							  					 + "from compra c2"
-							  					 + "where c1.promocion_id = c2.promocion_id and"
-							  					 + "c2.usuarioscompartir.getlogin() = c1.login and"
-							  					 + "c2.fecha_de_compra < c1.fecha_de_compra)");
-*/
-							  
-							  
-							  		  /*"(C1.PROMOCION_ID,C1.LOGIN) IN "
-									+ "(SELECT PROMOCION_ID AS PROM, COMP.NOMBRE_USUARIO AS LOGIN"
-									+ "FROM COMPARTIDOS COMP, COMPRA C"
-									+ "WHERE COMP.CODIGO_VALE = C.CODIGO_VALE AND C.FECHA_DE_COMPRA < C1.FECHA_DE_COMPRA)"
-									+ "ORDER BY C1.FECHA_DE_COMPRA;");
-				*/
 	    
 		//Guardando en la lista todas las tuplas recibidas en el query	
 		List uss = query.list(); 
@@ -425,6 +383,56 @@ public class Main {
 		session.close();
 	}
 	
+	//CANTIDAD DE PROMOCIONES ADQUIRIDAS POR UNA CATEGORIA ESPECIFICA.
+	public static void consulta2(SessionFactory sessionFactory){
+		
+		Session session = sessionFactory.openSession();
+		Transaction transaction = null;
+		transaction = session.beginTransaction();
+		ArrayList<String> todasCategorias = new ArrayList<String>();
+		ArrayList<Integer> totalesCategorias = new ArrayList<Integer>();
+		
+		Query queryCat = session.createQuery("from Categoria ");
+		List categorias = queryCat.list(); 
+		
+		for (Iterator iterator = categorias.iterator(); iterator.hasNext();) {
+			Categoria cat = (Categoria) iterator.next(); 
+    		String categoria = cat.getNombreCategoria();
+
+    		Query query = 
+					session.createQuery("select count(cat.categoria) "
+									  + "from Compra comp "
+									  + "join comp.promocion p1 "
+									  + "join p1.subcategoria cat "
+									  + "join cat.categoria cat1 "
+									  + "where cat1.nombreCategoria = :categoria ");
+			query.setParameter("categoria", categoria);
+			
+			List total = query.list(); 
+			Number number = (Number) total.get(0);			
+			
+			todasCategorias.add(categoria);
+			totalesCategorias.add(number.intValue());			
+    		
+    	}
+		
+		System.out.println("CANTIDAD DE PROMOCIONES ADQUIRIDAS POR UNA CATEGORIA ESPECIFICA");
+		System.out.println("--------------------------------------------------------");
+		System.out.println("| NOMBRE CATEGORIA : CANTIDAD                          |");
+		System.out.println("--------------------------------------------------------");
+		int tam = todasCategorias.size(); //8tdcs
+		for (int i=0; i<tam; i++){
+			System.out.println("| " + todasCategorias.get(i) + " : " +  totalesCategorias.get(i) 
+								+"                                  |"); 
+			
+						
+		}			
+    	
+    	System.out.println("--------------------------------------------------------");
+    	
+    	transaction.commit();
+		session.close();
+	}
 	
 	
 	/********************************************************************************
@@ -466,10 +474,10 @@ public class Main {
 		 * */
 		subcategorias.add(new Subcategoria("Bares y Restaurantes", "Bienestar y tranquilidad a la hora de comer"));
 		subcategorias.add(new Subcategoria("Comida Rapida", "Una comida completa y en solo instantes"));
-		subcategorias.add(new Subcategoria("Conferencias", "Reuniones dirigidas a publico especifico de un area particular"));
-		subcategorias.add(new Subcategoria("Conciertos", "Entradas para los conciertos de artistas con mayor renombre y los recientes"));
 		subcategorias.add(new Subcategoria("Playero", "La prendas que son mas utilizadas para la playa"));
 		subcategorias.add(new Subcategoria("Zapatos", "El ultimo grito en cuenta al calzado maculino y femenino"));
+		subcategorias.add(new Subcategoria("Conferencias", "Reuniones dirigidas a publico especifico de un area particular"));
+		subcategorias.add(new Subcategoria("Conciertos", "Entradas para los conciertos de artistas con mayor renombre y los recientes"));
 		subcategorias.add(new Subcategoria("Hoteles", "Habitaciones singulares, familiares en los mejores lugares"));
 		subcategorias.add(new Subcategoria("Parques Varios", "Los diferentes parques a nivel internacional"));
 		
@@ -987,7 +995,7 @@ public class Main {
 		
 		int tam = categorias.size(); 
 		for (int i=0; i<tam; i++){						
-		session.save(categorias.get(i));	
+			session.save(categorias.get(i));	
 		}
 		
 		session.getTransaction().commit();
