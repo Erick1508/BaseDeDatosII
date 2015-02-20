@@ -449,29 +449,6 @@ public class Main {
 		}
 	}
 	
-	public static void setearTdcsAUsuarios(ArrayList<Usuario> usuarios, ArrayList<TDC> tdcs){
-		
-		int tam = tdcs.size(); //8tdcs
-		int uss = 0;
-		for (int i=0; i<tam; i++){
-			if ((i == 1) || (i==3) || (i==5) || (i==6) ){
-				uss+=1;
-			}
-			usuarios.get(uss).getTdcs().add(tdcs.get(i));
-			tdcs.get(i).setUsuario(usuarios.get(uss));
-						
-		}
-	}
-
-	public static void setearDineroPromocionAUsuarios(ArrayList<Usuario> usuarios, ArrayList<DineroPromocion> dinPromo){
-		
-		int tam = dinPromo.size(); //8tdcs
-		for (int i=0; i<tam; i++){			
-			usuarios.get(i).setDinProm(dinPromo.get(i));
-			dinPromo.get(i).setUsuario(usuarios.get(i));		
-		}
-	}
-	
 	/****/public static void setearCategoriasUsuarios(ArrayList<Usuario> usuarios, ArrayList<Categoria> categorias){
 				
 		//usuario0
@@ -835,36 +812,6 @@ public class Main {
 		int tam = metodoPago.size();
 		for (int i=0; i<tam; i++){
 			session.save(metodoPago.get(i));
-			//System.out.println("Empresa = \n"+empresas.get(i).getNombreEmpresa());			
-		}
-		
-		session.getTransaction().commit();
-		session.close();
-
-	}
-	
-	public void agregarTDCs(ArrayList<TDC> tdcs,SessionFactory sessionFactory){
-		Session session = sessionFactory.openSession();
-		session.beginTransaction();
-		
-		int tam = tdcs.size();
-		for (int i=0; i<tam; i++){
-			session.save(tdcs.get(i));
-			//System.out.println("Empresa = \n"+empresas.get(i).getNombreEmpresa());			
-		}
-		
-		session.getTransaction().commit();
-		session.close();
-
-	}
-	
-	public void agregarDinPromocion(ArrayList<DineroPromocion> dinPromo,SessionFactory sessionFactory){
-		Session session = sessionFactory.openSession();
-		session.beginTransaction();
-		
-		int tam = dinPromo.size();
-		for (int i=0; i<tam; i++){
-			session.save(dinPromo.get(i));
 			//System.out.println("Empresa = \n"+empresas.get(i).getNombreEmpresa());			
 		}
 		
